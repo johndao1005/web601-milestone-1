@@ -31,7 +31,7 @@ const userSchema = new Schema({
     },
     pic:{
         type:String,
-        required:true,
+        required:false,
         default:""
     },
 },{

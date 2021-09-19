@@ -8,17 +8,21 @@ const generateToken = require("../utils/generateToken")
 // Register new users
 const registerUser = asyncHandler(async (req, res) => {
     try {
-        const userExists = await User.findOne({ email: req.body.email })
+        const { email, DOB, name, password} = req.body;
+        const userExists = await User.findOne({ email: email })
         if (userExists) {
             res.status(400)
             throw new Error('User Already Exists')
-        }
-        const user = await User.create(req.body)
-        if (user) {
-            res.status(201).json({
-                user
+        //FIXME can put simple validation here
+        } else if (!userExists) {
+            await User.create(req.body)
+            res.status(201)
+            res.render("../views/pages/login", {
+                message: "Registration Successful",
             })
+            
         }
+
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "server error" })
@@ -30,15 +34,25 @@ const registerUser = asyncHandler(async (req, res) => {
 const authUser = asyncHandler(async (req, res) => {
     try {// getting email and password details from req body
         const { email, password } = req.body;
-        const user = await User.findOne({ email })
+        const user = await User.findOne({ email: email })
         if (user && (await user.matchPassword(password))) {
-            session = req.session;
-            session.userId = __user.id;
-            session.userFirstName = __user.firstName;
-            res.status(200).json({
-                message: `Welcome $ {user.name}`
-            })
-            res.redirect("/product/home");
+            if (user.isAdmin == true) {
+                res.status(200).json({
+                    message: `Welcome $ {user.name}`
+                })
+                res.redirect("/admin/home");
+            }
+            else {
+                session = req.session;
+                session.userId = __user.id;
+                session.userFirstName = __user.firstName;
+                res.status(200).json({
+                    message: `Welcome $ {user.name}`
+                })
+                res.redirect("/product/home");
+            }
+        } else {
+            throw "Invalid Login details"
         }
     } catch (e) {
         console.error(e);
@@ -121,11 +135,11 @@ const searchOrder = asyncHandler(async (req, res) => {
             if (type == 0 || type == "email") { aggregate.push({ $match: { email: { $regex: regex } } }) }
             if (type == "status") { aggregate.push({ $match: { status: { $regex: regex } } }) }
         }
-            if (sort !=0|| sort=="date") { 
-                aggregate.push({ $sort: { orderDate: 1} }) 
-            }else if (sort == "status") { 
-                aggregate.push({ $sort: { state: 1 } }) 
-            } 
+        if (sort != 0 || sort == "date") {
+            aggregate.push({ $sort: { orderDate: 1 } })
+        } else if (sort == "status") {
+            aggregate.push({ $sort: { state: 1 } })
+        }
         const products = await Order.aggregate(aggregate)
         res.status(200).json(products)
     } catch (e) {
