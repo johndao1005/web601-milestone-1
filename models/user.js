@@ -18,7 +18,7 @@ const userSchema = new Schema({
     },
     DOB: {
         type: String,
-        required: true,
+        required: false,
     },
     password:{
         type:String,

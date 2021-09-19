@@ -38,21 +38,22 @@ const authUser = asyncHandler(async (req, res) => {
         if (user && (await user.matchPassword(password))) {
             if (user.isAdmin == true) {
                 res.status(200).json({
-                    message: `Welcome $ {user.name}`
+                    message: `Welcome Admin ${user.name}`
                 })
+                console.log("Admin")
                 res.redirect("/admin/home");
-            }
-            else {
-                session = req.session;
-                session.userId = __user.id;
-                session.userFirstName = __user.firstName;
+            }else {
+                // session = req.session;
+                // session.userId = user.id;
+                // session.userFirstName = user.firstName;
                 res.status(200).json({
-                    message: `Welcome $ {user.name}`
+                    message: `Welcome ${user.name}`
                 })
+                console.log("User")
                 res.redirect("/product/home");
             }
         } else {
-            throw "Invalid Login details"
+            res.status(500).json({ message: "Invalid username/password" })
         }
     } catch (e) {
         console.error(e);

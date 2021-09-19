@@ -12,18 +12,8 @@ html
         if(message){alert(message)}
       .login__panel
         div.login__tile
-          form(action="/user/login" method="get")
+          form(action="/user/login" method="post")
             p.title Customer Login
-            p.login__username
-              input(type="text" placeholder="Email" name="email" id="email" required)
-            p.login__password
-              input(type="password" placeholder="password" name="password" id="password" required)
-            p.login__buttons
-              input(type="submit" value="Login")
-              
-        div.login__tile
-          form(action="/admin/login" method="post")
-            p.title Admin Login
             p.login__username
               input(type="text" placeholder="Email" name="email" id="email" required)
             p.login__password

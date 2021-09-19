@@ -1,7 +1,7 @@
 extends layout.pug
 
 block layout-content
-  link(rel="stylesheet" text="text/css" href="/static/css/cart.css")
+  link(rel="stylesheet" text="text/css" href="/static/css/index.css")
 
   h1 Cart
   div.cartpage
@@ -10,7 +10,7 @@ block layout-content
       .cartitems
         if cartitems.length == 0
           h2 Empty cart. 
-            a(href="/product/home") Buy More please...
+            a(href="/product/home") Browse products
         each cartitem in cartitems
           //- calculate subtotal
           - subtotal = subtotal + cartitem.price

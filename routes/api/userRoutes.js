@@ -8,7 +8,7 @@ const {
 //route get /api/products
 //access public
 //status: working
-router.get('/login', authUser)
+router.post('/login', authUser)
 
 //desc, get a product by id from db
 //route get /api/products/:id
