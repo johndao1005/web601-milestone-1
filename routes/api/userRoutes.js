@@ -14,7 +14,7 @@ router.get('/login', authUser)
 //route get /api/products/:id
 //access public
 //status: working
-router.get('/register', registerUser)
+router.post('/register', registerUser)
 
 //desc, get a product by id from db
 //route get /api/products/:id

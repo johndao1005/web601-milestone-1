@@ -1,0 +1,84 @@
+extends layout.pug
+
+block layout-content
+  link(rel="stylesheet" text="text/css" href="/static/css/cart.css")
+
+  h1 Cart
+  div.cartpage
+    - var subtotal = 0
+    .cartpage__left
+      .cartitems
+        if cartitems.length == 0
+          h2 Empty cart. 
+            a(href="/product/home") Buy More please...
+        each cartitem in cartitems
+          //- calculate subtotal
+          - subtotal = subtotal + cartitem.price
+          .cartitem(id=cartitem._id)
+            div: img(src=cartitem.imageUrl alt="Product name")
+            p #{cartitem.productName}
+            p $
+              span.item_price #{cartitem.price}
+
+
+            select(name="quantity" id=cartitem._id+"_quantity" onchange="updateCartItem('"+ cartitem._id +"')").product__quantity
+              - var n = 1;
+              - var b = 100;
+              while n < b+1
+                if n == cartitem.quantity
+                  option(value=n selected)  #{n}
+                else 
+                  option(value=n)  #{n}
+                - n++
+            button.deletebtn(onclick="deleteCartItem('"+cartitem._id+"')") Delete
+
+      script(type="text/javascript").
+        const updateCartItem = async (cartitem_id) => {
+
+          var updated_quantity = document.getElementById(cartitem_id+"_quantity").value;
+
+          const response = await fetch(window.location.origin+'/cart/update/'+cartitem_id, {
+            method: 'POST',
+            body: JSON.stringify({quantity: updated_quantity}), // string or object
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+
+          const myJson = await response.json(); //extract JSON from the http response
+          // do something with myJson
+
+          if(myJson != null || myJson != undefined) {
+            console.log("Update Successful")
+            // refresh page
+            location.reload()
+
+          }
+        }
+
+        const deleteCartItem = async (cartitem_id) => {
+
+          const response = await fetch(window.location.origin+'/cart/delete/'+cartitem_id, {
+            method: 'DELETE',// string or object
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+
+          const myJson = await response.json(); 
+
+          if(myJson != null || myJson != undefined) {
+            console.log("Delete Successful")
+            // refresh page
+            location.reload()
+          }
+        }
+
+
+    .cartpage__right
+      div.cartpage__info
+        p Subtotal of items:
+        p.subtotal $
+          span #{subtotal}
+      if cartitems.length > 0
+        div: button(onclick="window.location.href='/cart/confirm/'") Proceed to checkout

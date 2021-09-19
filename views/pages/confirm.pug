@@ -1,0 +1,20 @@
+extends layout.pug
+
+block layout-content
+  link(rel="stylesheet" text="text/css" href="/static/css/confirm.css")
+
+  h1 Order Summary
+  div.orderpage
+    -var subtotal = 0
+    .orderpage__left
+
+      each product in products
+        - subtotal = subtotal + product.price
+        include ../components/orderitems.pug
+
+    .orderpage__right
+      div.cartpage__info
+        p Subtotal of items:
+        p.subtotal $
+          span #{subtotal}
+      div: button(onclick="window.location.href='/order/create'") Confirm Order

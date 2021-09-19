@@ -7,8 +7,7 @@ const {
     addNewProduct,
     editProduct,
     updateProductAvailability,
-    deleteProduct,
-    searchProduct
+    deleteProduct
 } = require("../../controller/productsController")
     //the function is in the controller folder
 
@@ -59,11 +58,6 @@ router.delete('/delete/:id', deleteProduct )
 // "status":false}
 router.post('/update', updateProductAvailability)
 
-//desc, find products
-//route get /api/products
-//access public
-//status
-//
-router.post('search', searchProduct)
+
 
 module.exports = router

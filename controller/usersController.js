@@ -32,9 +32,13 @@ const authUser = asyncHandler(async (req, res) => {
         const { email, password } = req.body;
         const user = await User.findOne({ email })
         if (user && (await user.matchPassword(password))) {
+            session = req.session;
+            session.userId = __user.id;
+            session.userFirstName = __user.firstName;
             res.status(200).json({
                 message: `Welcome $ {user.name}`
             })
+            res.redirect("/product/home");
         }
     } catch (e) {
         console.error(e);

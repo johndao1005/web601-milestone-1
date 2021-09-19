@@ -1,0 +1,11 @@
+.product_tile
+  p: img(src=product.imageUrl, alt=product.name)
+  p.productname #{product.name}
+  - var productDesc = product.description.substring(0, 100) + '...'
+  p.productdesc #{productDesc}
+  p.productprice $
+    span #{product.price}
+  if admin
+    p: button(onclick="window.location.href='/admin/product/updatePage/"+product.id+"\'") Edit
+  else
+    p: button(onclick="window.location.href='/product/"+product.id+"\'") View

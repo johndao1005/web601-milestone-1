@@ -92,7 +92,7 @@ const orderSchema = new mongoose.Schema({
 const cartSchema = new Schema({
     email: {
         type: String,
-        required: true
+        required: false
     },
     products: {
         type: Object,
@@ -102,7 +102,7 @@ const cartSchema = new Schema({
         type: Number,
         required: true
     }
-},{versionKey:false})
+})
 
 
 const Cart = mongoose.model("Cart", cartSchema);

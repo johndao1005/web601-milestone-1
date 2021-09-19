@@ -17,7 +17,7 @@ const getCart = asyncHandler(async (req, res) => {
             res.status(200).json({message: "Empty cart"})
         } 
         else if (currentCart !== [] ) {
-            res.status(200).json(currentCart)
+            res.render("../views/pages/cart", { cartitems: cartItems });
         } 
     } catch (e) {
         console.error(e);
@@ -70,6 +70,7 @@ const confirmOrder = asyncHandler(async(req, res) => {
         // remove the current cart
         await Cart.deleteOne({_id:id})
         //return the new order
+        res.render("../views/pages/confirm", { products: neworder });
         res.status(200).json(neworder)
     } catch (e) {
         console.error(e);

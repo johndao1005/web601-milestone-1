@@ -6,7 +6,7 @@ const { Cart, Order, User } = require("../models/user");
 const updateProductAvailability = asyncHandler( async(req, res) => {
     try {
         const updatedProduct = await Product.updateOne({_id:req.body.id},{$set:{"availability":req.body.status}})
-        res.json(updatedProduct)
+        res.status(200).json({message:"Update successfully"})
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "server error" })
@@ -41,7 +41,7 @@ const addItem = async (req, res) => {
                 {$inc:{[field]:1,subtotal:req.body.price}}
             )
             await Product.updateOne({name: req.body.name},{$inc:{countInStock:-1}})
-            res.status(200).json(currentCart)
+            res.status(201).json(currentCart)
         }
     } catch (e) {
         console.error(e);
@@ -64,7 +64,8 @@ const editProduct = asyncHandler( async(req, res) => {
 const getAllProducts = async(req, res) => {
     try {
         const productList = await Product.find({});
-        res.json(productList)
+        res.render("../views/pages/index", { products: products });
+        res.status(200).json(productList)
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "server error" })
@@ -75,7 +76,11 @@ const getAllProducts = async(req, res) => {
 const getProductById = async(req, res) => {
     try {
         const currentProduct = await Product.findById(req.params.id); // the product is added through ":id"
-        res.json(currentProduct)
+        res.status(200)
+        res.render("../views/pages/productDetail", {
+            title: "Product Detail",
+            product: product,
+          });
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "server error" })
@@ -86,6 +91,7 @@ const getProductById = async(req, res) => {
 const addNewProduct = async(req, res) => {
     try {
         const newProduct = await Product.create(req.body); // the product is added through ":id"
+        res.redirect("/admin/products");
         res.json(newProduct)
     } catch (e) {
         console.error(e);
@@ -97,22 +103,13 @@ const addNewProduct = async(req, res) => {
 const deleteProduct = async(req, res) => {
     try {
         const deletedProduct = await Product.deleteOne({id: req.params.id});
-        res.json(deletedProduct)
+        res.status(204).json({message: "Delete successful"})
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "server error" })
     }
 }
 
-const searchProduct = async(req, res) => {
-    try{
-        const input = req.body.input;
-        
-    }catch (e) {
-        console.error(e);
-        res.status(500).json({ message: "server error" })
-    }
-}
 module.exports = {
     addItem,
     getProductById,
@@ -121,5 +118,5 @@ module.exports = {
     editProduct,
     updateProductAvailability,
     deleteProduct,
-    searchProduct
+    
 }

@@ -1,0 +1,12 @@
+extends layout.pug
+
+block layout-content
+  div.homepage
+    div#ProductList
+      link(rel="stylesheet" text="text/css" href="../static/css/index.css")
+      
+      each product in products
+        include ../components/product_tile.pug
+      
+
+

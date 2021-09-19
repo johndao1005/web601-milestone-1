@@ -7,21 +7,24 @@ const cookieParser = require("cookie-parser");
 const sessions = require("express-session");
 const path = require("path");
 
-// routes
+// Api routes
 const productRoutes = require("./routes/api/productRoutes");
 const userRoutes = require("./routes/api/userRoutes");
 const cartRoutes = require("./routes/api/cartRoutes");
 const orderRoutes = require("./routes/api/orderRoutes");
 const adminRoutes = require("./routes/api/adminRoutes")
 
-//import middle to handle error
+// render routes
+const {a} = require("./routes/render.js")
+
+//import middleware to handle error
 const{notFound,errorHandler}= require("./middlewares/errorMiddleware")
 
 // connect to MongoDB
 const connectDB = require("./config/db")
 
 //ANCHOR start the esstential
-connectDB("admin","admin") //connect to database with base log in
+connectDB() //connect to database with base log in
 
  // start an instance of the app
 const app = express();
@@ -53,25 +56,21 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
 
-
-
-
 // cookie parser middleware
 app.use(cookieParser());
+
 
 //ANCHOR session varaible
 var session;
 
-
 // Start middleware
 app.use((req, res, next) => {
-    console.log("Middleware log");
+    console.log("Read request");
     if (req.session.userId != null) {
     console.log(req.session.userId);
     }
     next();
 });
-
 
 // chek if the current session is belonged to an user if not make go to login page
 app.get("/", (req, res) => {

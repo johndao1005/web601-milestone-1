@@ -1,0 +1,9 @@
+link(rel="stylesheet" text="text/css" href="/static/css/index.css")
+
+.orderitems
+  .orderitem
+    div: img(src=product.imageUrl alt=product.name)
+    p #{product.productName}
+    p x#{product.quantity}
+    p $#{product.price}
+  
