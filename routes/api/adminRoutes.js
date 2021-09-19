@@ -6,7 +6,7 @@ const {
     findUser,
     updateUser,
     deleteUser,
-    searchOrder,
+    searchOrder
 } = require("../../controller/usersController")
 
 const {
@@ -16,14 +16,22 @@ const {
     //searchOrder,
 } = require("../../controller/orderController")
     
-const{} = require("../../controller/productsController")
+const{
+    deleteProduct,
+    addNewProduct,
+    editProduct,
+    updateProductAvailability,
+} = require("../../controller/productsController")
 //ANCHOR start the router
 
-//desc, get all the order
-//route get /admin/order
+//ANCHOR Working with Users
+
+//desc update user details
+//route get /admin/updateUser/:id
 //access admin
 //status: working
-router.get('/order', getOrder)
+//need user id and new data in req.body
+router.post('/updateUser/:id', updateUser)
 
 //desc get all users in the system
 //route get /admin/user
@@ -38,22 +46,27 @@ router.get('/user', getAllUsers)
 //need user id
 router.get('/user/:id', findUser)
 
+//desc delete user from database
+//route get /admin/deleteUser/:id
+//access admin
+//status: working
+//need user id
+router.post('/deleteUser/:id', deleteUser)
 
-//desc, get a product by id from db
+//ANCHOR Working with Orders
+
+//desc, get all the order
+//route get /admin/order
+//access admin
+//status: working
+router.get('/order', getOrder)
+
+//desc get a order by id from db
 //route get /order/:id
 //access admin
 //status: working
 //need order id in req.params
 router.get('/order/:id', findOrderbyId)
-
-
-//desc update user details
-//route get /admin/updateUser/:id
-//access admin
-//status: working
-//need user id and new data in req.body
-router.post('/updateUser/:id', updateUser)
-
 
 //desc update order status
 //route post /admin/updateProduct/:id
@@ -62,15 +75,7 @@ router.post('/updateUser/:id', updateUser)
 // need order id in req.params and new data in req.body
 router.post('/updateProduct/:id', updateOrderStatus)
 
-
-//desc delete user from database
-//route get /admin/delete/:id
-//access admin
-//status: working
-//need user id
-router.post('/delete/:id', deleteUser)
-
-//desc, get a product by id from db
+//desc, search order 
 //route get /admin/search/
 //access admin
 //status: working
@@ -81,5 +86,40 @@ router.post('/delete/:id', deleteUser)
 //     "type":0
 // }
 router.get('/search', searchOrder)
+
+//ANCHOR Working with products
+
+//desc delete product from database
+//route get /admin/deleteProduct/:id
+//access admin
+//status: working
+//need product id for req.params
+router.delete('/deleteProduct/:id', deleteProduct )
+
+
+//desc add new product to databse
+//route get /admin/new
+//access admin
+//status: working
+//need product details in req.body
+router.post('/new', addNewProduct)
+
+//desc edit products details
+//route get /admin/product/edit/:id
+//access admin
+//status: working
+//need product id in req.params and product details in req.params
+router.get('/product/edit/:id', editProduct)
+
+//desc update product availability
+//route get /admin/product/update
+//access admin
+//status: working
+//sample body input 
+// {"id":"614418d624e849c7ccd69b22",
+// "status":false}
+router.post('/product/update', updateProductAvailability)
+
+
 
 module.exports = router
