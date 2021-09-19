@@ -2,7 +2,9 @@ extends layout.pug
 
 block layout-content
   link(rel="stylesheet" text="text/css" href="/static/css/confirm.css")
-
+  script.
+          message = "#{message}";
+          if(message){alert(message)}
   h1 Order Summary
   div.orderpage
     -var subtotal = 0
@@ -17,4 +19,4 @@ block layout-content
         p Subtotal of items:
         p.subtotal $
           span #{subtotal}
-      div: button(onclick="window.location.href='/order/create'") Confirm Order
+      div: button(onclick="window.location.href='/admin/product/updatePage/"+cart.id+"\'") Confirm Order

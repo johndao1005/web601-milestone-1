@@ -16,7 +16,7 @@ block layout-content
 
     div.product__right
       div.right__info
-        form(action="/cart/add/"+product._id, method = "post" id="productDetailForm")
+        form(action="/product/add/"+product._id, method = "post" id="productDetailForm")
           p Price
             span $#{product.price}
           p Status

@@ -27,7 +27,7 @@ router.get('/:id', getCart)
 //access user
 //status working 
 //need the cart id to complete
-router.post('/confirm:id', confirmOrder)
+router.post('/confirm/:id', confirmOrder)
 
 //desc, confirm the order from cart
 //route get /api/cartRoutes

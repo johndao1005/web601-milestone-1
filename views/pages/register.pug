@@ -6,6 +6,9 @@ html
     title #{title}
     link(rel="stylesheet" type="text/css" href="/static/css/index.css")
   body
+    script.
+          message = "#{message}";
+          if(message){alert(message)}
     div#root
       .login__panel
         div.login__tile
@@ -15,6 +18,4 @@ html
             p: input(type="text" placeholder="Email" name="email" id="email")
             p: input(type="password" placeholder="Password" name="password" id="password")
             p: input(type="submit" value="Sign Up")
-        script.
-          message = "#{message}";
-          if(message){alert(message)}
+        

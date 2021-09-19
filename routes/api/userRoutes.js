@@ -4,6 +4,9 @@ const {
     registerUser,authUser,searchProduct
 } = require("../../controller/usersController")
 
+
+
+
 //desc, get all products
 //route get /api/products
 //access public

@@ -64,8 +64,8 @@ const editProduct = asyncHandler( async(req, res) => {
 const getAllProducts = async(req, res) => {
     try {
         const productList = await Product.find({});
-        res.render("../views/pages/index", { products: products });
         res.status(200).json(productList)
+        res.render("../views/pages/index", { products: productList });
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "server error" })

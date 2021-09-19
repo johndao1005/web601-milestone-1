@@ -10,7 +10,7 @@ block layout-content
       .cartitems
         if cartitems.length == 0
           h2 Empty cart. 
-            a(href="/product/home") Browse products
+            a(href="/product/") Browse products
         each cartitem in cartitems
           //- calculate subtotal
           - subtotal = subtotal + cartitem.price

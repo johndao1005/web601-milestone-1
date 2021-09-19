@@ -50,7 +50,7 @@ const authUser = asyncHandler(async (req, res) => {
                     message: `Welcome ${user.name}`
                 })
                 console.log("User")
-                res.redirect("/product/home");
+                res.redirect("/product");
             }
         } else {
             res.status(500).json({ message: "Invalid username/password" })
