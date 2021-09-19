@@ -17,7 +17,7 @@ const {
 //access public
 //status: working
 //need user id for params and product details for req.body
-router.get('/add/:id' ,addItem)
+router.post('/add/:id' ,addItem)
 
 //desc, get all products
 //route get /api/products

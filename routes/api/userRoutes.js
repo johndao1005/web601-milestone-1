@@ -4,7 +4,11 @@ const {
     registerUser,authUser,searchProduct
 } = require("../../controller/usersController")
 
-
+const {
+    findOrderbyEmail,
+    updateOrderStatus
+} = require("../../controller/orderController")
+    
 
 
 //desc, get all products
