@@ -10,27 +10,27 @@ const {
 
 
 //desc, get all products
-//route get /api/products
+//route get /order
 //access admin
 //status: working
 router.get('/', getOrder)
 
 //desc, get a product by id from db
-//route get /api/products/:id
+//route get /order/:id
 //access admin
 //status: working
 //need order id
 router.get('/:id', findOrderbyId)
 
 //desc, get a product by id of user
-//route get /api/products/:id
+//route get /order/user/:id
 //access public
 //status: working
 //find all orders relate to current user id
 router.get('/user/:id', findOrderbyEmail)
 
 //desc, update
-//route get /api/products
+//route post /order/update:id
 //access admin
 //status: working
 // need order id
