@@ -66,13 +66,13 @@ const updateUser = async(currentName, newName) => {
 
 const importData = async() => {
     try {
-        // await Cart.deleteMany({})
+        await Cart.deleteMany({})
         
-        // await Order.deleteMany({})
+        await Order.deleteMany({})
 
-        // await User.deleteMany({})
+        await User.deleteMany({})
 
-        // await Product.deleteMany({})
+        await Product.deleteMany({})
 
         await Cart.insertMany(cartsData)
 
