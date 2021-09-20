@@ -50,7 +50,7 @@ router.post('/register', registerUser)
 //status: working
 //need to have filter in req.body
 // {
-//     "sort":"date",
+//     "sort":1,
 //     "search":"",
 //     "type":0
 // }

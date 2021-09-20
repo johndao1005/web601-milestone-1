@@ -3,16 +3,8 @@ const router = express.Router();
 const {
     editQuantity,
     getCart,
-    confirmOrder,
-    updateTotal
+    confirmOrder
 } = require("../../controller/cartController")
-
-//desc update the subtotal of the cart
-//route get /cart/update
-//access public
-//status working
-//need email in req.body
-router.get('/update', updateTotal)
 
 //desc get the cart relate to current user
 //route get /cart/:id

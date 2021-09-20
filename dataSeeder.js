@@ -6,9 +6,9 @@ const { MongoClient } = require('mongodb')
 const connectDB = require("./config/db")
 
 const productsData = require("./data/productsData")
-const Product = require("./models/product")
+const {Product,Cart} = require("./models/product")
 
-const {User,Order,Cart} = require("./models/user")
+const {User,Order} = require("./models/user")
 const usersData = require("./data/usersData")
 const cartsData = require("./data/cartsData")
 const ordersData = require("./data/ordersData")
@@ -66,19 +66,20 @@ const updateUser = async(currentName, newName) => {
 
 const importData = async() => {
     try {
-        await Cart.deleteMany({})
+        // await Cart.deleteMany({})
+        
+        // await Order.deleteMany({})
+
+        // await User.deleteMany({})
+
+        // await Product.deleteMany({})
 
         await Cart.insertMany(cartsData)
 
-        await Order.deleteMany({})
 
         await Order.insertMany(ordersData)
 
-        await User.deleteMany({})
-
         await User.insertMany(usersData)
-
-        await Product.deleteMany({})
 
         await Product.insertMany(productsData)
 

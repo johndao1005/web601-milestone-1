@@ -13,7 +13,7 @@ const {
 //access public
 //status: working
 //need user id for params and product details for req.body
-router.post('/add/:id' ,addItem)
+router.post('/add/:id' , addItem)
 
 //desc, get a product by id from db
 //route get /products/:id

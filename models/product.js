@@ -29,5 +29,44 @@ const productSchema = new Schema({
     }
 },{timestamp:true});
 
+const cartSchema = new Schema({
+    email: {
+        type: String,
+        required: false
+    },
+    products: {
+        type: Object,
+        required: true
+    },
+    subtotal:{
+        type: Number,
+        required: true
+    }
+})
+
+//creating method for cart to update subtotal after action
+// cartSchema.methods.updateTotal =async function (userEmail){
+        
+//     const {products} = await Cart.findOne({
+//             email:userEmail
+//         })
+//         let total = 0
+//         for ( const quantity in products){
+//             const {price} = await Product.findOne({name:item})
+//             total += parseFloat(price)* parseInt(products[quantity])
+//         }
+//         await Cart.updateOne({email:userEmail},{$set:{subtotal:total}})
+// }
+cartSchema.pre('save',async function(next){
+    //check password is modified before moving on to next callback
+    let total = 0
+    for ( const quantity in this.products){
+        const {price} = await Product.findOne({name:item})
+        total += parseFloat(price)* parseInt(products[quantity])
+    }
+    this.subtotal = total
+})
+
+const Cart = mongoose.model("Cart", cartSchema);
 const Product = mongoose.model("Product", productSchema);
-module.exports = Product
+module.exports = {Product,Cart}

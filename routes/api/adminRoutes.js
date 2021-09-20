@@ -4,7 +4,6 @@ const router = express.Router();
 const {
     getAllUsers,
     findUser,
-    updateUser,
     deleteUser,
     searchOrder
 } = require("../../controller/usersController")
@@ -25,13 +24,6 @@ const{
 //ANCHOR start the router
 
 //ANCHOR Working with Users
-
-//desc update user details
-//route get /admin/updateUser/:id
-//access admin
-//status: working
-//need user id and new data in req.body
-router.post('/updateUser/:id', updateUser)
 
 //desc get all users in the system
 //route get /admin/user
@@ -73,7 +65,7 @@ router.get('/order/:id', findOrderbyId)
 //access admin
 //status: working
 // need order id in req.params and new data in req.body
-router.post('/updateProduct/:id', updateOrderStatus)
+router.post('/updateOrder/:id', updateOrderStatus)
 
 //desc, search order 
 //route get /admin/search/
@@ -94,7 +86,7 @@ router.get('/search', searchOrder)
 //access admin
 //status: working
 //need product id for req.params
-router.delete('/deleteProduct/:id', deleteProduct )
+router.post('/deleteProduct/:id', deleteProduct )
 
 
 //desc add new product to databse
@@ -109,7 +101,7 @@ router.post('/new', addNewProduct)
 //access admin
 //status: working
 //need product id in req.params and product details in req.params
-router.get('/product/edit/:id', editProduct)
+router.post('/product/edit/:id', editProduct)
 
 //desc update product availability
 //route get /admin/product/update
@@ -118,7 +110,7 @@ router.get('/product/edit/:id', editProduct)
 //sample body input 
 // {"id":"614418d624e849c7ccd69b22",
 // "status":false}
-router.post('/product/update', updateProductAvailability)
+router.post('/product/:id/:status', updateProductAvailability)
 
 
 

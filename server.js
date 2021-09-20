@@ -1,6 +1,6 @@
 //ANCHOR Preparation
 // reading secrets key
-require('dotenv').config({ path: "../.env" });
+require('dotenv').config();
 // import modules
 const express = require("express")
 const cookieParser = require("cookie-parser");
@@ -13,9 +13,7 @@ const userRoutes = require("./routes/api/userRoutes");
 const cartRoutes = require("./routes/api/cartRoutes");
 const orderRoutes = require("./routes/api/orderRoutes");
 const adminRoutes = require("./routes/api/adminRoutes")
-const renderRoutes = require("./routes/render")
-// render routes
-const {a} = require("./routes/render.js")
+
 
 //import middleware to handle error
 const{notFound,errorHandler}= require("./middlewares/errorMiddleware")
@@ -38,15 +36,12 @@ app.set("view engine", "pug");
 app.use("/static", express.static(path.join(__dirname + "/public")));
 
 
-// creating 24 hours from milliseconds
-const oneDay = 1000 * 60 * 60 * 24;
-
 //session middleware
 app.use(
     sessions({
     secret: process.env.SESSION_SECRET,
-    saveUninitialized: true,
-    cookie: { maxAge: oneDay },
+    saveUninitialized: false,
+    cookie: { maxAge: parseInt(process.env.SESSION_TIME) },
     resave: false,
     })
 );
@@ -55,13 +50,8 @@ app.use(
 app.use(express.json()) 
 app.use(express.urlencoded({ extended: true }));
 
-
 // cookie parser middleware
 app.use(cookieParser());
-
-
-//ANCHOR session varaible
-var session;
 
 // Start middleware
 app.use((req, res, next) => {
@@ -71,10 +61,6 @@ app.use((req, res, next) => {
     }
     next();
 });
-
-// rendering the router
-app.use("/",renderRoutes)
-
 
 // Routes list
 app.use("/product", productRoutes)
