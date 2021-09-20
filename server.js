@@ -13,7 +13,7 @@ const userRoutes = require("./routes/api/userRoutes");
 const cartRoutes = require("./routes/api/cartRoutes");
 const orderRoutes = require("./routes/api/orderRoutes");
 const adminRoutes = require("./routes/api/adminRoutes")
-
+const renderRoutes = require("./routes/render")
 // render routes
 const {a} = require("./routes/render.js")
 
@@ -72,36 +72,14 @@ app.use((req, res, next) => {
     next();
 });
 
-// chek if the current session is belonged to an user if not make go to login page
-app.get("/", (req, res) => {
-    session = req.session;
-    if (session.userId) {
-    res.redirect("/");
-    } else {
-    res.render("pages/login", { title: "Login" });
-    }
-});
-
-//Register page
-app.get("/registerPage", (req, res) => {
-    res.render("pages/register", { title: "Register" });
-});
-
-
-// if log out destroy session and redirect back home page
-app.get("/logout", (req, res) => {
-    req.session.destroy();
-    res.redirect("/");
-});
-
-
-
+// rendering the router
+app.use("/",renderRoutes)
 
 
 // Routes list
 app.use("/product", productRoutes)
 app.use("/cart", cartRoutes)
-app.use("/user", userRoutes)
+app.use("/", userRoutes)
 app.use("/order", orderRoutes)
 app.use("/admin", adminRoutes)
 

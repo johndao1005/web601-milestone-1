@@ -9,6 +9,20 @@ const {
 } = require("../../controller/orderController")
     
 
+const {
+    getAllProducts
+} = require("../../controller/productsController")
+    
+
+
+//desc get all the orders relate to current user
+//route get /
+//access public
+//status: working
+//
+router.get('/', getAllProducts)
+
+
 //desc get all the orders relate to current user
 //route get /user/order/
 //access public

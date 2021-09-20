@@ -3,7 +3,7 @@ const router = express.Router();
 const {
     addItem,
     getProductById,
-    getAllProducts,
+    
 } = require("../../controller/productsController")
     //the function is in the controller folder
 
@@ -14,12 +14,6 @@ const {
 //status: working
 //need user id for params and product details for req.body
 router.post('/add/:id' ,addItem)
-
-//desc, get all products
-//route get /products
-//access public
-//status: working
-router.get('/', getAllProducts)
 
 //desc, get a product by id from db
 //route get /products/:id
