@@ -1,0 +1,1903 @@
+{
+	"info": {
+		"_postman_id": "9def986c-00ce-4268-80cc-72a0ad03ca32",
+		"name": "HTTP Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "Delete product with product id",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}admin/deleteProduct/6146e1d89390e84b2d58a7e5",
+									"host": [
+										"{{URL}}admin"
+									],
+									"path": [
+										"deleteProduct",
+										"6146e1d89390e84b2d58a7e5"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete product with product id",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}admin/deleteProduct/6146e1d89390e84b2d58a7e5",
+											"host": [
+												"{{URL}}admin"
+											],
+											"path": [
+												"deleteProduct",
+												"6146e1d89390e84b2d58a7e5"
+											]
+										}
+									},
+									"status": "Gone",
+									"code": 410,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "67"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"43-t7hXpZUdkQxxnvFpVF7mw2mhue8\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:10:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Delete successful\",\n    \"deletedProduct\": {\n        \"deletedCount\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete user with user id",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}admin/deleteUser/6146e1d89390e84b2d58a7de",
+									"host": [
+										"{{URL}}admin"
+									],
+									"path": [
+										"deleteUser",
+										"6146e1d89390e84b2d58a7de"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete user with user id",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}admin/deleteUser/6146e1d89390e84b2d58a7de",
+											"host": [
+												"{{URL}}admin"
+											],
+											"path": [
+												"deleteUser",
+												"6146e1d89390e84b2d58a7de"
+											]
+										}
+									},
+									"status": "Gone",
+									"code": 410,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "18"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"12-ICkFxKFiFlqbffqRMX9/LoSJ1J0\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:09:54 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"deletedCount\": 0\n}"
+								}
+							]
+						},
+						{
+							"name": "Get user list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}admin/user",
+									"host": [
+										"{{URL}}admin"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get user list",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}admin/user",
+											"host": [
+												"{{URL}}admin"
+											],
+											"path": [
+												"user"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "2197"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"895-sSrEFkosh3l6uc7WsxagEi3bCCs\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:09:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"_id\": \"61485389ee80772d4fffb6a4\",\n        \"name\": \"john.dao\",\n        \"phoneNumber\": 315464,\n        \"email\": \"joo@gmail.com\",\n        \"DOB\": \"13/13/13\",\n        \"password\": \"Dao\",\n        \"isAdmin\": true,\n        \"pic\": \"hhaa\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bfa61b6e9a2929ca86\",\n        \"name\": \"john.dao\",\n        \"phoneNumber\": 315464,\n        \"email\": \"joo1@gmail.com\",\n        \"DOB\": \"13/13/13\",\n        \"password\": \"Dao\",\n        \"isAdmin\": true,\n        \"pic\": \"hhaa\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61472411cce21966f668750c\",\n        \"name\": \"john\",\n        \"email\": \"john@gmail.com\",\n        \"password\": \"$2b$10$it6SrIMXwNp5.4m0jd1X5.KyKxG0H4HATttIzZhQ3Q3B/VnVbRSnS\",\n        \"isAdmin\": true,\n        \"pic\": \"\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6147a3a900784a2ab35726f7\",\n        \"name\": \"john\",\n        \"email\": \"johndao@gmail.com\",\n        \"password\": \"$2b$10$0VylCrvcBtvBDl5jm9ZBneZxB8kJNW7gB80YHLMXQw1V4W11tS93W\",\n        \"isAdmin\": false,\n        \"pic\": \"\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61480b3ebf7729630acd481f\",\n        \"name\": \"Test1\",\n        \"phoneNumber\": 12312312,\n        \"email\": \"hahoha@gmail.com\",\n        \"DOB\": \"13/13/13\",\n        \"password\": \"$2b$10$3qbzPxiG1T9zaNQnRf9tfOdfYMV7c9YVwMjQNSmWKBhzmkj0Rpyey\",\n        \"isAdmin\": false,\n        \"pic\": \"hha\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61480baba9f9bf91a8661490\",\n        \"name\": \"Test1\",\n        \"phoneNumber\": 12312312,\n        \"email\": \"hahoaha@gmail.com\",\n        \"DOB\": \"13/13/13\",\n        \"password\": \"$2b$10$8eWzd/UvaVgMRSN/9lCgI.B1c3/28GBY7wTbqomWXBhwxrilaO2ja\",\n        \"isAdmin\": false,\n        \"pic\": \"hha\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d89390e84b2d58a7e0\",\n        \"name\": \"Test\",\n        \"phoneNumber\": 12312312,\n        \"email\": \"hahaha@gmail.com\",\n        \"DOB\": \"13/13/13\",\n        \"password\": \"test\",\n        \"isAdmin\": false,\n        \"pic\": \"hha\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bfa61b6e9a2929ca88\",\n        \"name\": \"Test\",\n        \"phoneNumber\": 12312312,\n        \"email\": \"hahaaaha@gmail.com\",\n        \"DOB\": \"13/13/13\",\n        \"password\": \"test\",\n        \"isAdmin\": false,\n        \"pic\": \"hha\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61472468cce21966f6687510\",\n        \"name\": \"Kimmy\",\n        \"email\": \"joh@gmail.com\",\n        \"password\": \"$2b$10$VQ17BNWB215vUDYe28UGXeZLJdOwgFsdGSjYNI8/mW1nWiyMAbRhW\",\n        \"isAdmin\": false,\n        \"pic\": \"\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb6a5\",\n        \"name\": \"Kelvin\",\n        \"phoneNumber\": 12312312,\n        \"email\": \"joo3@gmail.com\",\n        \"DOB\": \"13/13/13\",\n        \"password\": \"Dao\",\n        \"isAdmin\": false,\n        \"pic\": \"hha\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bfa61b6e9a2929ca87\",\n        \"name\": \"Kelvin\",\n        \"phoneNumber\": 12312312,\n        \"email\": \"joo31@gmail.com\",\n        \"DOB\": \"13/13/13\",\n        \"password\": \"Dao\",\n        \"isAdmin\": false,\n        \"pic\": \"hha\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614726452863d1c5518be4ce\",\n        \"name\": \"Hi\",\n        \"email\": \"jojo@gmail.com\",\n        \"password\": \"$2b$10$/O3fPXeI1i8EmM1Pc6bUwuCeYfvnM3h3PPlCnRU9UQMB6jdM.RISq\",\n        \"isAdmin\": true,\n        \"pic\": \"\",\n        \"__v\": 0\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Get order list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}admin/order",
+									"host": [
+										"{{URL}}admin"
+									],
+									"path": [
+										"order"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get order list",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}admin/order",
+											"host": [
+												"{{URL}}admin"
+											],
+											"path": [
+												"order"
+											]
+										}
+									},
+									"status": "Found",
+									"code": 302,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "5337"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"14d9-eQlsYo6inQcT9H+nTwquAiGI+FY\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:09:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7d6\",\n        \"email\": \"joo1@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-19T07:08:07.911Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7d7\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-19T07:08:07.912Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7d8\",\n        \"email\": \"joo3@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-19T07:08:07.913Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7d9\",\n        \"email\": \"jo4o@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-19T07:08:07.913Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7da\",\n        \"email\": \"joo5@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-19T07:08:07.914Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7db\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-19T07:08:07.915Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61484bcc7831e2a900ceb93e\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 1,\n            \"Iphone 12\": 3,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 3896,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T08:52:28.399Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61484cbe13d4bc911bdacbc1\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 1,\n            \"Iphone 12\": 3,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 3896,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T08:56:30.703Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb69d\",\n        \"email\": \"joo1@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:25:29.770Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb69e\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb69f\",\n        \"email\": \"joo3@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb6a0\",\n        \"email\": \"jo4o@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb6a1\",\n        \"email\": \"joo5@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb6a2\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30ae\",\n        \"email\": \"joo1@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30af\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30b0\",\n        \"email\": \"joo3@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30b1\",\n        \"email\": \"jo4o@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30b2\",\n        \"email\": \"joo5@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30b3\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca7e\",\n        \"email\": \"joo1@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:26:22.968Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca7f\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:26:22.968Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca80\",\n        \"email\": \"joo3@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:26:22.968Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca81\",\n        \"email\": \"jo4o@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:26:22.968Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca82\",\n        \"email\": \"joo5@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:26:22.969Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca83\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:26:22.969Z\",\n        \"__v\": 0\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Get user by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \r\n        \"name\": \"Hello\",\r\n        \"email\": \"jojojo@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}admin/user/614726452863d1c5518be4ce",
+									"host": [
+										"{{URL}}admin"
+									],
+									"path": [
+										"user",
+										"614726452863d1c5518be4ce"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get user by id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \r\n        \"name\": \"Hello\",\r\n        \"email\": \"jojojo@gmail.com\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}admin/user/614726452863d1c5518be4ce",
+											"host": [
+												"{{URL}}admin"
+											],
+											"path": [
+												"user",
+												"614726452863d1c5518be4ce"
+											]
+										}
+									},
+									"status": "Found",
+									"code": 302,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "177"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"b1-OLQxtkkMXhCeCpiovvjDlWoQs1Y\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:09:36 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"_id\": \"614726452863d1c5518be4ce\",\n    \"name\": \"Hi\",\n    \"email\": \"jojo@gmail.com\",\n    \"password\": \"$2b$10$/O3fPXeI1i8EmM1Pc6bUwuCeYfvnM3h3PPlCnRU9UQMB6jdM.RISq\",\n    \"isAdmin\": true,\n    \"pic\": \"\",\n    \"__v\": 0\n}"
+								}
+							]
+						},
+						{
+							"name": "Get order by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \r\n        \"name\": \"Hello\",\r\n        \"email\": \"jojojo@gmail.com\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}admin/order/6146e1d79390e84b2d58a7d9",
+									"host": [
+										"{{URL}}admin"
+									],
+									"path": [
+										"order",
+										"6146e1d79390e84b2d58a7d9"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get order by id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": " {\r\n        \r\n        \"name\": \"Hello\",\r\n        \"email\": \"jojojo@gmail.com\"\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}admin/order/6146e1d79390e84b2d58a7d9",
+											"host": [
+												"{{URL}}admin"
+											],
+											"path": [
+												"order",
+												"6146e1d79390e84b2d58a7d9"
+											]
+										}
+									},
+									"status": "Found",
+									"code": 302,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "206"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ce-zyvgSBs05QuOAvS5c+BGxzd6CCk\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:09:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"_id\": \"6146e1d79390e84b2d58a7d9\",\n    \"email\": \"jo4o@gmail.com\",\n    \"products\": {\n        \"PlayStation 5\": 2,\n        \"Iphone 12\": 1,\n        \"Amazon Alexa\": 2\n    },\n    \"subtotal\": 2000,\n    \"state\": \"In progress\",\n    \"orderDate\": \"2021-09-19T07:08:07.913Z\",\n    \"__v\": 0\n}"
+								}
+							]
+						},
+						{
+							"name": "Get order list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \r\n        \"name\": \"Hello\",\r\n        \"email\": \"jojojo@gmail.com\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}admin/order",
+									"host": [
+										"{{URL}}admin"
+									],
+									"path": [
+										"order"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get order list",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": " {\r\n        \r\n        \"name\": \"Hello\",\r\n        \"email\": \"jojojo@gmail.com\"\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}admin/order",
+											"host": [
+												"{{URL}}admin"
+											],
+											"path": [
+												"order"
+											]
+										}
+									},
+									"status": "Found",
+									"code": 302,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "5337"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"14d9-eQlsYo6inQcT9H+nTwquAiGI+FY\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:09:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7d6\",\n        \"email\": \"joo1@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-19T07:08:07.911Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7d7\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-19T07:08:07.912Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7d8\",\n        \"email\": \"joo3@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-19T07:08:07.913Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7d9\",\n        \"email\": \"jo4o@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-19T07:08:07.913Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7da\",\n        \"email\": \"joo5@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-19T07:08:07.914Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7db\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-19T07:08:07.915Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61484bcc7831e2a900ceb93e\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 1,\n            \"Iphone 12\": 3,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 3896,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T08:52:28.399Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61484cbe13d4bc911bdacbc1\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 1,\n            \"Iphone 12\": 3,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 3896,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T08:56:30.703Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb69d\",\n        \"email\": \"joo1@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:25:29.770Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb69e\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb69f\",\n        \"email\": \"joo3@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb6a0\",\n        \"email\": \"jo4o@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb6a1\",\n        \"email\": \"joo5@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb6a2\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30ae\",\n        \"email\": \"joo1@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30af\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30b0\",\n        \"email\": \"joo3@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30b1\",\n        \"email\": \"jo4o@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30b2\",\n        \"email\": \"joo5@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30b3\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca7e\",\n        \"email\": \"joo1@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:26:22.968Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca7f\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:26:22.968Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca80\",\n        \"email\": \"joo3@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:26:22.968Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca81\",\n        \"email\": \"jo4o@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:26:22.968Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca82\",\n        \"email\": \"joo5@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:26:22.969Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca83\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:26:22.969Z\",\n        \"__v\": 0\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Update order status",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"Complete\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}admin/updateOrder/6146e1d79390e84b2d58a7d9",
+									"host": [
+										"{{URL}}admin"
+									],
+									"path": [
+										"updateOrder",
+										"6146e1d79390e84b2d58a7d9"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update order status",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\": \"Complete\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}admin/updateOrder/6146e1d79390e84b2d58a7d9",
+											"host": [
+												"{{URL}}admin"
+											],
+											"path": [
+												"updateOrder",
+												"6146e1d79390e84b2d58a7d9"
+											]
+										}
+									},
+									"status": "Reset Content",
+									"code": 205,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "137"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"89-ft1qgJo7/E8mn60XzGSvEK6cNyU\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:09:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Update complete\",\n    \"updatedOrder\": {\n        \"acknowledged\": true,\n        \"modifiedCount\": 0,\n        \"upsertedId\": null,\n        \"upsertedCount\": 0,\n        \"matchedCount\": 1\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Search for order",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"sort\":\"date\",\r\n    \"search\":\"\",\r\n    \"type\":0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}admin/search/",
+									"host": [
+										"{{URL}}admin"
+									],
+									"path": [
+										"search",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Search for order",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"sort\":\"date\",\r\n    \"search\":\"\",\r\n    \"type\":0\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}admin/search/",
+											"host": [
+												"{{URL}}admin"
+											],
+											"path": [
+												"search",
+												""
+											]
+										}
+									},
+									"status": "Found",
+									"code": 302,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "5337"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"14d9-eQlsYo6inQcT9H+nTwquAiGI+FY\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:09:06 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7d6\",\n        \"email\": \"joo1@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-19T07:08:07.911Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7d7\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-19T07:08:07.912Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7d8\",\n        \"email\": \"joo3@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-19T07:08:07.913Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7d9\",\n        \"email\": \"jo4o@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-19T07:08:07.913Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7da\",\n        \"email\": \"joo5@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-19T07:08:07.914Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7db\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-19T07:08:07.915Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61484bcc7831e2a900ceb93e\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 1,\n            \"Iphone 12\": 3,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 3896,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T08:52:28.399Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61484cbe13d4bc911bdacbc1\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 1,\n            \"Iphone 12\": 3,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 3896,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T08:56:30.703Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb69d\",\n        \"email\": \"joo1@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:25:29.770Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb69e\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb69f\",\n        \"email\": \"joo3@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb6a0\",\n        \"email\": \"jo4o@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb6a1\",\n        \"email\": \"joo5@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb6a2\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30ae\",\n        \"email\": \"joo1@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30af\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30b0\",\n        \"email\": \"joo3@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30b1\",\n        \"email\": \"jo4o@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30b2\",\n        \"email\": \"joo5@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30b3\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca7e\",\n        \"email\": \"joo1@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:26:22.968Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca7f\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Complete\",\n        \"orderDate\": \"2021-09-20T09:26:22.968Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca80\",\n        \"email\": \"joo3@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:26:22.968Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca81\",\n        \"email\": \"jo4o@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:26:22.968Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca82\",\n        \"email\": \"joo5@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"Confirmed\",\n        \"orderDate\": \"2021-09-20T09:26:22.969Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca83\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:26:22.969Z\",\n        \"__v\": 0\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Add new product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n    {\r\n        \"name\": \"Iphone 5\",\r\n        \"description\": \"Welcome to a new era of iPhone. Beautifully bright 6.1-inch Super Retina XDR display.1 Ceramic Shield with 4x better drop performance.2 Incredible low-light photography with Night mode on all cameras. Cinema-grade Dolby Vision video recording, editing, and playback. Powerful A14 Bionic chip. And new MagSafe accessories for easy attach and faster wireless charging.3 Let the fun begin.\",\r\n        \"price\": 1099,\r\n        \"countInStock\": 10,\r\n        \"imageUrl\": \"https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80\",\r\n        \"availability\": true\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}admin/new",
+									"host": [
+										"{{URL}}admin"
+									],
+									"path": [
+										"new"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Add new product",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n    {\r\n        \"name\": \"Iphone 5\",\r\n        \"description\": \"Welcome to a new era of iPhone. Beautifully bright 6.1-inch Super Retina XDR display.1 Ceramic Shield with 4x better drop performance.2 Incredible low-light photography with Night mode on all cameras. Cinema-grade Dolby Vision video recording, editing, and playback. Powerful A14 Bionic chip. And new MagSafe accessories for easy attach and faster wireless charging.3 Let the fun begin.\",\r\n        \"price\": 1099,\r\n        \"countInStock\": 10,\r\n        \"imageUrl\": \"https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80\",\r\n        \"availability\": true\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}admin/new",
+											"host": [
+												"{{URL}}admin"
+											],
+											"path": [
+												"new"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "688"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2b0-T7/2Rtf53nnDEDH5vDWasxY64LM\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:08:56 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"name\": \"Iphone 5\",\n    \"description\": \"Welcome to a new era of iPhone. Beautifully bright 6.1-inch Super Retina XDR display.1 Ceramic Shield with 4x better drop performance.2 Incredible low-light photography with Night mode on all cameras. Cinema-grade Dolby Vision video recording, editing, and playback. Powerful A14 Bionic chip. And new MagSafe accessories for easy attach and faster wireless charging.3 Let the fun begin.\",\n    \"price\": 1099,\n    \"countInStock\": 10,\n    \"imageUrl\": \"https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80\",\n    \"availability\": true,\n    \"_id\": \"61485db8d5790fbefc0a3a5c\",\n    \"__v\": 0\n}"
+								}
+							]
+						},
+						{
+							"name": "Edit product details",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n    {\r\n        \"name\": \"Iphone 5\",\r\n        \"description\": \"Welcome to a new era of iPhone. Beautifully bright 6.1-inch Super Retina XDR display.1 Ceramic Shield with 4x better drop performance.2 Incredible low-light photography with Night mode on all cameras. Cinema-grade Dolby Vision video recording, editing, and playback. Powerful A14 Bionic chip. And new MagSafe accessories for easy attach and faster wireless charging.3 Let the fun begin.\",\r\n        \"price\": 1099,\r\n        \"countInStock\": 10,\r\n        \"imageUrl\": \"https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80\",\r\n        \"availability\": true\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}admin/product/edit/6146e1d89390e84b2d58a7e3",
+									"host": [
+										"{{URL}}admin"
+									],
+									"path": [
+										"product",
+										"edit",
+										"6146e1d89390e84b2d58a7e3"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Edit product details",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n    {\r\n        \"name\": \"Iphone 5\",\r\n        \"description\": \"Welcome to a new era of iPhone. Beautifully bright 6.1-inch Super Retina XDR display.1 Ceramic Shield with 4x better drop performance.2 Incredible low-light photography with Night mode on all cameras. Cinema-grade Dolby Vision video recording, editing, and playback. Powerful A14 Bionic chip. And new MagSafe accessories for easy attach and faster wireless charging.3 Let the fun begin.\",\r\n        \"price\": 1099,\r\n        \"countInStock\": 10,\r\n        \"imageUrl\": \"https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80\",\r\n        \"availability\": true\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}admin/product/edit/6146e1d89390e84b2d58a7e3",
+											"host": [
+												"{{URL}}admin"
+											],
+											"path": [
+												"product",
+												"edit",
+												"6146e1d89390e84b2d58a7e3"
+											]
+										}
+									},
+									"status": "Reset Content",
+									"code": 205,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "92"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"5c-ShutYOH895Hqw6kT0TGoGJBY4Q0\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:08:48 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"acknowledged\": true,\n    \"modifiedCount\": 0,\n    \"upsertedId\": null,\n    \"upsertedCount\": 0,\n    \"matchedCount\": 1\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Product status",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}admin/product/6146e1d89390e84b2d58a7e3/false",
+									"host": [
+										"{{URL}}admin"
+									],
+									"path": [
+										"product",
+										"6146e1d89390e84b2d58a7e3",
+										"false"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Product status",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}admin/product/6146e1d89390e84b2d58a7e3/false",
+											"host": [
+												"{{URL}}admin"
+											],
+											"path": [
+												"product",
+												"6146e1d89390e84b2d58a7e3",
+												"false"
+											]
+										}
+									},
+									"status": "Reset Content",
+									"code": 205,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "33"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21-flPbmjvFvxkUSSg+CEvRKcdxzAI\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:08:39 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Update successfully\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "product",
+					"item": [
+						{
+							"name": "Product list or can be home page",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}",
+									"host": [
+										"{{URL}}"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Product list or can be home page",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}",
+											"host": [
+												"{{URL}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "7449"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1d19-7kHCawIJUZxFf9rAl+sN2bEFebU\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:08:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"_id\": \"6146e1d89390e84b2d58a7e3\",\n        \"name\": \"Iphone 5\",\n        \"description\": \"Welcome to a new era of iPhone. Beautifully bright 6.1-inch Super Retina XDR display.1 Ceramic Shield with 4x better drop performance.2 Incredible low-light photography with Night mode on all cameras. Cinema-grade Dolby Vision video recording, editing, and playback. Powerful A14 Bionic chip. And new MagSafe accessories for easy attach and faster wireless charging.3 Let the fun begin.\",\n        \"price\": 1099,\n        \"countInStock\": 10,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d89390e84b2d58a7e4\",\n        \"name\": \"Iphone 12\",\n        \"description\": \"Welcome to a new era of iPhone. Beautifully bright 6.1-inch Super Retina XDR display.1 Ceramic Shield with 4x better drop performance.2 Incredible low-light photography with Night mode on all cameras. Cinema-grade Dolby Vision video recording, editing, and playback. Powerful A14 Bionic chip. And new MagSafe accessories for easy attach and faster wireless charging.3 Let the fun begin.\",\n        \"price\": 1099,\n        \"countInStock\": 10,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d89390e84b2d58a7e6\",\n        \"name\": \"Amazon Alexa\",\n        \"description\": \"It is capable of voice interaction, music playback, making to-do lists, setting alarms, streaming podcasts, playing audiobooks, and providing weather, traffic, sports, and other real-time information, such as news. Alexa can also control several smart devices using itself as a home automation system.\",\n        \"price\": 50,\n        \"countInStock\": 25,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d89390e84b2d58a7e7\",\n        \"name\": \"Audio Technica Headphones\",\n        \"description\": \"Outfitted with 45mm large-aperture dynamic drivers and an over-ear, closed-back design, the ATH-M50x headphones deliver clarity, deep bass, and extended bandwidth (15 Hz to 28 kHz) while isolating you from outside sounds.\",\n        \"price\": 233,\n        \"countInStock\": 4,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1558756520-22cfe5d382ca?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d89390e84b2d58a7e8\",\n        \"name\": \"JBL FLIP 4\",\n        \"description\": \"JBL Flip 4 is the next generation in the award-winning Flip series; it is a portable Bluetooth speaker that delivers surprisingly powerful stereo sound. This compact speaker is powered by a 3000mAh rechargeable Li-ion battery that offers up to 12 hours of continuous, high-quality audio playtime.\",\n        \"price\": 140,\n        \"countInStock\": 10,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1564424224827-cd24b8915874?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61483edae95bb1a2f3a7943d\",\n        \"name\": \"Iphone 5\",\n        \"description\": \"Welcome to a new era of iPhone. Beautifully bright 6.1-inch Super Retina XDR display.1 Ceramic Shield with 4x better drop performance.2 Incredible low-light photography with Night mode on all cameras. Cinema-grade Dolby Vision video recording, editing, and playback. Powerful A14 Bionic chip. And new MagSafe accessories for easy attach and faster wireless charging.3 Let the fun begin.\",\n        \"price\": 1099,\n        \"countInStock\": 10,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bfa61b6e9a2929ca8a\",\n        \"name\": \"PlayStation 5\",\n        \"description\": \"PlayStation 5 (PS5) is a home video game console developed by Sony Interactive Entertainment. Announced in 2019 as the successor to the PlayStation 4, the PS5 was released on November 12, 2020 in Australia, Japan, New Zealand, North America, Singapore, and South Korea, and November 19, 2020 onwards in other major markets except China and India.\",\n        \"price\": 499,\n        \"countInStock\": -1,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bfa61b6e9a2929ca8b\",\n        \"name\": \"Iphone 12\",\n        \"description\": \"Welcome to a new era of iPhone. Beautifully bright 6.1-inch Super Retina XDR display.1 Ceramic Shield with 4x better drop performance.2 Incredible low-light photography with Night mode on all cameras. Cinema-grade Dolby Vision video recording, editing, and playback. Powerful A14 Bionic chip. And new MagSafe accessories for easy attach and faster wireless charging.3 Let the fun begin.\",\n        \"price\": 1099,\n        \"countInStock\": 10,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bfa61b6e9a2929ca8c\",\n        \"name\": \"Cannon EOS-1D\",\n        \"description\": \"The EOS-1D X combines speed with image quality, to create the next generation camera for professionals. Full frame 18 megapixel sensor with Dual “DIGIC 5+” processors sets the standard, and up to 12 frames per second shooting takes it beyond.\",\n        \"price\": 1300,\n        \"countInStock\": 5,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1519183071298-a2962feb14f4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bfa61b6e9a2929ca8d\",\n        \"name\": \"Amazon Alexa\",\n        \"description\": \"It is capable of voice interaction, music playback, making to-do lists, setting alarms, streaming podcasts, playing audiobooks, and providing weather, traffic, sports, and other real-time information, such as news. Alexa can also control several smart devices using itself as a home automation system.\",\n        \"price\": 50,\n        \"countInStock\": 25,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bfa61b6e9a2929ca8e\",\n        \"name\": \"Audio Technica Headphones\",\n        \"description\": \"Outfitted with 45mm large-aperture dynamic drivers and an over-ear, closed-back design, the ATH-M50x headphones deliver clarity, deep bass, and extended bandwidth (15 Hz to 28 kHz) while isolating you from outside sounds.\",\n        \"price\": 233,\n        \"countInStock\": 4,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1558756520-22cfe5d382ca?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bfa61b6e9a2929ca8f\",\n        \"name\": \"JBL FLIP 4\",\n        \"description\": \"JBL Flip 4 is the next generation in the award-winning Flip series; it is a portable Bluetooth speaker that delivers surprisingly powerful stereo sound. This compact speaker is powered by a 3000mAh rechargeable Li-ion battery that offers up to 12 hours of continuous, high-quality audio playtime.\",\n        \"price\": 140,\n        \"countInStock\": 10,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1564424224827-cd24b8915874?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Add product to cart",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"name\": \"PlayStation 5\",\r\n        \"description\": \"PlayStation 5 (PS5) is a home video game console developed by Sony Interactive Entertainment. Announced in 2019 as the successor to the PlayStation 4, the PS5 was released on November 12, 2020 in Australia, Japan, New Zealand, North America, Singapore, and South Korea, and November 19, 2020 onwards in other major markets except China and India.\",\r\n        \"price\": 499,\r\n        \"countInStock\": 15,\r\n        \"imageUrl\": \"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80\",\r\n        \"availability\": true\r\n        \r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}product/add/joo311@gmail.com",
+									"host": [
+										"{{URL}}product"
+									],
+									"path": [
+										"add",
+										"joo311@gmail.com"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Add product to cart(error)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": " {\r\n        \"name\": \"PlayStation 5\",\r\n        \"description\": \"PlayStation 5 (PS5) is a home video game console developed by Sony Interactive Entertainment. Announced in 2019 as the successor to the PlayStation 4, the PS5 was released on November 12, 2020 in Australia, Japan, New Zealand, North America, Singapore, and South Korea, and November 19, 2020 onwards in other major markets except China and India.\",\r\n        \"price\": 499,\r\n        \"countInStock\": 15,\r\n        \"imageUrl\": \"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80\",\r\n        \"availability\": true\r\n        \r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}product/add/kimmmy@gmail.com",
+											"host": [
+												"{{URL}}product"
+											],
+											"path": [
+												"add",
+												"kimmmy@gmail.com"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "33"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21-3TEA3wD+KYKgT7vBrdSDbtol3Kg\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:06:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"New cart is created\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get product with id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}product/6146e1d89390e84b2d58a7e3",
+									"host": [
+										"{{URL}}product"
+									],
+									"path": [
+										"6146e1d89390e84b2d58a7e3"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get product with id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}product/6146e1d89390e84b2d58a7e3",
+											"host": [
+												"{{URL}}product"
+											],
+											"path": [
+												"6146e1d89390e84b2d58a7e3"
+											]
+										}
+									},
+									"status": "Found",
+									"code": 302,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "688"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2b0-vMo2Ce2E5NI4US/mp6DOCyMirH0\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:08:26 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"_id\": \"6146e1d89390e84b2d58a7e3\",\n    \"name\": \"Iphone 5\",\n    \"description\": \"Welcome to a new era of iPhone. Beautifully bright 6.1-inch Super Retina XDR display.1 Ceramic Shield with 4x better drop performance.2 Incredible low-light photography with Night mode on all cameras. Cinema-grade Dolby Vision video recording, editing, and playback. Powerful A14 Bionic chip. And new MagSafe accessories for easy attach and faster wireless charging.3 Let the fun begin.\",\n    \"price\": 1099,\n    \"countInStock\": 10,\n    \"imageUrl\": \"https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80\",\n    \"availability\": true,\n    \"__v\": 0\n}"
+								}
+							]
+						},
+						{
+							"name": "Add product to cart when cart is exist",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"name\": \"PlayStation 5\",\r\n        \"description\": \"PlayStation 5 (PS5) is a home video game console developed by Sony Interactive Entertainment. Announced in 2019 as the successor to the PlayStation 4, the PS5 was released on November 12, 2020 in Australia, Japan, New Zealand, North America, Singapore, and South Korea, and November 19, 2020 onwards in other major markets except China and India.\",\r\n        \"price\": 499,\r\n        \"countInStock\": 15,\r\n        \"imageUrl\": \"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80\",\r\n        \"availability\": true\r\n        \r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}product/add/joo311@gmail.com",
+									"host": [
+										"{{URL}}product"
+									],
+									"path": [
+										"add",
+										"joo311@gmail.com"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Add product to cart when cart is exist",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": " {\r\n        \"name\": \"PlayStation 5\",\r\n        \"description\": \"PlayStation 5 (PS5) is a home video game console developed by Sony Interactive Entertainment. Announced in 2019 as the successor to the PlayStation 4, the PS5 was released on November 12, 2020 in Australia, Japan, New Zealand, North America, Singapore, and South Korea, and November 19, 2020 onwards in other major markets except China and India.\",\r\n        \"price\": 499,\r\n        \"countInStock\": 15,\r\n        \"imageUrl\": \"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80\",\r\n        \"availability\": true\r\n        \r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}product/add/joo311@gmail.com",
+											"host": [
+												"{{URL}}product"
+											],
+											"path": [
+												"add",
+												"joo311@gmail.com"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "36"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"24-+hWFN+uZEGbXyW1N6gMZuL21kIk\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:07:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"product is unavailable\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "cart",
+					"item": [
+						{
+							"name": "Get current user cart",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}cart/joo2@gmail.com",
+									"host": [
+										"{{URL}}cart"
+									],
+									"path": [
+										"joo2@gmail.com"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get current user cart",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}cart/joo2@gmail.com",
+											"host": [
+												"{{URL}}cart"
+											],
+											"path": [
+												"joo2@gmail.com"
+											]
+										}
+									},
+									"status": "Found",
+									"code": 302,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "637"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"27d-brmH2M1NygWOmJA5X+ORoIK//zQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:10:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7cd\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": [\n                2,\n                499\n            ],\n            \"Iphone 12\": [\n                1,\n                1099\n            ],\n            \"Amazon Alexa\": [\n                2,\n                50\n            ]\n        },\n        \"subtotal\": 0\n    },\n    {\n        \"_id\": \"61485388ee80772d4fffb694\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": [\n                2,\n                499\n            ],\n            \"Iphone 12\": [\n                1,\n                1099\n            ],\n            \"Amazon Alexa\": [\n                2,\n                50\n            ]\n        },\n        \"subtotal\": 0,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b2ed791566057d30a5\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": [\n                2,\n                499\n            ],\n            \"Iphone 12\": [\n                1,\n                1099\n            ],\n            \"Amazon Alexa\": [\n                2,\n                50\n            ]\n        },\n        \"subtotal\": 0,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bda61b6e9a2929ca76\",\n        \"email\": \"joo2@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": [\n                2,\n                499\n            ],\n            \"Iphone 12\": [\n                1,\n                1099\n            ],\n            \"Amazon Alexa\": [\n                2,\n                50\n            ]\n        },\n        \"subtotal\": 0,\n        \"__v\": 0\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Confirm and create an order",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"_id\": \"6146e1d79390e84b2d58a7d1\",\r\n    \"email\": \"joo@gmail.com\",\r\n    \"products\": {\r\n        \"PlayStation 5\": 1,\r\n        \"Iphone 12\": 3,\r\n        \"Amazon Alexa\": 2\r\n    },\r\n\"subtotal\": 3896\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}cart/confirm/6146e1d79390e84b2d58a7d1",
+									"host": [
+										"{{URL}}cart"
+									],
+									"path": [
+										"confirm",
+										"6146e1d79390e84b2d58a7d1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Confirm and create an order",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"_id\": \"6146e1d79390e84b2d58a7d1\",\r\n    \"email\": \"joo@gmail.com\",\r\n    \"products\": {\r\n        \"PlayStation 5\": 1,\r\n        \"Iphone 12\": 3,\r\n        \"Amazon Alexa\": 2\r\n    },\r\n\"subtotal\": 3896\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}cart/confirm/6146e1d79390e84b2d58a7d1",
+											"host": [
+												"{{URL}}cart"
+											],
+											"path": [
+												"confirm",
+												"6146e1d79390e84b2d58a7d1"
+											]
+										}
+									},
+									"status": "Accepted",
+									"code": 202,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "205"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"cd-KQxiPMYjfZi0tDYI8FUteZyhx/g\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:10:19 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"email\": \"joo@gmail.com\",\n    \"products\": {\n        \"PlayStation 5\": 1,\n        \"Iphone 12\": 3,\n        \"Amazon Alexa\": 2\n    },\n    \"subtotal\": 3896,\n    \"state\": \"In progress\",\n    \"_id\": \"61485e0bd5790fbefc0a3a68\",\n    \"orderDate\": \"2021-09-20T10:10:19.872Z\",\n    \"__v\": 0\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "order",
+					"item": [
+						{
+							"name": "get all order with user id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}order/",
+									"host": [
+										"{{URL}}order"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get all order with user id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}order/61485389ee80772d4fffb6a4",
+											"host": [
+												"{{URL}}order"
+											],
+											"path": [
+												"61485389ee80772d4fffb6a4"
+											]
+										}
+									},
+									"status": "Found",
+									"code": 302,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1443"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"5a3-ui/XMK7AKrBRRxt8nGeoeNz2nLY\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 20 Sep 2021 10:11:38 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"_id\": \"6146e1d79390e84b2d58a7db\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-19T07:08:07.915Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61484bcc7831e2a900ceb93e\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 1,\n            \"Iphone 12\": 3,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 3896,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T08:52:28.399Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61484cbe13d4bc911bdacbc1\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 1,\n            \"Iphone 12\": 3,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 3896,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T08:56:30.703Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485389ee80772d4fffb6a2\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:25:29.771Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853b3ed791566057d30b3\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:26:11.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bea61b6e9a2929ca83\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 2,\n            \"Iphone 12\": 1,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 2000,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T09:26:22.969Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485e0bd5790fbefc0a3a68\",\n        \"email\": \"joo@gmail.com\",\n        \"products\": {\n            \"PlayStation 5\": 1,\n            \"Iphone 12\": 3,\n            \"Amazon Alexa\": 2\n        },\n        \"subtotal\": 3896,\n        \"state\": \"In progress\",\n        \"orderDate\": \"2021-09-20T10:10:19.872Z\",\n        \"__v\": 0\n    }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"hahoaha@gmail.com\",\r\n    \"password\": \"Hoho\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}login",
+							"host": [
+								"{{URL}}login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"hahoaha@gmail.com\",\r\n    \"password\": \"Hoho\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}login",
+									"host": [
+										"{{URL}}login"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b-+E7eeC65cxnFdCNyWvbajqgul00\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "connect.sid=s%3AOab4OZrK4DPkqVBy2tTZ_VrGzhJ7ySL0.zVOudBbd2mXtAQwICDJu3RF7nxkBorMz33mS2EghXHs; Path=/; Expires=Mon, 20 Sep 2021 10:11:52 GMT; HttpOnly"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Sep 2021 10:11:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Welcome Test1\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create new User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test1\",\r\n    \"phoneNumber\": 12312312,\r\n    \"email\": \"hahoaha@gmail.com\",\r\n    \"password\": \"Hoho\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}register",
+							"host": [
+								"{{URL}}register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create new User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Test1\",\r\n    \"phoneNumber\": 12312312,\r\n    \"email\": \"hahoaha@gmail.com\",\r\n    \"password\": \"Hoho\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}register",
+									"host": [
+										"{{URL}}register"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b-DEXiw2Paps4K9vY/DyscQtkMZfc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Sep 2021 10:12:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Register fail\"\n}"
+						}
+					]
+				},
+				{
+					"name": "search for product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sort\": 1,\r\n    \"search\":\"iphone\",\r\n    \"type\":0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}search",
+							"host": [
+								"{{URL}}search"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "search for product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"sort\": 1,\r\n    \"search\":\"iphone\",\r\n    \"type\":0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}search",
+									"host": [
+										"{{URL}}search"
+									]
+								}
+							},
+							"status": "Found",
+							"code": 302,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3448"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d78-zT5WFgFD7G1it9jOtGMy5yRGz74\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Sep 2021 10:12:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6146e1d89390e84b2d58a7e3\",\n        \"name\": \"Iphone 5\",\n        \"description\": \"Welcome to a new era of iPhone. Beautifully bright 6.1-inch Super Retina XDR display.1 Ceramic Shield with 4x better drop performance.2 Incredible low-light photography with Night mode on all cameras. Cinema-grade Dolby Vision video recording, editing, and playback. Powerful A14 Bionic chip. And new MagSafe accessories for easy attach and faster wireless charging.3 Let the fun begin.\",\n        \"price\": 1099,\n        \"countInStock\": 10,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6146e1d89390e84b2d58a7e4\",\n        \"name\": \"Iphone 12\",\n        \"description\": \"Welcome to a new era of iPhone. Beautifully bright 6.1-inch Super Retina XDR display.1 Ceramic Shield with 4x better drop performance.2 Incredible low-light photography with Night mode on all cameras. Cinema-grade Dolby Vision video recording, editing, and playback. Powerful A14 Bionic chip. And new MagSafe accessories for easy attach and faster wireless charging.3 Let the fun begin.\",\n        \"price\": 1099,\n        \"countInStock\": 10,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61483edae95bb1a2f3a7943d\",\n        \"name\": \"Iphone 5\",\n        \"description\": \"Welcome to a new era of iPhone. Beautifully bright 6.1-inch Super Retina XDR display.1 Ceramic Shield with 4x better drop performance.2 Incredible low-light photography with Night mode on all cameras. Cinema-grade Dolby Vision video recording, editing, and playback. Powerful A14 Bionic chip. And new MagSafe accessories for easy attach and faster wireless charging.3 Let the fun begin.\",\n        \"price\": 1099,\n        \"countInStock\": 10,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"614853bfa61b6e9a2929ca8b\",\n        \"name\": \"Iphone 12\",\n        \"description\": \"Welcome to a new era of iPhone. Beautifully bright 6.1-inch Super Retina XDR display.1 Ceramic Shield with 4x better drop performance.2 Incredible low-light photography with Night mode on all cameras. Cinema-grade Dolby Vision video recording, editing, and playback. Powerful A14 Bionic chip. And new MagSafe accessories for easy attach and faster wireless charging.3 Let the fun begin.\",\n        \"price\": 1099,\n        \"countInStock\": 10,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61485db8d5790fbefc0a3a5c\",\n        \"name\": \"Iphone 5\",\n        \"description\": \"Welcome to a new era of iPhone. Beautifully bright 6.1-inch Super Retina XDR display.1 Ceramic Shield with 4x better drop performance.2 Incredible low-light photography with Night mode on all cameras. Cinema-grade Dolby Vision video recording, editing, and playback. Powerful A14 Bionic chip. And new MagSafe accessories for easy attach and faster wireless charging.3 Let the fun begin.\",\n        \"price\": 1099,\n        \"countInStock\": 10,\n        \"imageUrl\": \"https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80\",\n        \"availability\": true,\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	]
+}
