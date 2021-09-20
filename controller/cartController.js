@@ -3,15 +3,10 @@ const {Product,Cart} = require('../models/product');
 const asyncHandler = require('express-async-handler'); 
 
 //get the cart relate to current user
-
-
-const  getCart = asyncHandler( async (req, res) => {
+const getCart = asyncHandler(async (req, res) => {
     try {
-        
-        const currentUser = await User.findById(req.params.id)
-        console.log(currentUser.getEmail())
-        const currentCart = await Cart.findOne({ 
-            email: email,  //req.session.userId
+        const currentCart = await Cart.find({ 
+            email: req.params.id,  //req.session.userId
         });
         
         if (!currentCart || currentCart == null) {
@@ -26,6 +21,8 @@ const  getCart = asyncHandler( async (req, res) => {
     }
 })
 
+
+//FIXME
 // Add a new cart to the DB
 const editQuantity = asyncHandler(async (req, res) => {
     try {

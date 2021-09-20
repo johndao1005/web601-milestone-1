@@ -58,13 +58,13 @@ const cartSchema = new Schema({
 //         await Cart.updateOne({email:userEmail},{$set:{subtotal:total}})
 // }
 cartSchema.pre('save',async function(next){
-    //check password is modified before moving on to next callback
     let total = 0
     for ( const quantity in this.products){
-        const {price} = await Product.findOne({name:item})
-        total += parseFloat(price)* parseInt(products[quantity])
+        const {price} = await Product.findOne({name:quantity})
+        total += parseFloat(price)* parseInt(this.products[quantity])
     }
     this.subtotal = total
+    next()
 })
 
 const Cart = mongoose.model("Cart", cartSchema);

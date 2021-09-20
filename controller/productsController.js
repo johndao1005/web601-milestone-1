@@ -17,34 +17,36 @@ const updateProductAvailability = asyncHandler( async(req, res) => {
 // ANCHOR still need to work on checking the availability and stock level
 const addItem =  asyncHandler( async (req, res) => {
     try {
-        const {email} = await User.findById( req.params.id)
-        const checkCart = await Cart.findOne({email: email})
-        console.log(checkCart)
-        const {countInStock,availability} = await Product.findOne({name: req.body.name},{countInStock: 1,availability:1})
-        if(countInStock <1 || availability == false){
+        const checkCart = await Cart.findOne({email: req.params.email})
+        const currentProduct = await Product.findOne({name: req.body.name},{countInStock: 1,availability:1})
+        console.log(1)
+        if(currentProduct.countInStock <1 || currentProduct.availability == false){
             res.status(404).json({ message: "product is unavailable"})
+            console.log(2)
         }
-        if (!checkCart || checkCart==null) {
+        if (!checkCart) {
             const {name,price} = req.body
             newCart = await Cart.create({
-                email: email,
+                email:  req.params.email,
                 products:{
                     [name] : 1
                 },
-                subtotal:[price]
+                subtotal:price
             })
             await Product.updateOne({name: req.body.name},{$inc:{countInStock:-1}})
             res.status(201).json({message:"New cart is created"})
+            console.log(3)
         } else {
             const field = `products.${req.body.name}`
             const currentCart = await Cart.updateOne(
-                {email: email},
+                {email: req.params.email},
                 {$inc:{[field]:1,subtotal:req.body.price}}
             )
-            
             await Product.updateOne({name: req.body.name},{$inc:{countInStock:-1}})
             res.status(205).json({ message:"increase quanity in cart"})
+            console.log(4)
         }
+        console.log(5)
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "add item error" })
