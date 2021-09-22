@@ -22,21 +22,25 @@ const getCart = asyncHandler(async (req, res) => {
 })
 
 
-//FIXME
-// Add a new cart to the DB
+
+// Add increase of decrease the quanity of item in cart
 const editQuantity = asyncHandler(async (req, res) => {
     try {
-        
-        const product = `products.${req.body.product}`
-        const currenCart = await Cart.updateOne({email:req.body.email},{$inc:{[product]:[req.body.change]}})
-        console.log(product)
-        
-        res.status(202).json({message:"successfully"})
+        //get the product name and the change in quantity
+        const {product, change} = req.body
+        const productLink = `products.${product}`
+        // edit the cart data in database
+        const currenCart = await Cart.updateOne({email:req.params.email},{$inc:{[productLink]:change}})
+        //edit the stock level
+        await Product.updateOne({name:product},{$inc:{countInStock:-change}})
+        res.status(202).json(await Cart.findOne({email:req.params.email}))
     } catch (e) {
     console.error(e);
     res.status(500).json({ message: "remove error" })
 }
 })
+
+
 // Add a new order to the DB
 // will read data from the cart then create order
 const confirmOrder = asyncHandler(async(req, res) => {

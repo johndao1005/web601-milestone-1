@@ -24,7 +24,7 @@ const addItem =  asyncHandler( async (req, res) => {
             res.status(404).json({ message: "product is unavailable"})
             console.log(2)
         }
-        if (!checkCart) {
+        else if (!checkCart) {
             const {name,price} = req.body
             newCart = await Cart.create({
                 email:  req.params.email,
@@ -43,10 +43,9 @@ const addItem =  asyncHandler( async (req, res) => {
                 {$inc:{[field]:1,subtotal:req.body.price}}
             )
             await Product.updateOne({name: req.body.name},{$inc:{countInStock:-1}})
-            res.status(205).json({ message:"increase quanity in cart"})
+            res.status(205).json(await Product.findOne({name: req.body.name}))
             console.log(4)
         }
-        console.log(5)
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "add item error" })

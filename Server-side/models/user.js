@@ -6,9 +6,9 @@ const userSchema = new Schema({
     name: {
         type: String,
         required: true,
-    },
+    }, 
     phoneNumber: {
-        type: Number,
+        type: String,
         required: false,
     },
     email:{
@@ -72,7 +72,6 @@ const orderSchema = new mongoose.Schema({
 },{timestamp:true})
 
 
-
 // start an action below before save, update user with pre('save',)
 userSchema.pre('save',async function(next){
     //check password is modified before moving on to next callback
@@ -84,17 +83,11 @@ userSchema.pre('save',async function(next){
     this.password = await bcrypt.hash(this.password,salt)
 })
 
-
 //decrypt the passworde
 //.methods create a method for the Schema which can be used with any child using the schema
 userSchema.methods.matchPassword = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password)
 }
-
-userSchema.methods.getEmail = async function () {
-    return await this.email
-}
-
 
 const Order = mongoose.model("Order", orderSchema);
 const User = mongoose.model("User", userSchema);
