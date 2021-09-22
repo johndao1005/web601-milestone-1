@@ -5,6 +5,8 @@ const asyncHandler = require('express-async-handler');
 const generateToken = require("../utils/generateToken")
 
 var session
+const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 //ANCHOR User side 
 // Register new users
 const registerUser = asyncHandler(async (req, res) => {
@@ -13,10 +15,12 @@ const registerUser = asyncHandler(async (req, res) => {
         const { email, DOB, name, password} = req.body;
         const userExists = await User.findOne({ email: email })
         if (userExists) {
-            res.status(400)
-            throw new Error('User Already Exists')
-        //FIXME can put simple validation here
-        } else if (!userExists) {
+            res.status(400).json({ message:'User Already Exists'})
+        } else if (password.length <7) {
+            res.status(400).json({ message:'Password Is Incorrect'})
+        } else if (!re.test(email.trim())) {
+            res.status(400).json({ message:'Email Is Invalid'})
+        }else{
             const newUser = await User.create(req.body)
             res.status(201).json(newUser)           
         }

@@ -26,19 +26,21 @@ Module
 
 The manual is focus on backend so instead of backend and frontend folder at the root directory, we will work directly with backend at root directory and all the files and folder can be moved into backend or Server-side folder afterward.
 
+An example of request and response of most routes is created and stored in `HTTP Requests.postman_collection.json`, the file can be imported and read in Postman software for example and better understand.
+
 ### Set up environment
 
 ####  Important Packets
 
-\- Node provides backend environment for the application
+\- `Node` provides backend environment for the application
 
-\- Express middleware is used to handle requests, routes, and session
+\- `Express` middleware is used to handle requests, routes, and session
 
-\- Mongoose schemas to model the application data
+\- `Mongoose` schemas to model the application data
 
-\- Bcrypt provides encryption for password allow better security
+\- `Bcrypt` provides encryption for password allow better security
 
-\- dotenv is used to hide the secret or important details
+\- `dotenv` is used to hide the secret or important details
 
 #### Install packets
 
@@ -78,7 +80,7 @@ The command can be run with `npm run <script>`
 
 Create .env file that include the:
 
-- MONGO_URI - uri provided from Mongodb
+- MONGO_URI - uri provided from Mongo dB
 - JWT_SECRET - Json web token for session and authentication
 - SESSION_SECRET - secret key to create express session
 - SESSION_TIME - maximum time for a session ( in millisecond)
@@ -290,12 +292,42 @@ By using `bcrypt`, we can encrypt the password to protect the user information a
 In order to encrypt the password, we need to work directly with the user model or `userSchema`
 
 - In models folder, open `user.js` and import `bcrypt` module under the `mongoose` import
+- Using `userSchema.pre()` and pass in the action `‘save’` and a call back function. This line of code would excuse the call back function before the action save (create or update)
+- In the function, first check if the password is already encrypted or `isModified()` before execute the next middleware `next()`
+- Determine the encrypt round with `bcrypt.genSalt(<number of round>)` then encrypt the password with `bcrypt.hash(this.password,<encryption round)`.
+
+Example snippet: 
+
+```javascript
+userSchema.pre('save',async function(next){
+    //check password is modified before moving on to next callback
+    if(!this.isModified('password')){
+        next();
+    }
+    // bcrypt functionality to encrypt password
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password,salt)
+})
+```
 
 ##### Authentication
 
+With authentication, for user to login, instead decrypt the password, we can create a method for `userSchema` to match the provided password and the encrypted password.
 
+- add a method to match password with `userSchema` with `userSchema.methods.matchPassword` and pass in an async function which take the provided password as argument
+-  Run `bcrypt.compare()` and return true or false comparing entered password and password in the database
+
+Example snippet :
+
+```javascript
+userSchema.methods.matchPassword = async function (enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password)
+}
+```
 
 #### Session
+
+
 
 
 

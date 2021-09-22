@@ -19,10 +19,8 @@ const addItem =  asyncHandler( async (req, res) => {
     try {
         const checkCart = await Cart.findOne({email: req.params.email})
         const currentProduct = await Product.findOne({name: req.body.name},{countInStock: 1,availability:1})
-        console.log(1)
         if(currentProduct.countInStock <1 || currentProduct.availability == false){
             res.status(404).json({ message: "product is unavailable"})
-            console.log(2)
         }
         else if (!checkCart) {
             const {name,price} = req.body
@@ -35,7 +33,6 @@ const addItem =  asyncHandler( async (req, res) => {
             })
             await Product.updateOne({name: req.body.name},{$inc:{countInStock:-1}})
             res.status(201).json({message:"New cart is created"})
-            console.log(3)
         } else {
             const field = `products.${req.body.name}`
             const currentCart = await Cart.updateOne(
@@ -44,7 +41,6 @@ const addItem =  asyncHandler( async (req, res) => {
             )
             await Product.updateOne({name: req.body.name},{$inc:{countInStock:-1}})
             res.status(205).json(await Product.findOne({name: req.body.name}))
-            console.log(4)
         }
     } catch (e) {
         console.error(e);
