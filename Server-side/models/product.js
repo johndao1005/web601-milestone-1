@@ -39,8 +39,8 @@ const cartSchema = new Schema({
         required: false
     },
     products: {
-        type: Array,
-        required: false
+        type: Object,
+        required: true
     },
     subtotal:{
         type: Number,
@@ -70,7 +70,6 @@ cartSchema.pre('save',async function(next){
     this.subtotal = total
     next()
 })
-
 
 const Cart = mongoose.model("Cart", cartSchema);
 const Product = mongoose.model("Product", productSchema);

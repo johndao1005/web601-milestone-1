@@ -6,12 +6,10 @@ const generateToken = require("../utils/generateToken")
 
 var session
 const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
 //ANCHOR User side 
 // Register new users
 const registerUser = asyncHandler(async (req, res) => {
     try {
-        
         const { email, DOB, name, password} = req.body;
         const userExists = await User.findOne({ email: email })
         if (userExists) {

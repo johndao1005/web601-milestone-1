@@ -51,10 +51,16 @@ const orderSchema = new mongoose.Schema({
         required: true
     }
     ,
-    products: {
-        type:Object,
-        require: true
-    },
+    products: Object
+    // [{
+    //     _id:false,
+    //     id:{type: Schema.Types.name , ref:'Product'},
+    //     quantity:{
+    //         type:Number,
+    //         default:1
+    //     }
+    // }]
+    ,
     subtotal:{
         type: Number,
         required: true

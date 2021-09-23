@@ -1,10 +1,11 @@
 const {Product,Cart} = require('../models/product');
 const asyncHandler = require('express-async-handler'); 
+const {User} = require("../models/user");
 
 //Working with Product
 const updateProductAvailability = asyncHandler( async(req, res) => {
     try {
-        await Product.updateOne({_id:req.body.id},{$set:{"availability":req.body.status}})
+        const updatedProduct = await Product.updateOne({_id:req.body.id},{$set:{"availability":req.body.status}})
         res.status(205).json({message:"Update successfully"})
     } catch (e) {
         console.error(e);
@@ -18,8 +19,10 @@ const addItem =  asyncHandler( async (req, res) => {
     try {
         const checkCart = await Cart.findOne({email: req.params.email})
         const currentProduct = await Product.findOne({name: req.body.name},{countInStock: 1,availability:1})
+        console.log(1)
         if(currentProduct.countInStock <1 || currentProduct.availability == false){
             res.status(404).json({ message: "product is unavailable"})
+            console.log(2)
         }
         else if (!checkCart) {
             const {name,price} = req.body
@@ -32,6 +35,7 @@ const addItem =  asyncHandler( async (req, res) => {
             })
             await Product.updateOne({name: req.body.name},{$inc:{countInStock:-1}})
             res.status(201).json({message:"New cart is created"})
+            console.log(3)
         } else {
             const field = `products.${req.body.name}`
             const currentCart = await Cart.updateOne(
@@ -40,6 +44,7 @@ const addItem =  asyncHandler( async (req, res) => {
             )
             await Product.updateOne({name: req.body.name},{$inc:{countInStock:-1}})
             res.status(205).json(await Product.findOne({name: req.body.name}))
+            console.log(4)
         }
     } catch (e) {
         console.error(e);
@@ -83,7 +88,7 @@ const getProductById = async(req, res) => {
 // Add a new product to the DB
 const addNewProduct = async(req, res) => {
     try {
-        const newProduct = await Product.updateOne({name:req.body.name},{$set:req.body},{upsert:true})// the product is added through ":id"
+        const newProduct = await Product.create(req.body); // the product is added through ":id"
         res.status(201).json(newProduct)
     } catch (e) {
         console.error(e);
