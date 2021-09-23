@@ -12,13 +12,17 @@ With the requirements and research of the latest and most popular technology ava
 
 Draw the hierarchy diagram to proper indicate and describe the web app server-side structure and all functional modules. You may have brief explanation on each module
 
-Flow Chart:
+### Flow Chart:
 
-![E-commerce diagram](./src/E-commerce diagram.jpeg)
+![E-commerce diagram](./src/flowchart.jpeg)
 
-Web App hierarchy:
+### Web App hierarchy:
 
-![E-commerce diagram (1)](./src/E-commerce diagram (2).jpeg)
+![E-commerce diagram (1)](./src/routes.jpeg)
+
+### Database design:
+
+![database design](./src/database.jpeg)
 
 ## 2. Web App Server-Side Manual
 

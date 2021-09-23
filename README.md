@@ -1,4 +1,4 @@
-![web601](C:\Users\johnd\Pictures\web601.png)
+![web601](.\src\web601.png)
 
 [TOC]
 
@@ -12,13 +12,17 @@ With the requirements and research of the latest and most popular technology ava
 
 Draw the hierarchy diagram to proper indicate and describe the web app server-side structure and all functional modules. You may have brief explanation on each module
 
-Flow Chart:
+### Flow Chart:
 
-![E-commerce diagram](C:\Users\johnd\workspace\web601-milestone-1\src\E-commerce diagram.jpeg)
+![E-commerce diagram](./src/flowchart.jpeg)
 
-Web App hierarchy:
+### Web App hierarchy:
 
-![E-commerce diagram (C:\Users\johnd\workspace\web601-milestone-1\src\E-commerce diagram (2).jpeg)](./src/E-commerce diagram (2).jpeg)
+![E-commerce diagram](./src/routes.jpeg)
+
+### Database design:
+
+![database design](./src/database.jpeg)
 
 ## 2. Web App Server-Side Manual
 
@@ -326,8 +330,7 @@ app.use(    sessions({    secret: process.env.SESSION_SECRET,    saveUninitializ
 Afterward, we can bind the session with user Id or email.
 
 ```javascript
-const currentUser = await User.findById(req.params.id)
-req.session.userId = currentUser._id
+const currentUser = await User.findById(req.params.id)req.session.userId = currentUser._id
 ```
 
 ## 3. Reference
