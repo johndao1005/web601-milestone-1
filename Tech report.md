@@ -1,4 +1,4 @@
-![web601](.\src\web601.png)
+![web601](./src/web601.png)
 
 [TOC]
 
@@ -283,6 +283,18 @@ module.exports = router
 const productRoutes = require("./routes/api/productRoutes");
 app.use("/product", productRoutes)
 ```
+
+- To test the route, we need to get the app run with either `node server.js` or `npm run start`, run Postman and enter the testing route and hopefully the correct response will come:
+
+![image-20210924100044071](./src/postman.png)
+
+More examples:
+
+![image-20210924102052218](./src/postman1.png)
+
+![image-20210924102208141](./src/postman2.png)
+
+
 
 ### Other setup
 

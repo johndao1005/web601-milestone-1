@@ -1,4 +1,4 @@
-![web601](.\src\web601.png)
+![web601](./src/web601.png)
 
 [TOC]
 
@@ -18,7 +18,7 @@ Draw the hierarchy diagram to proper indicate and describe the web app server-si
 
 ### Web App hierarchy:
 
-![E-commerce diagram](./src/routes.jpeg)
+![E-commerce diagram (1)](./src/routes.jpeg)
 
 ### Database design:
 
@@ -280,8 +280,21 @@ module.exports = router
 - Afterward, connect the routes to the `server.js` by store the route in a constant and run it with `app.use`
 
 ```javascript
-const productRoutes = require("./routes/api/productRoutes");app.use("/product", productRoutes)
+const productRoutes = require("./routes/api/productRoutes");
+app.use("/product", productRoutes)
 ```
+
+- To test the route, we need to get the app run with either `node server.js` or `npm run start`, run Postman and enter the testing route and hopefully the correct response will come:
+
+![image-20210924100044071](./src/postman.png)
+
+More examples:
+
+![image-20210924102052218](./src/postman1.png)
+
+![image-20210924102208141](./src/postman2.png)
+
+
 
 ### Other setup
 
@@ -301,7 +314,15 @@ In order to encrypt the password, we need to work directly with the user model o
 Example snippet: 
 
 ```javascript
-userSchema.pre('save',async function(next){    //check password is modified before moving on to next callback    if(!this.isModified('password')){        next();    }    // bcrypt functionality to encrypt password    const salt = await bcrypt.genSalt(10);    this.password = await bcrypt.hash(this.password,salt)})
+userSchema.pre('save',async function(next){
+    //check password is modified before moving on to next callback
+    if(!this.isModified('password')){
+        next();
+    }
+    // bcrypt functionality to encrypt password
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password,salt)
+})
 ```
 
 ##### Authentication
@@ -309,12 +330,14 @@ userSchema.pre('save',async function(next){    //check password is modified befo
 With authentication, for user to login, instead decrypt the password, we can create a method for `userSchema` to match the provided password and the encrypted password.
 
 - add a method to match password with `userSchema` with `userSchema.methods.matchPassword` and pass in an async function which take the provided password as argument
-- Run `bcrypt.compare()` and return true or false comparing entered password and password in the database
+-  Run `bcrypt.compare()` and return true or false comparing entered password and password in the database
 
 Example snippet :
 
 ```javascript
-userSchema.methods.matchPassword = async function (enteredPassword) {    return await bcrypt.compare(enteredPassword, this.password)}
+userSchema.methods.matchPassword = async function (enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password)
+}
 ```
 
 #### Session
@@ -324,13 +347,21 @@ Session would help user experience with browsing the webpage as with session, th
 While it is a work in progress as it would require further research but here is an example to set up session:
 
 ```javascript
-app.use(    sessions({    secret: process.env.SESSION_SECRET,    saveUninitialized: false,    cookie: { maxAge: parseInt(process.env.SESSION_TIME) },    resave: false,    }));
+app.use(
+    sessions({
+    secret: process.env.SESSION_SECRET,
+    saveUninitialized: false,
+    cookie: { maxAge: parseInt(process.env.SESSION_TIME) },
+    resave: false,
+    })
+);
 ```
 
 Afterward, we can bind the session with user Id or email.
 
 ```javascript
-const currentUser = await User.findById(req.params.id)req.session.userId = currentUser._id
+const currentUser = await User.findById(req.params.id)
+req.session.userId = currentUser._id
 ```
 
 ## 3. Reference
