@@ -52,7 +52,7 @@ const orderSchema = new mongoose.Schema({
     }
     ,
     products: {
-        type:Array,
+        type:Object,
         require: true
     },
     subtotal:{

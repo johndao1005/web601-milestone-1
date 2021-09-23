@@ -26,12 +26,12 @@ router.post('/delete/:email', deleteItem)
 //access user
 //status working 
 //need the cart id in req/params
-router.post('/confirm/:id', confirmOrder)
+router.post('/confirm/', confirmOrder)
 
 //desc, confirm the order from cart
 //route post /cart/change
 //access user
-//FIXME status: not working 
+// status working 
 //need user email in req.params
 router.post('/change/:email', editQuantity)
 

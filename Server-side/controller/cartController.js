@@ -45,21 +45,14 @@ const editQuantity = asyncHandler(async (req, res) => {
 // will read data from the cart then create order
 const confirmOrder = asyncHandler(async (req, res) => {
     try {
-
         //get data from cart
-        const { products, email, subtotal, id } = req.body
-        //check if cart is Empty
-        const currentCart = await Cart.findById(id)
-        if (currentCart.products == [] || currentCart.products == null) {
-            res.status(400).json({ message: "Can't make order with empty cart" })
-        } else {
-            // pass data to create an order
-            const neworder = await Order.create({ products, email, subtotal, state: "In progress" });
-            // remove the current cart
-            await Cart.deleteOne({ _id: id })
-            //return the new order
-            res.status(202).json(neworder)
-        }
+        const {products,email,subtotal,id} = req.body
+        // pass data to create an order
+        const neworder = await Order.create({products,email,subtotal,state:"In progress"}); // the order is added through ":id"
+        // remove the current cart
+        await Cart.deleteOne({email:email})
+        //return the new order
+        res.status(202).json(neworder)
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "server error" })

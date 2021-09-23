@@ -1,11 +1,10 @@
 const {Product,Cart} = require('../models/product');
 const asyncHandler = require('express-async-handler'); 
-const {User} = require("../models/user");
 
 //Working with Product
 const updateProductAvailability = asyncHandler( async(req, res) => {
     try {
-        const updatedProduct = await Product.updateOne({_id:req.body.id},{$set:{"availability":req.body.status}})
+        await Product.updateOne({_id:req.body.id},{$set:{"availability":req.body.status}})
         res.status(205).json({message:"Update successfully"})
     } catch (e) {
         console.error(e);
@@ -84,7 +83,7 @@ const getProductById = async(req, res) => {
 // Add a new product to the DB
 const addNewProduct = async(req, res) => {
     try {
-        const newProduct = await Product.create(req.body); // the product is added through ":id"
+        const newProduct = await Product.updateOne({name:req.body.name},{$set:req.body},{upsert:true})// the product is added through ":id"
         res.status(201).json(newProduct)
     } catch (e) {
         console.error(e);
