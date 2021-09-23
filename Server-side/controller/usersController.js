@@ -29,6 +29,31 @@ const registerUser = asyncHandler(async (req, res) => {
 
 })
 
+//edit user details
+const updateUser = asyncHandler(async (req, res) => {
+    try {
+        const { DOB, name, password, phoneNumber,pic } = req.body;
+        const userExists = await User.findById(req.params.id)
+        if (password.length <7) {
+            res.status(400).json({ message:'Password Is Incorrect'})
+        }else{
+            await User.findByIdAndUpdate(req.params.id, {$set:{
+                name: name,
+                DOB:DOB,
+                password: password,
+                phoneNumber: phoneNumber,
+                pic: pic
+            }})
+            res.status(201).json({message: "User is updated successfully"})           
+        }
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ message: "Update fail" })
+    }
+
+})
+
+
 //Check user log in
 const authUser = asyncHandler(async (req, res) => {
     try {// getting email and password details from req body
@@ -120,41 +145,17 @@ const deleteUser = asyncHandler(async (req, res) => {
     }
 })
 
-const searchOrder = asyncHandler(async (req, res) => {
-    try {// getting email and password details from req body
-        const aggregate = []
-        const { search, sort, type } = req.body;
-        if (search !== "") {
-            const regex = new RegExp(search, "i")
-            if (type == 0 || type == "email") { aggregate.push({ $match: { email: { $regex: regex } } }) }
-            if (type == "status") { aggregate.push({ $match: { status: { $regex: regex } } }) }
-        }
-        if (sort != 0 || sort == "date") {
-            aggregate.push({ $sort: { orderDate: 1 } })
-        } else if (sort == "status") {
-            aggregate.push({ $sort: { state: 1 } })
-        }
-        const products = await Order.aggregate(aggregate)
-        res.status(302).json(products)
-    } catch (e) {
-        console.error(e);
-        res.status(500).json({ message: "server error" })
-    }
-})
-
-
-
 const customerController = {
     registerUser,
     authUser,
-    searchProduct
+    searchProduct,
+    updateUser
 };
 
 const adminController = {
     findUser,
     getAllUsers,
-    deleteUser,
-    searchOrder
+    deleteUser
 };
 
 module.exports = {

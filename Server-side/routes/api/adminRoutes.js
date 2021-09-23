@@ -1,21 +1,21 @@
 const express = require("express")
 const router = express.Router();
 //ANCHOR get all controller
-const {
+const {searchProduct,
     getAllUsers,
     findUser,
-    deleteUser,
-    searchOrder
+    deleteUser
 } = require("../../controller/usersController")
 
 const {
     getOrder,
     findOrderbyId,
     updateOrderStatus,
-    //searchOrder,
+    searchOrder,
 } = require("../../controller/orderController")
     
 const{
+    getAllProducts,
     deleteProduct,
     addNewProduct,
     editProduct,
@@ -77,9 +77,16 @@ router.post('/updateOrder/:id', updateOrderStatus)
 //     "search":"",
 //     "type":0
 // }
-router.get('/search', searchOrder)
+router.get('/order/search', searchOrder)
 
 //ANCHOR Working with products
+
+//desc, get all the product
+//route get /admin/product
+//access admin
+//status: working
+router.get('/product', getAllProducts)
+
 
 //desc delete product from database
 //route get /admin/deleteProduct/:id
@@ -103,6 +110,14 @@ router.post('/new', addNewProduct)
 //need product id in req.params and product details in req.params
 router.post('/product/edit/:id', editProduct)
 
+
+//desc edit products details
+//route get /admin/product/edit/:id
+//access admin
+//status: working
+//need product id in req.params and product details in req.params
+router.post('/product/search/', searchProduct)
+
 //desc update product availability
 //route get /admin/product/update
 //access admin
@@ -111,7 +126,5 @@ router.post('/product/edit/:id', editProduct)
 // {"id":"614418d624e849c7ccd69b22",
 // "status":false}
 router.post('/product/:id/:status', updateProductAvailability)
-
-
 
 module.exports = router

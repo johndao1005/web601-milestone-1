@@ -1,5 +1,4 @@
 const {Order,User} = require('../models/user');
-const {Product,Cart} = require('../models/product');
 const asyncHandler = require('express-async-handler'); 
 
 //ANCHOR Working with ORDER
@@ -52,6 +51,28 @@ const updateOrderStatus = asyncHandler( async(req, res) => {
     }
 })
 
+//Search all the products as admin
+const searchOrder = asyncHandler(async (req, res) => {
+    try {// getting email and password details from req body
+        const aggregate = []
+        const { search, sort, type } = req.body;
+        if (search !== "") {
+            const regex = new RegExp(search, "i")
+            if (type == 0 || type == "email") { aggregate.push({ $match: { email: { $regex: regex } } }) }
+            if (type == "status") { aggregate.push({ $match: { status: { $regex: regex } } }) }
+        }
+        if (sort != 0 || sort == "date") {
+            aggregate.push({ $sort: { orderDate: 1 } })
+        } else if (sort == "status") {
+            aggregate.push({ $sort: { state: 1 } })
+        }
+        const products = await Order.aggregate(aggregate)
+        res.status(302).json(products)
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ message: "server error" })
+    }
+})
 
 
 
@@ -59,5 +80,6 @@ module.exports = {
     findOrderbyId,
     findOrderbyEmail,
     getOrder,
-    updateOrderStatus
+    updateOrderStatus,
+    searchOrder
 }
