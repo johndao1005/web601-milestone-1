@@ -14,17 +14,17 @@ Draw the hierarchy diagram to proper indicate and describe the web app server-si
 
 Flow Chart:
 
-![E-commerce diagram](C:\Users\johnd\workspace\web601-milestone-1\E-commerce diagram.jpeg)
+![E-commerce diagram](./src/E-commerce diagram.jpeg)
 
 Web App hierarchy:
 
-![E-commerce diagram (1)](C:\Users\johnd\workspace\web601-milestone-1\E-commerce diagram (2).jpeg)
+![E-commerce diagram (1)](./src/E-commerce diagram (2).jpeg)
 
 ## 2. Web App Server-Side Manual
 
 The manual is focus on backend so instead of backend and frontend folder at the root directory, we will work directly with backend at root directory and all the files and folder can be moved into backend or Server-side folder afterward.
 
-An example of request and response of most routes is created and stored in `HTTP Requests.postman_collection.json`, the file can be imported and read in Postman software for example and better understand.
+***<u>IMPORTANT</u>*** An example of request and response of most routes is created and stored in `src` folder as `HTTP Requests.postman_collection.json`, the file can be imported and read in Postman software for example and better understand.
 
 ### Set up environment
 
@@ -326,11 +326,27 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
 
 #### Session
 
+Session would help user experience with browsing the webpage as with session, there will be less data travel back and forward for authentication as well as confirmation as user can confirm most request within their power and get the response right away while the request to database is made in the background.
 
+While it is a work in progress as it would require further research but here is an example to set up session:
 
+```javascript
+app.use(
+    sessions({
+    secret: process.env.SESSION_SECRET,
+    saveUninitialized: false,
+    cookie: { maxAge: parseInt(process.env.SESSION_TIME) },
+    resave: false,
+    })
+);
+```
 
+Afterward, we can bind the session with user Id or email.
 
-
+```javascript
+const currentUser = await User.findById(req.params.id)
+req.session.userId = currentUser._id
+```
 
 ## 3. Reference
 

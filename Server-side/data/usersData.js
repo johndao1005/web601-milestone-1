@@ -1,3 +1,4 @@
+//IMPORTANT: The password is not encrypted with bcrypt so many not work when login
 const usersData = [{
         name: "john.dao",
         password: "Dao",
