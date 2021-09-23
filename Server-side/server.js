@@ -22,7 +22,7 @@ const{notFound,errorHandler}= require("./middlewares/errorMiddleware")
 const connectDB = require("./config/db")
 
 //ANCHOR start the esstential
-connectDB() //connect to database with base log in
+//connectDB() //connect to database with base log in
 
  // start an instance of the app
 const app = express();
