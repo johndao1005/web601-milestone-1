@@ -1,4 +1,4 @@
-![web601](C:\Users\johnd\Pictures\web601.png)
+![web601](.\src\web601.png)
 
 [TOC]
 
