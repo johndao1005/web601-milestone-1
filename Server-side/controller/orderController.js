@@ -74,12 +74,23 @@ const searchOrder = asyncHandler(async (req, res) => {
     }
 })
 
-
+const deleteOrder = async(req, res) => {
+    try {
+        const {confirm} = req.body
+        if(confirm == "Yes"){
+            const deleteUser = await Order.deleteOne({ _id: req.params.id })
+        res.status(410).json({message:"Delete successfully"})}
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ message: "server error" })
+    }
+}
 
 module.exports = {
     findOrderbyId,
     findOrderbyEmail,
     getOrder,
     updateOrderStatus,
-    searchOrder
+    searchOrder,
+    deleteOrder
 }

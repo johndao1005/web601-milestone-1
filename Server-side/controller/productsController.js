@@ -98,13 +98,16 @@ const addNewProduct = async(req, res) => {
 // Delete product
 const deleteProduct = async(req, res) => {
     try {
-        const deletedProduct = await Product.deleteOne({_id: req.params.id});
-        res.status(410).json({message: "Delete successful",deletedProduct})
+        const {confirm} = req.body
+        if(confirm == "Yes"){
+            const deletedUser = await Product.deleteOne({ _id: req.params.id })
+        res.status(410).json({message:"Delete successfully"})}
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "server error" })
     }
 }
+
 
 module.exports = {
     addItem,

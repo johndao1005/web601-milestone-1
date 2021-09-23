@@ -8,6 +8,7 @@ const {searchProduct,
 } = require("../../controller/usersController")
 
 const {
+    deleteOrder,
     getOrder,
     findOrderbyId,
     updateOrderStatus,
@@ -59,6 +60,14 @@ router.get('/order', getOrder)
 //status: working
 //need order id in req.params
 router.get('/order/:id', findOrderbyId)
+
+//desc delete user from database
+//route get /admin/deleteUser/:id
+//access admin
+//status: working
+//need order id
+router.post('/deleteOrder/:id', deleteOrder)
+
 
 //desc update order status
 //route post /admin/updateProduct/:id

@@ -137,8 +137,10 @@ const findUser = asyncHandler(async (req, res) => {
 // delete user
 const deleteUser = asyncHandler(async (req, res) => {
     try {
-        const deletedUser = await User.deleteOne({ _id: req.params.id })
-        res.status(410).json(deletedUser)
+        const {confirm} = req.body
+        if(confirm == "Yes"){
+            const deletedUser = await User.deleteOne({ _id: req.params.id })
+        res.status(410).json({message:"Delete successfully"})}
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "server error" })
