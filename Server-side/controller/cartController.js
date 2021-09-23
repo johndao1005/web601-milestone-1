@@ -61,12 +61,12 @@ const confirmOrder = asyncHandler(async(req, res) => {
 
 const deleteItem = asyncHandler(async (req, res) => {
     try {
-
+        const product = `product.${req.body.name}`
         const updatedCart = await Cart.findByIdAndUpdate(
-            req.params.id,{$set :{}}
+            req.params.id,{$set :{[product]:0}}
         )
-        await Product.updateOne({ name: req.body.product }, { $inc: { countInStock: req.body.quantity } })
-        res.status(202).json(await Cart.findOne({ email: req.params.email }))//{message:"Removed Item"})
+        await Product.updateOne({ name: req.body.name },)// { $inc: { countInStock: req.body.quantity } })
+        res.status(202).json({ message:"Item deleted"})//{message:"Removed Item"})
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "server error" })

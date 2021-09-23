@@ -35,7 +35,6 @@ const addItem =  asyncHandler( async (req, res) => {
             })
             await Product.updateOne({name: req.body.name},{$inc:{countInStock:-1}})
             res.status(201).json({message:"New cart is created"})
-            console.log(3)
         } else {
             const field = `products.${req.body.name}`
             const currentCart = await Cart.updateOne(
@@ -43,8 +42,8 @@ const addItem =  asyncHandler( async (req, res) => {
                 {$inc:{[field]:1,subtotal:req.body.price}}
             )
             await Product.updateOne({name: req.body.name},{$inc:{countInStock:-1}})
-            res.status(205).json(await Product.findOne({name: req.body.name}))
-            console.log(4)
+            res.status(205).json(await Product.findOne({name: req.body.name},{name:1,countInStock:1}))
+
         }
     } catch (e) {
         console.error(e);

@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router();
 const {
+    deleteItem,
     editQuantity,
     getCart,
     confirmOrder
@@ -23,8 +24,15 @@ router.post('/confirm', confirmOrder)
 //desc, confirm the order from cart
 //route post /cart/change
 //access user
-//FIXME status: not working 
+//status working 
 //need user email in req.params
 router.post('/change/:email', editQuantity)
+
+//desc, confirm the order from cart
+//route post /cart/delete/:id
+//access user
+//FIXME status not working 
+//need cart id req.params and product name and quantity in req.body
+router.post('delete/:id',deleteItem)
 
 module.exports = router

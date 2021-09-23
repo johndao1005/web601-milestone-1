@@ -1,13 +1,4 @@
-const cartsData = [{
-    email: "joo2@gmail.com",
-    products: { "PlayStation 5": [2, 499], "Iphone 12": [1, 1099], "Amazon Alexa": [2, 50] },
-    subtotal: 0
-},
-{
-    email: "joo1@gmail.com",
-    products: { "PlayStation 5": [2, 499], "Iphone 12": [1, 1099], "Amazon Alexa": [2, 50] },
-    subtotal: 0
-},
+const cartsData = [
 {
     email: "joo3@gmail.com",
     products: {
