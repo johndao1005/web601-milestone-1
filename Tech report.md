@@ -14,13 +14,11 @@ Draw the hierarchy diagram to proper indicate and describe the web app server-si
 
 Flow Chart:
 
-![E-commerce diagram](C:\Users\johnd\Downloads\E-commerce diagram.jpeg)
+![E-commerce diagram](C:\Users\johnd\workspace\web601-milestone-1\E-commerce diagram.jpeg)
 
 Web App hierarchy:
 
-![E-commerce diagram (1)](C:\Users\johnd\Downloads\E-commerce diagram (1).jpeg)
-
-Module
+![E-commerce diagram (1)](C:\Users\johnd\workspace\web601-milestone-1\E-commerce diagram (2).jpeg)
 
 ## 2. Web App Server-Side Manual
 
@@ -195,7 +193,7 @@ const productSchema = new Schema({
 },{timestamp:true});
 
 const Product = model("Product", productSchema);
-module.exports = {Product,Cart}
+module.exports = Product
 ```
 
 The same can be used to apply for User, Cart and Order
@@ -211,7 +209,7 @@ Controller will using the model to connect to database to process data from requ
 - Create response with appropriate status code as well as message or new data to confirm the controller working.
 
 ```javascript
-const {Product,Cart} = require('../models/product');
+const Product = require('../models/product');
 const getProductById = async(req, res) => {
     try {
         const currentProduct = await Product.findById(req.params.id);
@@ -264,7 +262,8 @@ const router = express.Router();
 const {
     addItem,
     getProductById
-} = require("../../controller/productsController")
+} = require("../controller/productsController")
+
 //desc, get a product by id from db
 //route get /products/:id
 //access public
@@ -331,9 +330,12 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
 
 
 
+
+
 ## 3. Reference
 
 - “HTTP Response Status Codes - HTTP | MDN.” Accessed September 22, 2021. https://developer.mozilla.org/en-US/docs/Web/HTTP/Status.
 - JavaScript Mastery. *Full Stack MERN Project - Build and Deploy an App | React + Redux, Node, Express, MongoDB [Part 2/2]*, 2020. https://www.youtube.com/watch?v=aibtHnbeuio.
 - The Full Stack Junkie. *Full Stack ECommerce Cart Build (React, Redux, Node, Express, MongoDB)...From Scratch💥*, 2020. https://www.youtube.com/watch?v=0divhP3pEsg.
 - RoadsideCoder. *Complete User Authentication in React JS , Node, Express, MongoDB with JWT - MERN Stack Tutorial #10*, 2021. https://www.youtube.com/watch?v=iw5RSIflYGU.
+

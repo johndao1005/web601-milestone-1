@@ -51,7 +51,7 @@ router.post('/login', authUser)
 router.post('/register', registerUser)
 
 //desc edit the user details
-//route post /user/edit/:id
+//route post /update/:id
 //access user
 //status: working
 // need data from req.body
@@ -59,7 +59,7 @@ router.post('/update/:id', updateUser)
 
 
 //desc search the database with user input
-//route get /user/search/
+//route get /search/
 //access public
 //status: working
 //need to have filter in req.body
@@ -71,7 +71,7 @@ router.post('/update/:id', updateUser)
 router.get('/search', searchProduct)
 
 //desc, get a specific user details with user id
-//route get /api/products/:id
+//route get /detail/id
 //access admin
 //status: working
 //need user id

@@ -59,6 +59,7 @@ const confirmOrder = asyncHandler(async(req, res) => {
     }
 })
 
+//FIXME please 
 const deleteItem = asyncHandler(async (req, res) => {
     try {
         const product = `product.${req.body.name}`
