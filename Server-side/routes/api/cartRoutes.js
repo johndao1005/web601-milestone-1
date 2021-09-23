@@ -3,15 +3,23 @@ const router = express.Router();
 const {
     editQuantity,
     getCart,
-    confirmOrder
+    confirmOrder,
+    deleteItem
 } = require("../../controller/cartController")
 
 //desc get the cart relate to current user
 //route get /cart/:id
 //access user
 //status working
-//need user id for req/params
-router.get('/:id', getCart)
+//need user email for req/params
+router.get('/:email', getCart)
+
+//desc delete a product incart
+//route post /cart/delete/:email
+//access user
+//status 
+//need user email for req/params
+router.post('/delete/:email', deleteItem)
 
 //desc confirm the order from cart
 //route post /cart/confirm/:id

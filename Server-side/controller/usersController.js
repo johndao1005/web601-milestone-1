@@ -22,7 +22,7 @@ const registerUser = asyncHandler(async (req, res) => {
             res.status(400).json({ message:'Email Is Invalid'})
         }else{
             const newUser = await User.create(req.body)
-            res.status(201).json(newUser)           
+            res.status(201).json({message: "User is created successfully"})           
         }
     } catch (e) {
         console.error(e);

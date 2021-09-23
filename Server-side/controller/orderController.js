@@ -21,7 +21,7 @@ const findOrderbyEmail = asyncHandler(async(req, res) => {
         const currentUser = await User.findById(req.params.id)
         //query to find the order with the current id
         const order = await Order.find({email:currentUser.email});  
-        res.status(302).json(order)
+        res.status(302).json({},order)
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "server error" })
