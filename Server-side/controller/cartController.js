@@ -64,7 +64,7 @@ const confirmOrder = asyncHandler(async(req, res) => {
 })
 
 //FIXME please 
-const deleteItem = asyncHandler(async (req, res) => {
+const deleteItem = asyncHandler (async (req, res) => {
     try {
         const product = `product.${req.body.name}`
         const updatedCart = await Cart.findByIdAndUpdate(
