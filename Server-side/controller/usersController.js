@@ -32,7 +32,7 @@ const registerUser = asyncHandler(async (req, res) => {
 //edit user details
 const updateUser = asyncHandler(async (req, res) => {
     try {
-        const { DOB, name, password, phoneNumber,pic } = req.body;
+        const { DOB, name, phoneNumber,pic } = req.body;
         const userExists = await User.findById(req.params.id)
         if (password.length <7) {
             res.status(400).json({ message:'Password Is Incorrect'})
@@ -40,7 +40,6 @@ const updateUser = asyncHandler(async (req, res) => {
             await User.findByIdAndUpdate(req.params.id, {$set:{
                 name: name,
                 DOB:DOB,
-                password: password,
                 phoneNumber: phoneNumber,
                 pic: pic
             }})

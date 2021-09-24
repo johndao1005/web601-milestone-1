@@ -65,8 +65,9 @@ const editProduct = asyncHandler( async(req, res) => {
 //Listing all the current product 
 const getAllProducts = async(req, res) => {
     try {
-        const productList = await Product.find({});
-        res.status(200).json(productList)
+        const productList = await Product.find();
+        const numberofProducts = await Product.find().count()
+        res.status(200).json({productList})
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "server error" })
