@@ -46,13 +46,17 @@ const editQuantity = asyncHandler(async (req, res) => {
 const confirmOrder = asyncHandler(async(req, res) => {
     try {
         //get data from cart
-        const {products,email,subtotal,id} = req.body
+        const {products,email,subtotal} = req.body
         // pass data to create an order
-        const neworder = await Order.create({products,email,subtotal,state:"In progress"}); // the order is added through ":id"
+        const neworder = await Order.create({
+            products:products,
+            email:email,
+            subtotal:subtotal,
+            state:"In progress"}); // the order is added through ":id"
         // remove the current cart
-        await Cart.findByIdAndDelete(id)
+        await Cart.deleteOne({email:email})
         //return the new order
-        res.status(202).json(neworder)
+        res.status(202).json({message:"Order created",neworder})
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "server error" })
