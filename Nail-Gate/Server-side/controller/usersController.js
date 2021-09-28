@@ -66,13 +66,11 @@ const authUser = asyncHandler(async (req, res) => {
                 res.status(2002).json({
                     message: `Welcome Admin ${user.name}`
                 })
-                console.log("Admin")
             }else {
                 req.session.type = "Customer";
                 res.status(202).json({
                     message: `Welcome ${user.name}`
                 })
-                console.log("User")
             }
         } else {
             res.status(406).json({ message: "Invalid username/password" })

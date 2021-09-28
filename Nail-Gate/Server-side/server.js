@@ -55,7 +55,6 @@ app.use(cookieParser());
 
 // Start middleware
 app.use((req, res, next) => {
-    console.log("Read request");
     if (req.session.userId != null) {
     console.log(req.session.userId);
     }

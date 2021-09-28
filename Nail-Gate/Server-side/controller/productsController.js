@@ -19,10 +19,8 @@ const addItem =  asyncHandler( async (req, res) => {
     try {
         const checkCart = await Cart.findOne({email: req.params.email})
         const currentProduct = await Product.findOne({name: req.body.name},{countInStock: 1,availability:1})
-        console.log(1)
         if(currentProduct.countInStock <1 || currentProduct.availability == false){
             res.status(404).json({ message: "product is unavailable"})
-            console.log(2)
         }
         else if (!checkCart) {
             const {name,price} = req.body

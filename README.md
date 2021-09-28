@@ -1,4 +1,4 @@
-![web601](./src/web601.png)
+![web601](./Nail-Gate/src/web601.png)
 
 [TOC]
 
@@ -14,15 +14,15 @@ Draw the hierarchy diagram to proper indicate and describe the web app server-si
 
 ### Flow Chart:
 
-![E-commerce diagram](./src/flowchart.jpeg)
+![E-commerce diagram](./Nail-Gate/src/flowchart.jpeg)
 
 ### Web App hierarchy:
 
-![E-commerce diagram (1)](./src/routes.jpeg)
+![E-commerce diagram (1)](./Nail-Gate/src/routes.jpeg)
 
 ### Database design:
 
-![database design](./src/database.jpeg)
+![database design](./Nail-Gate/src/database.jpeg)
 
 ## 2. Web App Server-Side Manual
 
@@ -286,13 +286,13 @@ app.use("/product", productRoutes)
 
 - To test the route, we need to get the app run with either `node server.js` or `npm run start`, run Postman and enter the testing route and hopefully the correct response will come:
 
-![image-20210924100044071](./src/postman.png)
+![image-20210924100044071](./Nail-Gate/src/postman.png)
 
 More examples:
 
-![image-20210924102052218](./src/postman1.png)
+![image-20210924102052218](./Nail-Gate/src/postman1.png)
 
-![image-20210924102208141](./src/postman2.png)
+![image-20210924102208141](./Nail-Gate/src/postman2.png)
 
 
 
@@ -370,4 +370,3 @@ req.session.userId = currentUser._id
 - JavaScript Mastery. *Full Stack MERN Project - Build and Deploy an App | React + Redux, Node, Express, MongoDB [Part 2/2]*, 2020. https://www.youtube.com/watch?v=aibtHnbeuio.
 - The Full Stack Junkie. *Full Stack ECommerce Cart Build (React, Redux, Node, Express, MongoDB)...From Scratch💥*, 2020. https://www.youtube.com/watch?v=0divhP3pEsg.
 - RoadsideCoder. *Complete User Authentication in React JS , Node, Express, MongoDB with JWT - MERN Stack Tutorial #10*, 2021. https://www.youtube.com/watch?v=iw5RSIflYGU.
-

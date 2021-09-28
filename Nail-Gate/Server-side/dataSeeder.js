@@ -24,10 +24,6 @@ const importuser = async() => {
         await User.deleteMany({})
 
         await User.insertMany(usersData)
-
-        console.log("Users export to DB Success")
-
-
     } catch (e) {
         console.error(`Error with user import ${e}`)
         process.exit(1)
@@ -39,9 +35,6 @@ const importuser = async() => {
 const importProducts = async() => {
     try {
         const productList = await Product.find({})
-
-        console.log("Products data read Success")
-        // console.log(productList)
         // process.exit()
     } catch (e) {
         console.error(`Error with product import ${e}`)
@@ -55,8 +48,6 @@ const updateUser = async(currentName, newName) => {
     try {
         await User.updateOne({ firstName: currentName }, { $set: { firstName: newName } }, { upsert: true })
         const updatedUser = await User.find({ firstName: newName })
-        console.log("User update successful")
-        // console.log(updatedUser)
         // process.exit()
     } catch (e) {
         console.error(`Exit program due to error ${e} `)
@@ -83,7 +74,6 @@ const importData = async() => {
 
         await Product.insertMany(productsData)
 
-        console.log("data export to DB Success")
         process.exit(0)
 
     } catch (e) {
