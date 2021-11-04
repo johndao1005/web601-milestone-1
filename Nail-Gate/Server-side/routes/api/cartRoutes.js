@@ -31,8 +31,7 @@ router.post('/change/:email', editQuantity)
 //desc, confirm the order from cart
 //route post /cart/delete/:id
 //access user
-//FIXME status not working 
 //need cart id req.params and product name and quantity in req.body
-router.post('delete/:id',deleteItem)
+router.delete('delete/:id',deleteItem)
 
 module.exports = router

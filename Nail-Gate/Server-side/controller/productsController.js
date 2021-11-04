@@ -98,7 +98,7 @@ const addNewProduct = async(req, res) => {
 const deleteProduct = async(req, res) => {
     try {
         const {confirm} = req.body
-        if(confirm == "Yes"){
+        if(confirm === "Yes"){
             const deletedUser = await Product.deleteOne({ _id: req.params.id })
         res.status(410).json({message:"Delete successfully"})}
     } catch (e) {

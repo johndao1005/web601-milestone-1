@@ -44,7 +44,7 @@ router.get('/user/:id', findUser)
 //access admin
 //status: working
 //need user id
-router.post('/deleteUser/:id', deleteUser)
+router.delete('/deleteUser/:id', deleteUser)
 
 //ANCHOR Working with Orders
 
@@ -66,7 +66,7 @@ router.get('/order/:id', findOrderbyId)
 //access admin
 //status: working
 //need order id
-router.post('/deleteOrder/:id', deleteOrder)
+router.delete('/deleteOrder/:id', deleteOrder)
 
 
 //desc update order status
