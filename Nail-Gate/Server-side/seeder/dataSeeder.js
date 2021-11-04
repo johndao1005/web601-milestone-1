@@ -3,17 +3,18 @@ require('dotenv').config()
 
 const { MongoClient } = require('mongodb')
 
-const connectDB = require("./config/db")
+const connectDB = require("../config/db")
 
-const productsData = require("./data/productsData")
-const {Product,Cart} = require("./models/product")
+const productsData = require("../data/productsData")
+const {Product,Cart} = require("../models/product")
 
-const {User,Order} = require("./models/user")
-const usersData = require("./data/usersData")
-const cartsData = require("./data/cartsData")
-const ordersData = require("./data/ordersData")
+const {User,Order} = require("../models/user")
+const usersData = require("../data/usersData")
+const cartsData = require("../data/cartsData")
+const ordersData = require("../data/ordersData")
 
 connectDB();
+
 
 
 //demonstrate CRUD
@@ -81,7 +82,5 @@ const importData = async() => {
         process.exit(1)
     }
 }
+
 importData()
-// importProducts()
-// importuser()
-// updateUser("John", "Kimmy")
