@@ -102,7 +102,7 @@ router.get('/product', getAllProducts)
 //access admin
 //status: working
 //need product id for req.params
-router.post('/deleteProduct/:id', deleteProduct )
+router.delete('/deleteProduct/:id', deleteProduct )
 
 
 //desc add new product to databse

@@ -99,8 +99,8 @@ const deleteProduct = async(req, res) => {
     try {
         const {confirm} = req.body
         if(confirm === "Yes"){
-            const deletedUser = await Product.deleteOne({ _id: req.params.id })
-        res.status(410).json({message:"Delete successfully"})}
+            const deleteProduct = await Product.deleteOne({ _id: req.params.id })
+        res.status(200).json({message:"Delete successfully"})}
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "server error" })
