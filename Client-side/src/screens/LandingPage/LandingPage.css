@@ -1,0 +1,32 @@
+.main {
+    width: 100%;
+    display: flex;
+    background-image: '/background.png';
+    background-position: center;
+    background-size: cover;
+}
+
+.hero {
+    min-height: 45vh;
+}
+
+.feature{
+    background: rgb(21,140,186);
+    color: white;
+}
+
+.center{
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.landingbutton{
+    width: 200px;
+    height:55px;
+}
