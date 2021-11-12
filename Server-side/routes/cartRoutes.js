@@ -5,7 +5,7 @@ const {
     editQuantity,
     getCart,
     confirmOrder
-} = require("../../controller/cartController")
+} = require("../controller/cartController")
 
 //desc get the cart relate to current user
 //route get /cart/:id

@@ -5,7 +5,7 @@ const {searchProduct,
     getAllUsers,
     findUser,
     deleteUser
-} = require("../../controller/usersController")
+} = require("../controller/usersController")
 
 const {
     deleteOrder,
@@ -13,7 +13,7 @@ const {
     findOrderbyId,
     updateOrderStatus,
     searchOrder,
-} = require("../../controller/orderController")
+} = require("../controller/orderController")
     
 const{
     getAllProducts,
@@ -21,7 +21,7 @@ const{
     addNewProduct,
     editProduct,
     updateProductAvailability,
-} = require("../../controller/productsController")
+} = require("../controller/productsController")
 //ANCHOR start the router
 
 //ANCHOR Working with Users

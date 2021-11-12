@@ -4,7 +4,7 @@ const {
     addItem,
     getProductById,
     
-} = require("../../controller/productsController")
+} = require("../controller/productsController")
     //the function is in the controller folder
 
 

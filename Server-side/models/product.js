@@ -11,7 +11,7 @@ const productSchema = new Schema({
         required: true,
     },
     category: {
-        type:Array,
+        type: Array,
         required: true
     },
     price: {
@@ -31,41 +31,38 @@ const productSchema = new Schema({
         required: true,
         default: true,
     }
-},{timestamp:true});
+}, { timestamp: true });
 
 const cartSchema = new Schema({
-    email: {
-        type: String,
-        required: false
-    },
-    products: {
-        type: Object,
-        required: true
-    },
-    subtotal:{
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User',
+      },
+    cartItems: [
+        {
+            name: { type: String, required: true },
+            qty: { type: Number, required: true },
+            image: { type: String, required: true },
+            price: { type: Number, required: true },
+            product: {
+                type: mongoose.Schema.Types.ObjectId,
+                required: true,
+                ref: 'Product',
+            },
+        },
+    ],
+    subtotal: {
         type: Number,
         required: true
     }
 })
 
-//creating method for cart to update subtotal after action
-// cartSchema.methods.updateTotal =async function (userEmail){
-        
-//     const {products} = await Cart.findOne({
-//             email:userEmail
-//         })
-//         let total = 0
-//         for ( const quantity in products){
-//             const {price} = await Product.findOne({name:item})
-//             total += parseFloat(price)* parseInt(products[quantity])
-//         }
-//         await Cart.updateOne({email:userEmail},{$set:{subtotal:total}})
-// }
-cartSchema.pre('save',async function(next){
+cartSchema.pre('save', async function (next) {
     let total = 0
-    for ( const quantity in this.products){
-        const {price} = await Product.findOne({name:quantity})
-        total += parseFloat(price)* parseInt(this.products[quantity])
+    for (const quantity in this.products) {
+        const { price } = await Product.findOne({ name: quantity })
+        total += parseFloat(price) * parseInt(this.products[quantity])
     }
     this.subtotal = total
     next()
@@ -73,4 +70,4 @@ cartSchema.pre('save',async function(next){
 
 const Cart = mongoose.model("Cart", cartSchema);
 const Product = mongoose.model("Product", productSchema);
-module.exports = {Product,Cart}
+module.exports = { Product, Cart }

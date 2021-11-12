@@ -8,16 +8,16 @@ const {
     authUser, 
     searchProduct,
     updateUser
-} = require("../../controller/usersController")
+} = require("../controller/usersController")
 
 const {
     findOrderbyEmail
-} = require("../../controller/orderController")
+} = require("../controller/orderController")
 
 
 const {
     getAllProducts
-} = require("../../controller/productsController")
+} = require("../controller/productsController")
 
 
 

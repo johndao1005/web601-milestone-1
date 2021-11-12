@@ -74,7 +74,7 @@ const searchOrder = asyncHandler(async (req, res) => {
     }
 })
 
-const deleteOrder = async(req, res) => {
+const deleteOrder = asyncHandler(async(req, res) => {
     try {
         const {confirm} = req.body
         if(confirm == "Yes"){
@@ -84,7 +84,7 @@ const deleteOrder = async(req, res) => {
         console.error(e);
         res.status(500).json({ message: "server error" })
     }
-}
+})
 
 module.exports = {
     findOrderbyId,

@@ -6,12 +6,12 @@ const userSchema = new Schema({
     name: {
         type: String,
         required: true,
-    }, 
+    },
     phoneNumber: {
         type: String,
         required: false,
     },
-    email:{
+    email: {
         type: String,
         required: true,
         unique: true,
@@ -20,67 +20,77 @@ const userSchema = new Schema({
         type: String,
         required: false,
     },
-    password:{
-        type:String,
-        required:true
+    password: {
+        type: String,
+        required: true
     },
-    isAdmin:{
-        type:Boolean,
-        required:true,
-        default:false
+    isAdmin: {
+        type: Boolean,
+        required: true,
+        default: false
     },
-    pic:{
-        type:String,
-        required:false,
-        default:""
+    pic: {
+        type: String,
+        required: false,
+        default: ""
     },
-},{
-        timestamp:true,//this will check when the user is created and updated
+}, {
+    timestamp: true,//this will check when the user is created and updated
 });
 
 
 
 const orderSchema = new mongoose.Schema({
-    orderDate:{
+    orderDate: {
         type: Date,
         default: Date.now,
         required: true
     },
-    email: {
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User',
+      },
+    shippingAddress: {
+        address: { type: String, required: true },
+        city: { type: String, required: true },
+        postalCode: { type: String, required: true },
+        country: { type: String, required: true },
+    },
+    orderItems: [
+        {
+            name: { type: String, required: true },
+            qty: { type: Number, required: true },
+            image: { type: String, required: true },
+            price: { type: Number, required: true },
+            product: {
+                type: mongoose.Schema.Types.ObjectId,
+                required: true,
+                ref: 'Product',
+            },
+        },
+    ],
+    subtotal: {
+        type: Number,
+        required: true,
+        default: 0.0,
+    },
+    state: {
         type: String,
         required: true
     }
-    ,
-    products: Object
-    // [{
-    //     _id:false,
-    //     id:{type: Schema.Types.name , ref:'Product'},
-    //     quantity:{
-    //         type:Number,
-    //         default:1
-    //     }
-    // }]
-    ,
-    subtotal:{
-        type: Number,
-        required: true
-    },
-    state:{
-        type:String,
-        required: true
-    }
-},{timestamp:true})
+}, { timestamp: true })
 
 
 // start an action below before save, update user with pre('save',)
-userSchema.pre('save',async function(next){
+userSchema.pre('save', async function (next) {
     //check password is modified before moving on to next callback
-    if(!this.isModified('password')){
+    if (!this.isModified('password')) {
         next();
     }
     // bcrypt functionality to encrypt password
     const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password,salt)
+    this.password = await bcrypt.hash(this.password, salt)
 })
 
 //decrypt the passworde
@@ -91,4 +101,4 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
 
 const Order = mongoose.model("Order", orderSchema);
 const User = mongoose.model("User", userSchema);
-module.exports = {User,Order}
+module.exports = { User, Order }
