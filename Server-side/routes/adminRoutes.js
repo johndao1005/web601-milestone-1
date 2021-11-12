@@ -1,10 +1,10 @@
 const express = require("express")
 const router = express.Router();
 //ANCHOR get all controller
-const {searchProduct,
+const {
     getAllUsers,
-    findUser,
-    deleteUser
+    deleteUser,
+    getUserById
 } = require("../controller/usersController")
 
 const {
@@ -20,7 +20,7 @@ const{
     deleteProduct,
     addNewProduct,
     editProduct,
-    updateProductAvailability,
+    searchProduct
 } = require("../controller/productsController")
 //ANCHOR start the router
 
@@ -37,7 +37,7 @@ router.get('/user', getAllUsers)
 //access admin
 //status: working
 //need user id
-router.get('/user/:id', findUser)
+router.get('/user/:id', getUserById)
 
 //desc delete user from database
 //route get /admin/deleteUser/:id
@@ -134,6 +134,6 @@ router.post('/product/search/', searchProduct)
 //sample body input 
 // {"id":"614418d624e849c7ccd69b22",
 // "status":false}
-router.post('/product/:id/:status', updateProductAvailability)
+//router.post('/product/:id/:status', updateProductAvailability)
 
 module.exports = router

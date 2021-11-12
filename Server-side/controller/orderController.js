@@ -1,53 +1,44 @@
-const {Order,User} = require('../models/user');
-const asyncHandler = require('express-async-handler'); 
+const { Order, User } = require('../models/user');
+const asyncHandler = require('express-async-handler');
 
 //ANCHOR Working with ORDER
 //get all the order
-const getOrder = asyncHandler(async(req, res) => {
-    try {
-        const orders = await Order.find();
-        res.status(302).json(orders)
-    } catch (e) {
-        console.error(e);
-        res.status(500).json({ message: "server error" })
-    }
+const getOrder = asyncHandler(async (req, res) => {
+    const orders = await Order.findMany().populate('user', 'id name');
+    res.json(orders)
 })
 
 //get order for using the email for user
-const findOrderbyEmail = asyncHandler(async(req, res) => {
-    try {
-        //get the user id from current user
-        const currentUser = await User.findById(req.params.id)
-        //query to find the order with the current id
-        const order = await Order.find({email:currentUser.email});  
-        res.status(302).json(order)
-    } catch (e) {
-        console.error(e);
-        res.status(500).json({ message: "server error" })
-    }
+const getUserOrder = asyncHandler(async (req, res) => {
+    const orders = await Order.find({ user: req.user._id })
+    res.json(orders)
 })
 
 // find order by Id
-const findOrderbyId = asyncHandler(async(req, res) => {
-    try {
-        const order = await Order.findById(req.params.id);
-        res.status(302).json(order)
-    } catch (e) {
-        console.error(e);
-        res.status(500).json({ message: "server error" })
+const findOrderbyId = asyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id).populate(
+        'user',
+        'name email'
+    )
+    if (order) {
+        res.json(order)
+    } else {
+        res.status(404)
+        throw new Error('Order not found')
     }
 })
 
 //update order status
-const updateOrderStatus = asyncHandler( async(req, res) => {
-    try {
-        // find order with Order Id and set new data with req.body
-        const updatedOrder = await Order.updateOne({_id:req.params.id},{$set:{state:req.body.state}},{upsert:true})
-        //return code 200 and print udpated order
-        res.status(205).json({message:"Update complete",updatedOrder})
-    } catch (e) {
-        console.error(e);
-        res.status(200).json({ message: "server error" })
+const updateOrderStatus = asyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id)
+    if (order) {
+    order.isDelivered = true
+    order.deliveredAt = Date.now()
+    const updatedOrder = await order.save()
+    res.json(updatedOrder)
+    } else {
+    res.status(404)
+    throw new Error('Order not found')
     }
 })
 
@@ -74,23 +65,51 @@ const searchOrder = asyncHandler(async (req, res) => {
     }
 })
 
-const deleteOrder = asyncHandler(async(req, res) => {
-    try {
-        const {confirm} = req.body
-        if(confirm == "Yes"){
-            const deleteUser = await Order.deleteOne({ _id: req.params.id })
-        res.status(410).json({message:"Delete successfully"})}
-    } catch (e) {
-        console.error(e);
-        res.status(500).json({ message: "server error" })
-    }
+const deleteOrder = asyncHandler(async (req, res) => {
+            const deleteOrder = await Order.deleteOne({ _id: req.params.id })
+            res.status(410).json({ message: "Delete successfully" })
 })
+
+const editOrderItems = asyncHandler(async (req, res) => {
+    const {
+      orderItems,
+      shippingAddress,
+      paymentMethod,
+      itemsPrice,
+      taxPrice,
+      shippingPrice,
+      totalPrice,
+    } = req.body
+  
+    if (orderItems && orderItems.length === 0) {
+      res.status(400)
+      throw new Error('No order items')
+      return
+    } else {
+      const order = new Order({
+        orderItems,
+        user: req.user._id,
+        shippingAddress,
+        paymentMethod,
+        itemsPrice,
+        taxPrice,
+        shippingPrice,
+        totalPrice,
+      })
+  
+      const createdOrder = await order.save()
+  
+      res.status(201).json(createdOrder)
+    }
+  })
+  
 
 module.exports = {
     findOrderbyId,
-    findOrderbyEmail,
+    getUserOrder,
     getOrder,
     updateOrderStatus,
     searchOrder,
-    deleteOrder
+    deleteOrder,
+    editOrderItems
 }

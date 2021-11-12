@@ -48,7 +48,7 @@ const confirmOrder = asyncHandler(async(req, res) => {
         //get data from cart
         const {products,email,subtotal} = req.body
         // pass data to create an order
-        const neworder = await Order.create({
+        const newOrder = await Order.create({
             products:products,
             email:email,
             subtotal:subtotal,

@@ -1,24 +1,22 @@
 const express = require("express")
 const router = express.Router();
 const {
-    addItem,
+    addProduct,
     getProductById,
-    
+    getAllProducts,
+    addNewProduct,
+    editProduct,
+    deleteProduct,
 } = require("../controller/productsController")
-    //the function is in the controller folder
+//the function is in the controller folder
+const { protect, admin } = require('../middleware/authMiddleware.js')
 
+router.route('/').get(getAllProducts).post(protect, admin, addNewProduct)
+router
+  .route('/:id')
+  .get(getProductById)
+  .delete(protect, admin, deleteProduct)
+  .put(protect, admin, editProduct)
 
-//desc add an item to cart
-//route get /product/add/:id
-//access public
-//status: working
-//need user email for params and product details for req.body
-router.post('/add/:email' , addItem)
-
-//desc, get a product by id from db
-//route get /products/:id
-//access public
-//status: working
-router.get('/:id', getProductById)
 
 module.exports = router
