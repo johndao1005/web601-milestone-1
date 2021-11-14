@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap'
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
-import Loading from '../../components/Loading/Loading'
+import ErrorMessage from '../../components/ErrorMessage'
+import Loading from '../../components/Loading'
 import './LoginPage.css'
 
 const LoginPage = ({history}) => {
