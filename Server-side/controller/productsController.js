@@ -1,4 +1,4 @@
-const { Product, Cart } = require('../models/product');
+const Product = require('../models/product');
 const asyncHandler = require('express-async-handler');
 
 //Working with Product
@@ -27,42 +27,6 @@ const searchProduct = asyncHandler(async (req, res) => {
     } else {
         const products = await Product.find({})
         res.status(302).json(products)
-    }
-})
-
-//adding item to cart
-// ANCHOR still need to work on checking the availability and stock level
-const addProduct = asyncHandler(async (req, res) => {
-    try {
-        const checkCart = await Cart.findOne({ email: req.params.email })
-        const currentProduct = await Product.findOne({ name: req.body.name }, { countInStock: 1, availability: 1 })
-        if (currentProduct.countInStock < 1 || currentProduct.availability == false) {
-            res.status(404).json({ message: "product is unavailable" })
-        }
-        else if (!checkCart) {
-            const { name, price } = req.body
-            newCart = await Cart.create({
-                email: req.params.email,
-                products: {
-                    [name]: 1
-                },
-                subtotal: price
-            })
-            await Product.updateOne({ name: req.body.name }, { $inc: { countInStock: -1 } })
-            res.status(201).json({ message: "New cart is created" })
-        } else {
-            const field = `products.${req.body.name}`
-            const currentCart = await Cart.updateOne(
-                { email: req.params.email },
-                { $inc: { [field]: 1, subtotal: req.body.price } }
-            )
-            await Product.updateOne({ name: req.body.name }, { $inc: { countInStock: -1 } })
-            res.status(205).json(await Product.findOne({ name: req.body.name }, { name: 1, countInStock: 1 }))
-
-        }
-    } catch (e) {
-        console.error(e);
-        res.status(500).json({ message: "add item error" })
     }
 })
 
@@ -176,7 +140,6 @@ const deleteProduct = asyncHandler(async (req, res) => {
 
 
 module.exports = {
-    addProduct,
     getProductById,
     getAllProducts,
     addNewProduct,

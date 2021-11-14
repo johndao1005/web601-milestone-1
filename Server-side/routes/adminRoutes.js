@@ -13,6 +13,7 @@ const {
     findOrderbyId,
     updateOrderStatus,
     searchOrder,
+    getAllOrders,
 } = require("../controller/orderController")
     
 const{
@@ -52,7 +53,7 @@ router.delete('/deleteUser/:id', deleteUser)
 //route get /admin/order
 //access admin
 //status: working
-router.get('/order', getOrder)
+router.get('/order', getAllOrders)
 
 //desc get a order by id from db
 //route get /order/:id

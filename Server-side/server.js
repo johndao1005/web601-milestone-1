@@ -9,7 +9,6 @@ const morgan = require("morgan")
 // Api routes
 const productRoutes = require("./routes/productRoutes");
 const userRoutes = require("./routes/userRoutes");
-const cartRoutes = require("./routes/cartRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const adminRoutes = require("./routes/adminRoutes")
 
@@ -36,7 +35,6 @@ if (process.env.NODE_ENV === 'development') {
 
 // Routes list
 app.use("/product", productRoutes)
-app.use("/cart", cartRoutes)
 app.use("/user", userRoutes)
 app.use("/order", orderRoutes)
 app.use("/admin", adminRoutes)

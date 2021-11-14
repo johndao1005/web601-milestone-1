@@ -11,6 +11,7 @@ const {
 //the function is in the controller folder
 const { protect, admin } = require('../middleware/authMiddleware.js')
 
+
 router.route('/').get(getAllProducts).post(protect, admin, addNewProduct)
 router
   .route('/:id')

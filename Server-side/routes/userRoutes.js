@@ -7,7 +7,8 @@ const {
     userDetail,
     getAllUsers,
     deleteUser,
-    getUserById
+    getUserById,
+    updateUserProfile
 } = require("../controller/usersController")
 const { protect, admin } =require('../middleware/authMiddleware.js')
 
@@ -17,7 +18,7 @@ router.post('/login', authUser)
 router
   .route('/profile')
   .get(protect, userDetail)
-  .put(protect, updateUser)
+  .put(protect, updateUserProfile)
 router
   .route('/:id')
   .delete(protect, admin, deleteUser)

@@ -31,8 +31,8 @@ const registerUser = asyncHandler(async (req, res) => {
     }
 })
 
-//edit user details
-const updateUser = asyncHandler(async (req, res) => {
+//edit user details user side
+const updateUserProfile = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user._id)
 
     if (user) {
@@ -56,6 +56,28 @@ const updateUser = asyncHandler(async (req, res) => {
 
 })
 
+//update user details admin side not generateToken
+const updateUser = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.params.id)
+  
+    if (user) {
+      user.name = req.body.name || user.name
+      user.email = req.body.email || user.email
+      user.isAdmin = req.body.isAdmin
+  
+      const updatedUser = await user.save()
+  
+      res.json({
+        _id: updatedUser._id,
+        name: updatedUser.name,
+        email: updatedUser.email,
+        isAdmin: updatedUser.isAdmin,
+      })
+    } else {
+      res.status(404)
+      throw new Error('User not found')
+    }
+  })
 
 //Check user log in
 const authUser = asyncHandler(async (req, res) => {
@@ -128,5 +150,6 @@ module.exports = {
     userDetail,
     getAllUsers,
     deleteUser,
-    getUserById
+    getUserById,
+    updateUserProfile
 }; 
