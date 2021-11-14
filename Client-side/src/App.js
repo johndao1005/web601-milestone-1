@@ -1,27 +1,34 @@
+import React from 'react'
+import { Container } from 'react-bootstrap';
 import './App.css';
+import { BrowserRouter as Route,Router} from 'react-router-dom'
+//import components
 import Footer from './components/Footer';
 import Header from './components/Header';
-import CategoryPage from './Pages/CategoryPage/CategoryPage';
-import LandingPage from './Pages/LandingPage/LandingPage';
-import { Route,Router} from 'react-router-dom'
-import RegisterPage from './Pages/RegisterPage/RegisterPage';
-import LoginPage from './Pages/LoginPage/LoginPage';
-import CartPage from './Pages/CartPage/CartPage';
-import ProductPage from './Pages/ProductPage/ProductPage';
-import ProfilePage from './Pages/ProfilePage/ProfilePage';
-import PlaceOrderPage from './Pages/PlaceOrderPage/PlaceOrderPage';
-import PaymentPage from './Pages/PaymentPage/PaymentPage';
-import ShippingPage from './Pages/ShippingPage/ShippingPage';
-import OrderPage from './Pages/OrderPage/OrderPage';
 
-//Admin side
-import OrderListPage from './Pages/OrderListPage/OrderListPage';
-import ProductListPage from './Pages/ProductListPage/ProductListPage';
-import UserListPage from './Pages/UserListPage/UserListPage';
-import UserEditPage from './Pages/UserEditPage/UserEditPage';
-import ProductEditPage from './Pages/ProductEditPage/ProductEditPage';
-// import AdminPage from './Pages/AdminPage/AdminPage';
-import { Container } from 'react-bootstrap';
+//general pages
+//import CategoryPage from './screens/CategoryPage/CategoryPage';
+//import AboutPage from './screens/AboutPage/AboutPage';
+import LandingPage from './screens/LandingPage/LandingPage';
+// import RegisterPage from './screens/RegisterPage/RegisterPage';
+// import LoginPage from './screens/LoginPage/LoginPage';
+// import ProductPage from './screens/ProductPage/ProductPage';
+
+// //user pages
+// import CartPage from './screens/CartPage/CartPage';
+// import ProfilePage from './screens/ProfilePage/ProfilePage';
+// import PlaceOrderPage from './screens/PlaceOrderPage/PlaceOrderPage';
+// import PaymentPage from './screens/PaymentPage/PaymentPage';
+// import ShippingPage from './screens/ShippingPage/ShippingPage';
+// import OrderPage from './screens/OrderPage/OrderPage';
+
+// //Admin side
+// import OrderListPage from './screens/OrderListPage/OrderListPage';
+// import ProductListPage from './screens/ProductListPage/ProductListPage';
+// import UserListPage from './screens/UserListPage/UserListPage';
+// import UserEditPage from './screens/UserEditPage/UserEditPage';
+// import ProductEditPage from './screens/ProductEditPage/ProductEditPage';
+// // import AdminPage from './screens/AdminPage/AdminPage';
 
 function App() {
   return (
@@ -29,7 +36,7 @@ function App() {
       <Header/>
       <main>
       <Container>
-          <Route path='/order/:id' component={OrderPage} />
+          {/* <Route path='/order/:id' component={OrderPage} />
           <Route path='/shipping' component={ShippingPage} />
           <Route path='/payment' component={PaymentPage} />
           <Route path='/placeorder' component={PlaceOrderPage} />
@@ -51,7 +58,7 @@ function App() {
             exact
           />
           <Route path='/admin/product/:id/edit' component={ProductEditPage} />
-          <Route path='/admin/orderlist' component={OrderListPage} />
+          <Route path='/admin/orderlist' component={OrderListPage} /> */}
           <Route path='/search/:keyword' component={LandingPage} exact />
           <Route path='/page/:pageNumber' component={LandingPage} exact />
           <Route

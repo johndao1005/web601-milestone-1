@@ -10,8 +10,7 @@ const morgan = require("morgan")
 const productRoutes = require("./routes/productRoutes");
 const userRoutes = require("./routes/userRoutes");
 const orderRoutes = require("./routes/orderRoutes");
-const adminRoutes = require("./routes/adminRoutes")
-
+const uploadRoutes = require("./routes/uploadRoutes");
 
 //import middleware to handle error
 const{notFound,errorHandler}= require("./middleware/errorMiddleware")
@@ -37,27 +36,28 @@ if (process.env.NODE_ENV === 'development') {
 app.use("/product", productRoutes)
 app.use("/user", userRoutes)
 app.use("/order", orderRoutes)
-app.use("/admin", adminRoutes)
+app.use("/upload", uploadRoutes)
 
 
-app.get('/api/config/paypal', (req, res) =>
-    res.send(process.env.PAYPAL_CLIENT_ID)
-)
+// app.get('/api/config/paypal', (req, res) =>
+//     res.send(process.env.PAYPAL_CLIENT_ID)
+// )
 
 // const __dirname = path.resolve()
-// app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, '/frontend/build')))
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
-//   app.get('*', (req, res) =>
-//     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
-//   )
-// } else {
-//   app.get('/', (req, res) => {
-//     res.send('API is running....')
-//   })
-// }
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '/frontend/build')))
+
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+  )
+} else {
+  app.get('/', (req, res) => {
+    res.send('API is running....')
+  })
+}
 
 // call middleware to handle errorHandler
 app.use(notFound),
