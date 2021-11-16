@@ -44,8 +44,8 @@ const Header = () => {
                                 Home
                             </Link>
                         </Nav.Link>
-                        <Nav.Link >
-                            <Link to='/'>
+                        {/* <Nav.Link >
+                            <Link to='/about'>
                                 About
                             </Link>
                         </Nav.Link>
@@ -53,7 +53,7 @@ const Header = () => {
                             <Link to='/category'>
                                 Category
                             </Link>
-                        </Nav.Link>
+                        </Nav.Link> */}
                         {userInfo ?
                             (<NavDropdown className="" title={userInfo.name} id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Details</NavDropdown.Item>

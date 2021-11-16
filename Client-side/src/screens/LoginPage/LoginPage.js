@@ -19,7 +19,7 @@ const LoginPage = () => {
 
     useEffect(() =>{
         if (userInfo){
-            navigator('/cart',{replace:true})
+            navigator('/profile',{replace:true})
         }
     },[navigator,userInfo])
 

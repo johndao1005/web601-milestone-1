@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Badge, Button, Card, Row ,Col, Container} from 'react-bootstrap'
+import {  Button, Row, Col, Container } from 'react-bootstrap'
 import './LandingPage.css'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
+import ProductCard from '../../components/ProductCard'
 
 const LandingPage = () => {
     // useEffect(() =>{
@@ -23,66 +24,51 @@ const LandingPage = () => {
     }, [])
 
     return (
-       <>
-                <Row> 
-                    <Col>
-                    <div className="center hero pt-5 my-1">
+        <>
+            <Row>
+                <Col>
+                    <div className="center hero pt-5 py-1">
                         <div>
                             <h1 className="title"> Welcome to Toy Shopy</h1>
-                            <h4 className="subtitle py-1">We make toys for you</h4>
+                            <h4 className="subtitle py-1">We got you covered</h4>
                         </div>
                         <div className="buttonContainer py-3">
-                            {/* <a href="/login">
-                                <Button size='lg' className='Landingbutton'>Login</Button>
-                            </a> */}
-                            <Link to='/category'>
+                            <Link to='/'>
                                 <Button size='lg' className='Landingbutton' variant='primary'>Category</Button>
-                                </Link>
+                            </Link>
                         </div>
                     </div>
-                    </Col>
-                </Row>
-                <Row className="feature">
-                    <div className="center py-5">
-                        <h1 className="pb-3 ">Learn more about us</h1>
-                        <Link to='/category'>
-                                <Button variant='secondary' size='lg' className='Landingbutton'>About us</Button>
-                                </Link>
+                </Col>
+            </Row>
+            {/* <Row className="feature">
+                <div className="center py-5">
+                    <h1 className="pb-3 px-4">Learn more about us</h1>
+                    <Link to='/'>
+                        <Button variant='secondary' size='lg' className='Landingbutton'>About us</Button>
+                    </Link>
+                </div>
+            </Row> */}
+            {/* <Row className="feature">
+                <div className="center py-5">
+                    <h1 className="pb-3 px-4">Learn more about us</h1>
+                    <Link to='/'>
+                        <Button variant='secondary' size='lg' className='Landingbutton'>About us</Button>
+                    </Link>
+                </div>
+            </Row> */}
+            <Row>
+                <Container className='my-5 ' >
+                <h1 className="pb-3 px-4 center">Products list</h1>
+                    <div className='product-list' >
+                        {products.map((product) =>
+                            <ProductCard product={product} />
+                        )}
                     </div>
-                </Row>
-                <Row>
-                    <Container>
-                {products.map((product) =>
-                <Card key={product._id} className="my-3">
-                    <Card.Header>
-                        <span>{product.name}</span>
-                        <div>
-                            <Button href={`/product/${product._id}`}>Add to Cart</Button>
-                            <Button href={`/product/${product._id}`}>Details</Button>
-                        </div>
-                    </Card.Header>
-                    <Card.Body>
-                        <h1>
-                            <Badge>
+                </Container>
+            </Row>
 
-                            </Badge>
-                        </h1>
-                        <blockquote className="blockquote mb-0">
-                            <p>
-                                {product.description}
-                            </p>
-                            {/* <footer className="blockquote-footer">
-                                Created on - date
-                            </footer> */}
-                        </blockquote>
-                    </Card.Body>
-                </Card>
-            )}
-            </Container>
-                </Row>
-                
-                
-                </>
+
+        </>
     )
 }
 

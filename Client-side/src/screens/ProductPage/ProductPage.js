@@ -1,65 +1,57 @@
-import React, { useEffect, useState } from 'react'
-import {Link} from 'react-router-dom'
-import {Row,Col,Image, ListGroup,Card, Button, Form} from 'react-bootstrap'
-import Loading from '../../components/Loading'
+import React, { useState, useEffect } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Row, Col, Image, ListGroup, Card, Button, Form, Container } from 'react-bootstrap'
 import Message from '../../components/Message'
+import Loader from '../../components/Loading'
 import Meta from '../../components/Meta'
-import { useSelector } from 'react-redux'
-const ProductPage = () => {
-    const [qty, setQty] = useState(1)
-  const [rating, setRating] = useState(0)
-  const [comment, setComment] = useState('')
+import {
+  listProductDetails
+} from '../../actions/productActions.js'
+
+const ProductScreen = () => {
+  const {id} = useParams()
+  const navigator = useNavigate()
+  const [qty, setQty] = useState(1)
+  const dispatch = useDispatch()
 
   const productDetails = useSelector((state) => state.productDetails)
   const { loading, error, product } = productDetails
-
-  const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo } = userLogin
+  console.log(id)
+  useEffect(() => {
+    
+      dispatch(listProductDetails(id))
+    
+  }, [dispatch, id])
 
   const addToCartHandler = () => {
-    //history.push(`/cart/${match.params.id}?qty=${qty}`)
+    navigator(`/cart/${id}?qty=${qty}`)
   }
 
-  const submitHandler = (e) => {
-    e.preventDefault()
-    // dispatch(
-    //   createProductReview(match.params.id, {
-    //     rating,
-    //     comment,
-    //   })
-    // )
-  }
+  // const submitHandler = (e) => {
+  //   e.preventDefault()
+  // }
 
   return (
-    <>
+    <Container>
       <Link className='btn btn-light my-3' to='/'>
         Go Back
       </Link>
       {loading ? (
-        <Loading />
+        <Loader />
       ) : error ? (
         <Message variant='danger'>{error}</Message>
       ) : (
-        <>
+        <Container className="m-4">
           <Meta title={product.name} />
           <Row>
             <Col md={6}>
-              <Image src={product.image} alt={product.name} fluid />
+              <Image src={product.imageUrl} alt={product.name} fluid />
             </Col>
-            <Col md={3}>
-              <ListGroup variant='flush'>
-                <ListGroup.Item>
+            <Col >
+            <ListGroup.Item>
                   <h3>{product.name}</h3>
                 </ListGroup.Item>
-                <ListGroup.Item>
-                </ListGroup.Item>
-                <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
-                <ListGroup.Item>
-                  Description: {product.description}
-                </ListGroup.Item>
-              </ListGroup>
-            </Col>
-            <Col md={3}>
               <Card>
                 <ListGroup variant='flush'>
                   <ListGroup.Item>
@@ -115,60 +107,25 @@ const ProductPage = () => {
                   </ListGroup.Item>
                 </ListGroup>
               </Card>
+              
             </Col>
-          </Row>
-          <Row>
-            <Col md={6}>
-              <h2>Reviews</h2>
-              {product.reviews.length === 0 && <Message>No Reviews</Message>}
+            <Row>
               <ListGroup variant='flush'>
+                
                 <ListGroup.Item>
-                  {userInfo ? (
-                    <Form onSubmit={submitHandler}>
-                      <Form.Group controlId='rating'>
-                        <Form.Label>Rating</Form.Label>
-                        <Form.Control
-                          as='select'
-                          value={rating}
-                          onChange={(e) => setRating(e.target.value)}
-                        >
-                          <option value=''>Select...</option>
-                          <option value='1'>1 - Poor</option>
-                          <option value='2'>2 - Fair</option>
-                          <option value='3'>3 - Good</option>
-                          <option value='4'>4 - Very Good</option>
-                          <option value='5'>5 - Excellent</option>
-                        </Form.Control>
-                      </Form.Group>
-                      <Form.Group controlId='comment'>
-                        <Form.Label>Comment</Form.Label>
-                        <Form.Control
-                          as='textarea'
-                          row='3'
-                          value={comment}
-                          onChange={(e) => setComment(e.target.value)}
-                        ></Form.Control>
-                      </Form.Group>
-                      <Button
-                        type='submit'
-                        variant='primary'
-                      >
-                        Submit
-                      </Button>
-                    </Form>
-                  ) : (
-                    <Message>
-                      Please <Link to='/login'>sign in</Link> to write a review{' '}
-                    </Message>
-                  )}
+                  <h1>Description</h1>
+                  </ListGroup.Item>
+                
+                <ListGroup.Item>
+                  <p>{product.description}</p>
                 </ListGroup.Item>
               </ListGroup>
-            </Col>
+              </Row>
           </Row>
-        </>
+        </Container>
       )}
-    </>
+    </Container>
   )
 }
 
-export default ProductPage
+export default ProductScreen

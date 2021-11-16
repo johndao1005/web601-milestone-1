@@ -7,26 +7,52 @@
 }
 
 .hero {
-    min-height: 45vh;
+    background-image: url(https://youmatter.world/app/uploads/sites/2/2019/11/tech-planet.jpg);
+    color: white;
+    width: 100%;
+    min-height: 400px;
+    opacity: 0.9;
 }
 
-.feature{
-    background: rgb(21,140,186);
+.feature {
+    background: rgb(21, 140, 186);
     color: white;
 }
 
-.center{
+.center {
     align-items: center;
     width: 100%;
     text-align: center;
 }
 
-.buttonContainer{
+.buttonContainer {
     display: flex;
     justify-content: space-evenly;
 }
 
-.landingbutton{
+.Landingbutton {
     width: 200px;
-    height:55px;
+    height: 55px;
+}
+
+.product-card {
+    height: 200px;
+    padding:1px;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width:780px) {
+    .product-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width:580px) {
+    .product-list {
+        grid-template-columns: 1fr;
+    }
 }
