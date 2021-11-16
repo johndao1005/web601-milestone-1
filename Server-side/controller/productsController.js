@@ -63,19 +63,31 @@ const editProduct = asyncHandler(async (req, res) => {
 
 //Listing all the current product 
 const getAllProducts = asyncHandler(async (req, res) => {
-    try {
-        const productList = await Product.find();
-        const numberofProducts = await Product.find().count()
-        res.status(200).json(productList)
-    } catch (e) {
-        console.error(e);
-        res.status(500).json({ message: "server error" })
-    }
+    const pageSize = 10
+    const page = Number(req.query.pageNumber) || 1
+
+    const keyword = req.query.keyword
+        ? {
+            name: {
+                $regex: req.query.keyword,
+                $options: 'i',
+            },
+        }
+        : {}
+
+    const count = await Product.countDocuments({ ...keyword })
+    const products = await Product.find({ ...keyword })
+        .limit(pageSize)
+        .skip(pageSize * (page - 1))
+
+    res.json({ products, page, pages: Math.ceil(count / pageSize) })
 })
+
+
 // const getProducts = asyncHandler(async (req, res) => {
 //     const pageSize = 10
 //     const page = Number(req.query.pageNumber) || 1
-  
+
 //     const keyword = req.query.keyword
 //       ? {
 //           name: {
@@ -84,12 +96,12 @@ const getAllProducts = asyncHandler(async (req, res) => {
 //           },
 //         }
 //       : {}
-  
+
 //     const count = await Product.countDocuments({ ...keyword })
 //     const products = await Product.find({ ...keyword })
 //       .limit(pageSize)
 //       .skip(pageSize * (page - 1))
-  
+
 //     res.json({ products, page, pages: Math.ceil(count / pageSize) })
 //   })
 

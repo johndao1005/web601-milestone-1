@@ -8,9 +8,21 @@ import {
     // FormControl
     // Button
 } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom'
+import { logout } from '../actions/userActions';
 
 const Header = () => {
+    const history = useNavigate();
+    const dispatch = useDispatch();
+    const userLogin = useSelector((state) => state.userLogin)
+    const { userInfo } = userLogin;
+    
+    const logoutHandler = () => {
+        dispatch(logout())
+        history("/", { replace: true })
+    }
+
     return (
         <Navbar bg="primary" expand="lg" variant="dark">
             <Container>
@@ -38,22 +50,36 @@ const Header = () => {
                             </Link>
                         </Nav.Link>
                         <Nav.Link>
-                        <Link to='/category'>
-                        Category
+                            <Link to='/category'>
+                                Category
                             </Link>
                         </Nav.Link>
-                        {/* <Nav.Link>
-                        <Link to='/'>
-                            Profile
-                            </Link>
-                        </Nav.Link> */}
-                        <NavDropdown className="" title="Profile" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Details</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Cart</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Logout</NavDropdown.Item>
-                            {/* <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
-                        </NavDropdown>
+                        {userInfo ?
+                            (<NavDropdown className="" title={userInfo.name} id="basic-nav-dropdown">
+                                <NavDropdown.Item href="#action/3.1">Details</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Cart</NavDropdown.Item>
+                                <NavDropdown.Item onClick={() => {
+                                    logoutHandler()
+                                }}>Logout</NavDropdown.Item>
+                            </NavDropdown>
+                            ) : (<Nav.Link>
+                                <Link to='/login'>
+                                    Login
+                                </Link>
+                            </Nav.Link>)}
+                        {userInfo && userInfo.isAdmin && (
+                            <NavDropdown title='Admin' id='adminmenu'>
+                                <Link to='/admin/userlist'>
+                                    <NavDropdown.Item>Users</NavDropdown.Item>
+                                </Link>
+                                <Link to='/admin/productlist'>
+                                    <NavDropdown.Item>Products</NavDropdown.Item>
+                                </Link>
+                                <Link to='/admin/orderlist'>
+                                    <NavDropdown.Item>Orders</NavDropdown.Item>
+                                </Link>
+                            </NavDropdown>
+                        )}
                     </Nav>
                 </Navbar.Collapse>
             </Container>

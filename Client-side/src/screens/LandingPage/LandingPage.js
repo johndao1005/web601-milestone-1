@@ -1,25 +1,31 @@
 import React, { useEffect, useState } from 'react'
-import { Badge, Button, Card, Row } from 'react-bootstrap'
+import { Badge, Button, Card, Row ,Col, Container} from 'react-bootstrap'
 import './LandingPage.css'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
 const LandingPage = () => {
+    // useEffect(() =>{
+    //     const userInfo = localStorage.getItem('userInfo')
+    //     if (userInfo){
+    //         history.push('/cart')
+    //     }
+    // },[history])
+
     const [products, setProducts] = useState([])
     const fetchProducts = async () => {
         const data = await axios.get('/product')
         console.log(data)
-        setProducts(data['data'])
+        setProducts(data['data']['products'])
     }
-
     useEffect(() => {
         fetchProducts()
     }, [])
 
     return (
-        <div className="main">
-            
+       <>
                 <Row> 
+                    <Col>
                     <div className="center hero pt-5 my-1">
                         <div>
                             <h1 className="title"> Welcome to Toy Shopy</h1>
@@ -34,10 +40,20 @@ const LandingPage = () => {
                                 </Link>
                         </div>
                     </div>
+                    </Col>
+                </Row>
+                <Row className="feature">
+                    <div className="center py-5">
+                        <h1 className="pb-3 ">Learn more about us</h1>
+                        <Link to='/category'>
+                                <Button variant='secondary' size='lg' className='Landingbutton'>About us</Button>
+                                </Link>
+                    </div>
                 </Row>
                 <Row>
+                    <Container>
                 {products.map((product) =>
-                <Card key={product._id}>
+                <Card key={product._id} className="my-3">
                     <Card.Header>
                         <span>{product.name}</span>
                         <div>
@@ -62,17 +78,11 @@ const LandingPage = () => {
                     </Card.Body>
                 </Card>
             )}
+            </Container>
                 </Row>
-                <Row className="feature">
-                    <div className="center py-5">
-                        <h1 className="pb-3 ">Learn more about us</h1>
-                        <Link to='/category'>
-                                <Button variant='secondary' size='lg' className='Landingbutton'>About us</Button>
-                                </Link>
-                    </div>
-                </Row>
-            
-        </div>
+                
+                
+                </>
     )
 }
 

@@ -1,49 +1,37 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import { Button, Container, Form } from 'react-bootstrap'
-import ErrorMessage from '../../components/ErrorMessage'
+import {useDispatch, useSelector} from 'react-redux'
+import { useState, useEffect } from 'react'
+import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import { Link , useNavigate} from 'react-router-dom'
+import Message from '../../components/Message'
 import Loading from '../../components/Loading'
 import './LoginPage.css'
+import { login } from '../../actions/userActions'
 
-const LoginPage = ({history}) => {
+const LoginPage = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [error, setError] = useState(false)
-    const [loading, setLoading] = useState(false)
 
-    useEffect(() => {
-        const userInfo = localStorage.getItem('userInfo')
-        if(userInfo){
-            history.push("/mynotes")
+    const dispatch = useDispatch()
+    const userLogin = useSelector((state)=>state.userLogin)
+    let navigator = useNavigate()
+    const {loading,error, userInfo} = userLogin
+
+
+    useEffect(() =>{
+        if (userInfo){
+            navigator('/cart',{replace:true})
         }
-    }, [history])
+    },[navigator,userInfo])
 
     const submitHandler = async (e) => {
         e.preventDefault()
-        try {
-            const config = {
-                headers: {
-                    "Content-Type": 'application/json',
-                },
-            };
-            setLoading(true)
-
-            const { data } = await axios.post('/user/login', {
-                email,
-                password
-            }, config)
-            console.log(data)
-            localStorage.setItem('userInfo', JSON.stringify(data))
-        } catch (error) {
-            setError(error.response.data.message)
-        } finally {
-            setLoading(false)
-        }
+        dispatch(login(email,password));
     }
     return (
         <>
             <Container className="my-4">
-                {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
+                <h1>Login Page</h1>
+                {error && <Message variant="danger">{error}</Message>}
                 {loading && <Loading />}
                 <Form onSubmit={submitHandler}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -72,6 +60,11 @@ const LoginPage = ({history}) => {
                         Submit
                     </Button>
                 </Form>
+                <Row className="my-3">
+                    <Col>
+                    New Customer ? <Link to='/register'> Register here </Link>
+                    </Col>
+                </Row>
             </Container>
         </>
     )

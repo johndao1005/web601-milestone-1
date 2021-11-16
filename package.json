@@ -6,7 +6,7 @@
     "scripts": {
         "start": "nodemon ./Server-side/server.js",
         "server": "nodemon ./Server-side/server.js",
-        "client": "npm start --prefix frontend",
+        "client": "npm start --prefix Client-side",
         "dev": "concurrently \"npm run server\" \"npm run client\"",
         "data:import": "node backend/productSeeder.js"
     },

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Spinner } from 'react-bootstrap'
+import { Container, Spinner } from 'react-bootstrap'
 
 const Loading = () => {
     return (
@@ -15,5 +15,14 @@ const Loading = () => {
         </div>
     )
 }
+
+
+// style ={{
+//     display: 'flex',
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     width: '100%',
+//     height: '100%',
+// }}
 
 export default Loading
