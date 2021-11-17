@@ -17,12 +17,17 @@ const ProductCard = ({ product }) => {
                 <Card.Text as='h4'>${product.price}</Card.Text>
                 <Card.Text >{product.description.substring(0, 75) + "..."}</Card.Text>
                 <div>
-                    <Button className="mr-2">
-                        <Link className="" to={`/product/${product._id}`}>
+                    <Link className="" to={`/product/${product._id}`}>
+                        <Button className="mr-2">
                             Read More
-                        </Link>
-                    </Button>
-                    <Button className="btn-wrap" style={{ right: '0' }} href={`/product/${product._id}`}><i class="bi bi-cart" id="cart" /></Button>
+                        </Button>
+                    </Link>
+
+                    <Link className="" to={`/cart/${product._id}`}>
+                        <Button className="btn-wrap" style={{ right: '0' }} >
+                            <i className="bi bi-cart" id="cart" /></Button>
+                    </Link>
+
                 </div>
 
             </Card.Body>

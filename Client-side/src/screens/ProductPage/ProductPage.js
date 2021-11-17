@@ -102,7 +102,8 @@ const ProductScreen = () => {
                       type='button'
                       disabled={product.countInStock === 0}
                     >
-                      Add To Cart
+                      <Link className="" to={`/cart/${product._id}`}>Add To Cart</Link>
+                      
                     </Button>
                   </ListGroup.Item>
                 </ListGroup>

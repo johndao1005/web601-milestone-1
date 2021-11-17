@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Table, Form, Button, Row, Col } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import { listMyOrders } from '../actions/orderActions'
 import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
+import { Link, useNavigate } from 'react-router-dom'
 
-const ProfileScreen = ({ location, history }) => {
+const ProfileScreen = () => {
+    const navigator = useNavigate()
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -16,7 +17,6 @@ const ProfileScreen = ({ location, history }) => {
     const [message, setMessage] = useState(null)
 
     const dispatch = useDispatch()
-
     const userDetails = useSelector((state) => state.userDetails)
     const { loading, error, user } = userDetails
 
@@ -31,7 +31,7 @@ const ProfileScreen = ({ location, history }) => {
 
     useEffect(() => {
         if (!userInfo) {
-            history.push('/login')
+            navigator('/login')
         } else {
             if (!user || !user.name || success) {
                 dispatch({ type: USER_UPDATE_PROFILE_RESET })
@@ -42,7 +42,7 @@ const ProfileScreen = ({ location, history }) => {
                 setEmail(user.email)
             }
         }
-    }, [dispatch, history, userInfo, user, success])
+    }, [dispatch, navigator, userInfo, user, success])
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -58,7 +58,6 @@ const ProfileScreen = ({ location, history }) => {
             <Col md={3}>
                 <h2>User Profile</h2>
                 {message && <Message variant='danger'>{message}</Message>}
-                { }
                 {success && <Message variant='success'>Profile Updated</Message>}
                 {loading ? (
                     <Loader />
@@ -151,11 +150,11 @@ const ProfileScreen = ({ location, history }) => {
                                         )}
                                     </td>
                                     <td>
-                                        <LinkContainer to={`/order/${order._id}`}>
+                                        <Link to={`/order/${order._id}`}>
                                             <Button className='btn-sm' variant='light'>
                                                 Details
                                             </Button>
-                                        </LinkContainer>
+                                        </Link>
                                     </td>
                                 </tr>
                             ))}

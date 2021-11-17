@@ -17,6 +17,7 @@ import {
         const existItem = state.cartItems.find((x) => x.product === item.product)
   
         if (existItem) {
+          console.log(state)
           return {
             ...state,
             cartItems: state.cartItems.map((x) =>

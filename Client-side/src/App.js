@@ -9,6 +9,7 @@ import LoginPage from './screens/LoginPage/LoginPage';
 // import AboutPage from './screens/AboutPage/AboutPage';
 import AdminPage from './screens/AdminPage/AdminPage';
 import ProductPage from './screens/ProductPage/ProductPage';
+import CartPage from './screens/CartPage/CartPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/login' element={<LoginPage />} exact={true} />
           <Route path='/register' element={<RegisterPage />} exact={true} />
           <Route path='/admin' element={<AdminPage />} exact={true} />
+          <Route path='/cart/:id' element={<CartPage />} exact={true} />
           <Route path='/product/:id' element={<ProductPage />} />
           {/* <Route path='/about' element={<AboutPage/>} exact={true}/>
         <Route path='/cart' element={<CartPage/>} exact={true}/>
