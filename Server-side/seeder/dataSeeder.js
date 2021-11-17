@@ -1,16 +1,12 @@
 // connect to DB then det the models details of products
 require('dotenv').config()
-
-const { MongoClient } = require('mongodb')
-
 const connectDB = require("../config/db")
 
 const productsData = require("../data/productsData")
-const {Product,Cart} = require("../models/product")
+const {Product} = require("../models/product")
 
 const {User,Order} = require("../models/user")
 const usersData = require("../data/usersData")
-const cartsData = require("../data/cartsData")
 const ordersData = require("../data/ordersData")
 
 connectDB();
@@ -20,7 +16,7 @@ connectDB();
 //demonstrate CRUD
 //Testing local data export to cloud data base
 //Delete and Create
-const importuser = async() => {
+const importUser = async() => {
     try {
         await User.deleteMany({})
 
@@ -58,16 +54,11 @@ const updateUser = async(currentName, newName) => {
 
 const importData = async() => {
     try {
-        await Cart.deleteMany({})
-        
         await Order.deleteMany({})
 
         await User.deleteMany({})
 
         await Product.deleteMany({})
-
-        await Cart.insertMany(cartsData)
-
 
         await Order.insertMany(ordersData)
 
@@ -76,7 +67,6 @@ const importData = async() => {
         await Product.insertMany(productsData)
 
         process.exit(0)
-
     } catch (e) {
         console.error(`Error with user import ${e}`)
         process.exit(1)

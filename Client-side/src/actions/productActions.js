@@ -86,7 +86,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
       },
     }
 
-    await axios.delete(`/products/${id}`, config)
+    await axios.delete(`/product/${id}`, config)
 
     dispatch({
       type: PRODUCT_DELETE_SUCCESS,
@@ -148,20 +148,14 @@ export const updateProduct = (product) => async (dispatch, getState) => {
     dispatch({
       type: PRODUCT_UPDATE_REQUEST,
     })
-
-    const {
-      userLogin: { userInfo },
-    } = getState()
-
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${userInfo.token}`,
       },
     }
 
     const { data } = await axios.put(
-      `/api/product/${product._id}`,
+      `/product/${product._id}`,
       product,
       config
     )

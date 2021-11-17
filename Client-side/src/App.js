@@ -10,9 +10,12 @@ import LoginPage from './screens/LoginPage/LoginPage';
 import AdminPage from './screens/AdminPage/AdminPage';
 import ProductPage from './screens/ProductPage/ProductPage';
 import CartPage from './screens/CartPage/CartPage';
+import ProductListPage from './screens/AdminPage/ListPages/ProductListPage';
+import OrderListPage from './screens/AdminPage/ListPages/OrderListPage';
+import UserListPage from './screens/AdminPage/ListPages/UserListPage';
+import ProductEditPage from './screens/AdminPage/EditPages/ProductEditPage';
 
 function App() {
-  
   return (
     <BrowserRouter>
       <Header />
@@ -22,6 +25,10 @@ function App() {
           <Route path='/login' element={<LoginPage />} exact={true} />
           <Route path='/register' element={<RegisterPage />} exact={true} />
           <Route path='/admin' element={<AdminPage />} exact={true} />
+          <Route path='/admin/order' element={<OrderListPage />} exact={true} />
+          <Route path='/admin/user' element={<UserListPage />} exact={true} />
+          <Route path='/admin/product' element={<ProductListPage />} exact={true} />
+          <Route path='/admin/product/:id/edit' element={<ProductEditPage />} exact={true} />
           <Route path='/cart/:id' element={<CartPage />} exact={true} />
           <Route path='/product/:id' element={<ProductPage />} />
           {/* <Route path='/about' element={<AboutPage/>} exact={true}/>

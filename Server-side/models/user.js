@@ -46,38 +46,26 @@ const orderSchema = new mongoose.Schema({
         default: Date.now,
         required: true
     },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User',
-      },
-    shippingAddress: {
-        address: { type: String, required: true },
-        city: { type: String, required: true },
-        postalCode: { type: String, required: true },
-        country: { type: String, required: true },
+    email: {
+        type: String, 
+        required: true
     },
-    orderItems: [
-        {
-            name: { type: String, required: true },
-            qty: { type: Number, required: true },
-            image: { type: String, required: true },
-            price: { type: Number, required: true },
-            product: {
-                type: mongoose.Schema.Types.ObjectId,
-                required: true,
-                ref: 'Product',
-            },
-        },
-    ],
+    subtotal: {
+        type: Number, 
+        required: true
+    },
+    products: { 
+        type: Array, 
+        required: true },
     subtotal: {
         type: Number,
         required: true,
         default: 0.0,
     },
-    state: {
-        type: String,
-        required: true
+    delivery: {
+        type: Boolean,
+        required: true,
+        default: false
     }
 }, { timestamp: true })
 

@@ -12,12 +12,12 @@ const {
 const { protect, admin } = require('../middleware/authMiddleware.js')
 
 
-router.route('/').get(getAllProducts).post(protect, admin, addNewProduct)
+router.route('/').get(getAllProducts).post( addNewProduct)
 router
   .route('/:id')
   .get(getProductById)
-  .delete(protect, admin, deleteProduct)
-  .put(protect, admin, editProduct)
+  .delete( deleteProduct)
+  .put( editProduct)
 
 
 module.exports = router

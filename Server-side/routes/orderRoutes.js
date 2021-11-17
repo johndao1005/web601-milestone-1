@@ -11,10 +11,10 @@ const {
 } = require("../controller/orderController")
 const { protect,admin} = require('../middleware/authMiddleware.js')    
 
-router.route('/').post(protect, editOrderItems).get(protect, admin, getAllOrders)
-router.route('/myorderd').get(protect, getUserOrder)
-router.route('/:id').get(admin, findOrderbyId)
-router.route('/:id/deliver').put(protect, admin, updateOrderStatus)
-router.route('/:id/delete').delete(protect,admin,deleteOrder)
+router.route('/').post(protect, editOrderItems).get( getAllOrders)
+router.route('/myorderd').get( getUserOrder)
+router.route('/:id').get( findOrderbyId)
+router.route('/:id/deliver').put( updateOrderStatus)
+router.route('/:id/delete').delete(deleteOrder)
 
 module.exports = router

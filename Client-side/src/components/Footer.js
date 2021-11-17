@@ -1,10 +1,14 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 const Footer = () => {
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+
     return (
         <div className="footer pt-5">
-        <Container >
+        {(!userInfo || userInfo.isAdmin === false) &&(<Container >
             <Row>
                 <Col>
                 <h3>Toy Shopy, Workshop Corp</h3>
@@ -51,7 +55,7 @@ const Footer = () => {
             <Row>
                 <Col className="text-center py-4">@Copryright 2021, Toy Shopy by John Dao</Col>
             </Row>
-        </Container>
+        </Container>)}
         </div>
     )
 }

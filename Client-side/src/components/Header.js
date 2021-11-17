@@ -17,7 +17,7 @@ const Header = () => {
     const dispatch = useDispatch();
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin;
-    
+
     const logoutHandler = () => {
         dispatch(logout())
         history("/", { replace: true })
@@ -39,28 +39,22 @@ const Header = () => {
                     </Nav>
                     <Nav className="me-auto">
 
-                        {userInfo}
-                        <Nav.Link >
+                        {(!userInfo || userInfo.isAdmin === false) && (<Nav.Link >
                             <Link to='/'>
                                 Home
                             </Link>
-                        </Nav.Link>
-                        
-                        {userInfo ? userInfo.isAdmin ?(
-                            <NavDropdown title='Admin Control' id='adminmenu'>
-                                <Link to='/admin/userlist'>
-                                    <NavDropdown.Item>Users</NavDropdown.Item>
-                                </Link>
-                                <Link to='/admin/productlist'>
-                                    <NavDropdown.Item>Products</NavDropdown.Item>
-                                </Link>
-                                <Link to='/admin/orderlist'>
-                                    <NavDropdown.Item>Orders</NavDropdown.Item>
-                                </Link>
-                                <NavDropdown.Item onClick={() => {
-                                    logoutHandler()
-                                }}>Logout</NavDropdown.Item>
-                            </NavDropdown>):
+                        </Nav.Link>)}
+
+                        {userInfo ? userInfo.isAdmin ? (<NavDropdown title='Admin Control' id='adminmenu'>
+
+                            <NavDropdown.Item href='/admin/user'>Users</NavDropdown.Item>
+                            <NavDropdown.Item href='/admin/product'>Products</NavDropdown.Item>
+                            <NavDropdown.Item href='/admin/order'>Orders</NavDropdown.Item>
+
+                            <NavDropdown.Item onClick={() => {
+                                logoutHandler()
+                            }}>Logout</NavDropdown.Item>
+                        </NavDropdown>) :
                             (<NavDropdown className="" title={userInfo.name} id="basic-nav-dropdown">
                                 <NavDropdown.Item href="/profile">Details</NavDropdown.Item>
                                 <NavDropdown.Item href="/cart">Cart</NavDropdown.Item>
@@ -73,6 +67,7 @@ const Header = () => {
                                     Login
                                 </Link>
                             </Nav.Link>)}
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>

@@ -19,7 +19,10 @@ const LoginPage = () => {
 
     useEffect(() =>{
         if (userInfo){
-            navigator('/profile',{replace:true})
+            if(userInfo.isAdmin === true){
+                navigator('/admin',{replace:true})
+            } else{
+            navigator('/cart',{replace:true})}
         }
     },[navigator,userInfo])
 

@@ -13,16 +13,16 @@ const {
 const { protect, admin } =require('../middleware/authMiddleware.js')
 
 
-router.route('/').post(registerUser).get(protect, admin, getAllUsers)
+router.route('/').post(registerUser).get( getAllUsers)
 router.post('/login', authUser)
 router
   .route('/profile')
-  .get(protect, userDetail)
-  .put(protect, updateUserProfile)
+  .get( userDetail)
+  .put( updateUserProfile)
 router
-  .route('/:id')
-  .delete(protect, admin, deleteUser)
-  .get(protect, admin, getUserById)
-  .put(protect, admin, updateUser)
+  .route('admin/:id')
+  .delete( deleteUser)
+  .get( getUserById)
+  .put( updateUser)
 
 module.exports = router
