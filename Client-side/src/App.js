@@ -12,6 +12,7 @@ import ProductPage from './screens/ProductPage/ProductPage';
 import CartPage from './screens/CartPage/CartPage';
 
 function App() {
+  
   return (
     <BrowserRouter>
       <Header />

@@ -39,22 +39,28 @@ const Header = () => {
                     </Nav>
                     <Nav className="me-auto">
 
+                        {userInfo}
                         <Nav.Link >
                             <Link to='/'>
                                 Home
                             </Link>
                         </Nav.Link>
-                        {/* <Nav.Link >
-                            <Link to='/about'>
-                                About
-                            </Link>
-                        </Nav.Link>
-                        <Nav.Link>
-                            <Link to='/category'>
-                                Category
-                            </Link>
-                        </Nav.Link> */}
-                        {userInfo ?
+                        
+                        {userInfo ? userInfo.isAdmin ?(
+                            <NavDropdown title='Admin Control' id='adminmenu'>
+                                <Link to='/admin/userlist'>
+                                    <NavDropdown.Item>Users</NavDropdown.Item>
+                                </Link>
+                                <Link to='/admin/productlist'>
+                                    <NavDropdown.Item>Products</NavDropdown.Item>
+                                </Link>
+                                <Link to='/admin/orderlist'>
+                                    <NavDropdown.Item>Orders</NavDropdown.Item>
+                                </Link>
+                                <NavDropdown.Item onClick={() => {
+                                    logoutHandler()
+                                }}>Logout</NavDropdown.Item>
+                            </NavDropdown>):
                             (<NavDropdown className="" title={userInfo.name} id="basic-nav-dropdown">
                                 <NavDropdown.Item href="/profile">Details</NavDropdown.Item>
                                 <NavDropdown.Item href="/cart">Cart</NavDropdown.Item>
@@ -67,19 +73,6 @@ const Header = () => {
                                     Login
                                 </Link>
                             </Nav.Link>)}
-                        {/* {userInfo && userInfo.isAdmin && (
-                            <NavDropdown title='Admin' id='adminmenu'>
-                                <Link to='/admin/userlist'>
-                                    <NavDropdown.Item>Users</NavDropdown.Item>
-                                </Link>
-                                <Link to='/admin/productlist'>
-                                    <NavDropdown.Item>Products</NavDropdown.Item>
-                                </Link>
-                                <Link to='/admin/orderlist'>
-                                    <NavDropdown.Item>Orders</NavDropdown.Item>
-                                </Link>
-                            </NavDropdown>
-                        )} */}
                     </Nav>
                 </Navbar.Collapse>
             </Container>

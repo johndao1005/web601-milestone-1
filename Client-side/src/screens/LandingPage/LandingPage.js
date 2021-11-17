@@ -14,8 +14,10 @@ const LandingPage = () => {
     // },[history])
 
     const [products, setProducts] = useState([])
+
     const fetchProducts = async () => {
         const data = await axios.get('/product')
+        console.log(data)
         setProducts(data['data']['products'])
     }
     useEffect(() => {
@@ -23,7 +25,7 @@ const LandingPage = () => {
     }, [])
 
     return (
-        <>
+        <div>
             <Row>
                 <Col>
                     <div className="center hero pt-5 py-1">
@@ -39,24 +41,9 @@ const LandingPage = () => {
                     </div>
                 </Col>
             </Row>
-            {/* <Row className="feature">
-                <div className="center py-5">
-                    <h1 className="pb-3 px-4">Learn more about us</h1>
-                    <Link to='/'>
-                        <Button variant='secondary' size='lg' className='Landingbutton'>About us</Button>
-                    </Link>
-                </div>
-            </Row> */}
-            {/* <Row className="feature">
-                <div className="center py-5">
-                    <h1 className="pb-3 px-4">Learn more about us</h1>
-                    <Link to='/'>
-                        <Button variant='secondary' size='lg' className='Landingbutton'>About us</Button>
-                    </Link>
-                </div>
-            </Row> */}
-            <Row>
-                <Container className='my-5 ' >
+
+            <Row className="p-0 m-0">
+                <Container className='py-5 ' >
                 <h1 className="pb-3 px-4 center">Products list</h1>
                     <div className='product-list' >
                         {products.map((product) =>
@@ -67,7 +54,7 @@ const LandingPage = () => {
             </Row>
 
 
-        </>
+        </div>
     )
 }
 

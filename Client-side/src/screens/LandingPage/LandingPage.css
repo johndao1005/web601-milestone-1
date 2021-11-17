@@ -7,11 +7,12 @@
 }
 
 .hero {
-    background-image: url(https://youmatter.world/app/uploads/sites/2/2019/11/tech-planet.jpg);
+    background-image: linear-gradient(to right, rgb(82, 150, 177),rgb(1, 104, 145));
     color: white;
     width: 100%;
     min-height: 400px;
     opacity: 0.9;
+    background-repeat: no-repeat;
 }
 
 .feature {
