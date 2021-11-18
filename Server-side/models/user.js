@@ -50,13 +50,10 @@ const orderSchema = new mongoose.Schema({
         type: String, 
         required: true
     },
-    subtotal: {
-        type: Number, 
-        required: true
-    },
     products: { 
         type: Array, 
-        required: true },
+        required: true 
+    },
     subtotal: {
         type: Number,
         required: true,

@@ -237,13 +237,9 @@ export const deleteUser = (id) => async (dispatch, getState) => {
       type: USER_DELETE_REQUEST,
     })
 
-    const {
-      userLogin: { userInfo },
-    } = getState()
-
     const config = {
       headers: {
-        Authorization: `Bearer ${userInfo.token}`,
+        'Content-Type': 'application/json',
       },
     }
 
@@ -278,7 +274,6 @@ export const updateUser = (user) => async (dispatch, getState) => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${userInfo.token}`,
       },
     }
 

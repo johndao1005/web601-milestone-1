@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 //ANCHOR Working with ORDER
 //get all the order
 const getAllOrders = asyncHandler(async (req, res) => {
-    const orders = await Order.find().populate('user', 'id name');
+    const orders = await Order.find({})
     res.json(orders)
 })
 

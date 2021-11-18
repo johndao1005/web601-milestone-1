@@ -28,10 +28,9 @@ const OrderList = ({orders}) => {
 
     return (
         <Container>
-        <Table responsive>
+        <Table >
             <thead>
                 <tr>
-                    
                     <th>Order Date</th>
                     <th>Customer email</th>
                     <th>Status</th>
@@ -47,8 +46,8 @@ const OrderList = ({orders}) => {
                     <th>{order.email}</th>
                     <th>{order.delivery?"Delivered":"Processing"}</th>
                     <th>{order.subtotal}</th>
-                    <th className="center">
-                    <Link className="my-1 p-2" to={`/order/${order._id}`}>
+                    <th >
+                    <Link className="my-1 p-2" to={`/admin/order/${order._id}/edit`}>
                         <Button className="btn-wrap" style={{ right: '0' }} >
                             <i className="bi bi-pen" id="edit" />
                         </Button>

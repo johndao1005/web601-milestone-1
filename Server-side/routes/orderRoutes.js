@@ -9,9 +9,9 @@ const {
     editOrderItems,
     deleteOrder
 } = require("../controller/orderController")
-const { protect,admin} = require('../middleware/authMiddleware.js')    
 
-router.route('/').post(protect, editOrderItems).get( getAllOrders)
+
+router.route('/').post(editOrderItems).get(getAllOrders)
 router.route('/myorderd').get( getUserOrder)
 router.route('/:id').get( findOrderbyId)
 router.route('/:id/deliver').put( updateOrderStatus)

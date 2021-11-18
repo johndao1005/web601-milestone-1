@@ -8,20 +8,19 @@ import { updateProduct } from '../../../actions/productActions'
 const ProductEditPage = () => {
     const dispatch = useDispatch()
     const {id} = useParams()
-    const [name, setName] = useState('')
+    const [name, setName] = useState('Name')
     const [price, setPrice] = useState(0)
     const [imageUrl, setImageUrl] = useState('')
-    const [availability, setAvailability] = useState(false)
     const [category, setCategory] = useState('')
     const [countInStock, setCountInStock] = useState(0)
     const [description, setDescription] = useState('')
 
     const fetchProduct = async(id)=>{
         const product = await axios.get(`/product/${id}`)
+        console.log(product)// check if return the product
         setName(product.name)
         setPrice(product.price)
         setImageUrl(product.imageUrl)
-        setAvailability(product.availability)
         setCategory(product.category)
         setCountInStock(product.countInStock)
         setDescription(product.description)
@@ -38,7 +37,7 @@ const ProductEditPage = () => {
             name,
             price,
             imageUrl,
-            availability,
+            "availability":true,
             category,
             description,
             countInStock,
@@ -83,21 +82,11 @@ const ProductEditPage = () => {
                         ></Form.Control>
                     </Form.Group>
 
-                    <Form.Group controlId='brand'>
-                        <Form.Label>Brand</Form.Label>
-                        <Form.Control
-                            type='text'
-                            placeholder='Enter brand'
-                            value={availability}
-                            onChange={(e) => setAvailability(e.target.value)}
-                        ></Form.Control>
-                    </Form.Group>
-
                     <Form.Group controlId='countInStock'>
                         <Form.Label>Count In Stock</Form.Label>
                         <Form.Control
                             type='number'
-                            placeholder='Enter countInStock'
+                            placeholder='Enter initial stock level'
                             value={countInStock}
                             onChange={(e) => setCountInStock(e.target.value)}
                         ></Form.Control>

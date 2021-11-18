@@ -2,9 +2,11 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Col, Container } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import CustomerList from '../../../components/CustomerList'
 
 const CustomerListPage = () => {
+    const navigator = useNavigate()
     const [users, setUsers] = useState([])
     const fetchUsers = async () => {
         const {data} = await axios.get('/user')
@@ -13,16 +15,15 @@ const CustomerListPage = () => {
     }
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin;
+    
     useEffect(() => {
         fetchUsers()
-    }, [])
-    useEffect(() => {
-        if(!userInfo || !userInfo.isAdmin){
+        if(!userInfo && !userInfo.isAdmin){
             navigator('/')
         }
-    }, [userInfo])
+    },)
     return (
-        <Container maxWidth={false}>
+        <Container>
         <Col >
           <CustomerList customers={users} />
         </Col>

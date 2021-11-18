@@ -20,7 +20,7 @@ router
   .get( userDetail)
   .put( updateUserProfile)
 router
-  .route('admin/:id')
+  .route('/:id')
   .delete( deleteUser)
   .get( getUserById)
   .put( updateUser)

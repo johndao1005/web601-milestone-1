@@ -41,20 +41,19 @@ const CustomerList = ({ customers }) => {
             <tbody>
                 {customers.map((user)=>(
                     <tr>
-                        <th>{user._id}</th>
+                        <th>{user._id.substring(10)}</th>
                     <th>{user.name}</th>
                     <th>{user.email}</th>
                     <th>{user.DOB}</th>
                     <th>{user.phoneNumber}</th>
                     <th>
-                    <Link className="my-1 p-2" to={`/user/${user._id}`}>
-                        <Button className="btn-wrap" style={{ right: '0' }} >
-                            <i className="bi bi-pen" id="cart" /></Button>
-                    </Link>
-                    
-                        <Button className="btn-wrap"  onClick={()=>{deleteHandler(user._id)}}>
-                            <i className="bi bi-trash" id="cart" /></Button>
-                    </th>
+                                <Link className="my-1 p-2" to={`/admin/user/${user._id}/edit`}>
+                                    <Button className="btn-wrap" style={{ right: '0' }} >
+                                        <i className="bi bi-pen" id="cart" /></Button>
+                                </Link>
+                                    <Button className="btn-wrap" onClick={()=>{deleteHandler(user._id)}} >
+                                        <i className="bi bi-trash" id="cart" /></Button>
+                            </th>
                     </tr>
                 ))}
                 
