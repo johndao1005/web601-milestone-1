@@ -35,9 +35,11 @@
     height: 55px;
 }
 
-.product-card {
-    height: 200px;
+.product-card img {
+    max-height: 200px;
+    height:100%;
     padding:1px;
+    margin:3x;
 }
 
 .product-list {

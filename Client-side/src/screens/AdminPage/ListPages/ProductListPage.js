@@ -2,9 +2,13 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Col, Container } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import ProductList from '../../../components/ProductList'
 
 const ProductListPage = () => {
+    localStorage.setItem('userInfo','isAdmin',true)
+
+    const navigator = useNavigate()
     const [products, setProducts] = useState([])
     const fetchProducts = async () => {
         const {data} = await axios.get('/product')

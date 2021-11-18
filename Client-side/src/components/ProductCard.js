@@ -4,11 +4,11 @@ import { Button, Card } from 'react-bootstrap'
 const ProductCard = ({ product }) => {
     return (
         <Card className='m-2 p-3 rounded shadow'>
-            <Link className="product-card" to={`/product/${product._id}`}>
+            <Link sm={2} className="product-card" to={`/product/${product._id}`}>
                 <Card.Img src={product.imageUrl} variant='top' alt="logo" />
             </Link>
-
-            <Card.Body variant='bottom'>
+            
+            <Card.Body sm={2} variant='bottom'>
                 <Link to={`/product/${product._id}`}>
                     <Card.Title as='div'>
                         <strong>{product.name}</strong>
