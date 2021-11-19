@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button, Container, Table } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { useDispatch } from 'react-redux';
@@ -47,11 +46,6 @@ const OrderList = ({orders}) => {
                     <th>{order.delivery?"Delivered":"Processing"}</th>
                     <th>{order.subtotal}</th>
                     <th >
-                    <Link className="my-1 p-2" to={`/admin/order/${order._id}/edit`}>
-                        <Button className="btn-wrap" style={{ right: '0' }} >
-                            <i className="bi bi-pen" id="edit" />
-                        </Button>
-                    </Link>
                         <Button className="btn-wrap m-1"  onClick={()=>{deliveryHandler(order._id)}} disabled={order.delivery} >
                             <i className="bi bi-truck" id="trash" />
                         </Button>
