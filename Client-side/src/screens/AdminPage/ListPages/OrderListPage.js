@@ -19,7 +19,7 @@ const OrderListPage = () => {
     
     useEffect(() => {
         fetchOrders()
-        if(!userInfo && !userInfo.isAdmin){
+        if(!userInfo || !userInfo.isAdmin){
             navigator('/')
         }
     }, [])

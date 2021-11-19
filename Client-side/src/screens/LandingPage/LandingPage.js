@@ -12,8 +12,8 @@ const LandingPage = () => {
     const { userInfo } = userLogin;
     const [products, setProducts] = useState([])
     const fetchProducts = async () => {
-        const data = await axios.get('/product')
-        setProducts(data['data']['products'])
+        const {data} = await axios.get('/product')
+        setProducts(data['products'])
     }
     useEffect(() => {
         fetchProducts()
@@ -40,22 +40,6 @@ const LandingPage = () => {
                     </div>
                 </Col>
             </Row>
-            {/* <Row className="feature">
-                <div className="center py-5">
-                    <h1 className="pb-3 px-4">Learn more about us</h1>
-                    <Link to='/'>
-                        <Button variant='secondary' size='lg' className='Landingbutton'>About us</Button>
-                    </Link>
-                </div>
-            </Row> */}
-            {/* <Row className="feature">
-                <div className="center py-5">
-                    <h1 className="pb-3 px-4">Learn more about us</h1>
-                    <Link to='/'>
-                        <Button variant='secondary' size='lg' className='Landingbutton'>About us</Button>
-                    </Link>
-                </div>
-            </Row> */}
             <Row>
                 <Container className='my-5 ' >
                 <h1 className="pb-3 px-4 center">Products list</h1>

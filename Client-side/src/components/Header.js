@@ -24,7 +24,7 @@ const Header = () => {
     }
 
     return (
-        <Navbar bg="primary" expand="lg" variant="dark">
+        <Navbar bg="primary" expand="lg" variant="dark" >
             <Container>
                 <Link to='/'>
                     <Navbar.Brand>Toy Shopy</Navbar.Brand>
@@ -37,6 +37,7 @@ const Header = () => {
                             <Button variant="outline-success">Search</Button>
                         </Form> */}
                     </Nav>
+                    
                     <Nav className="me-auto">
 
                         {(!userInfo || userInfo.isAdmin === false) && (<Nav.Link >
@@ -45,19 +46,33 @@ const Header = () => {
                             </Link>
                         </Nav.Link>)}
 
-                        {userInfo ? userInfo.isAdmin ? (<NavDropdown title='Admin Control' id='adminmenu'>
+                        {userInfo ? userInfo.isAdmin ? (
+                            <>
+                                <Nav.Item >
+                                    <Nav.Link href='/admin/user'>
+                                        Users
+                                    </Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item >
+                                    <Nav.Link href='/admin/product'>
+                                        Products
+                                    </Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item >
+                                    <Nav.Link href="/admin/order">
+                                        Order
+                                    </Nav.Link>
+                                </Nav.Item>
 
-                            <NavDropdown.Item href='/admin/user'>Users</NavDropdown.Item>
-                            <NavDropdown.Item href='/admin/product'>Products</NavDropdown.Item>
-                            <NavDropdown.Item href='/admin/order'>Orders</NavDropdown.Item>
-
-                            <NavDropdown.Item onClick={() => {
-                                logoutHandler()
-                            }}>Logout</NavDropdown.Item>
-                        </NavDropdown>) :
+                                <Nav.Item onClick={() => {
+                                    logoutHandler()
+                                }}><Nav.Link>
+                                        Logout
+                                    </Nav.Link>
+                                </Nav.Item>
+                                </>) :
                             (<NavDropdown className="" title={userInfo.name} id="basic-nav-dropdown">
                                 <NavDropdown.Item href="/profile">Details</NavDropdown.Item>
-                                <NavDropdown.Item href="/cart">Cart</NavDropdown.Item>
                                 <NavDropdown.Item onClick={() => {
                                     logoutHandler()
                                 }}>Logout</NavDropdown.Item>

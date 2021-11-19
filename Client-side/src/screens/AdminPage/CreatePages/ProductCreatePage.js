@@ -3,29 +3,22 @@ import React, { useEffect, useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { updateProduct } from '../../../actions/productActions'
+import { createProduct } from '../../../actions/productActions'
 
-const ProductEditPage = () => {
+const ProductCreatePage = () => {
     const navigator = useNavigate()
     const dispatch = useDispatch()
     const { id } = useParams()
     const [name, setName] = useState('')
     const [price, setPrice] = useState(0)
     const [imageUrl, setImageUrl] = useState('')
-    const [category, setCategory] = useState('')
+    const [category, setCategory] = useState([])
     const [countInStock, setCountInStock] = useState(0)
     const [description, setDescription] = useState('')
     const [finish, setFinish] = useState(false)
     const [availability, setAvailability] = useState(true)
 
-    const fetchProduct = async (id) => {
-        const product = await axios.get(`/product/${id}`)
-        console.log(product)// check if return the product
-    }
-
-
     useEffect(() => {
-        fetchProduct(id)
         if (finish === true) {
             navigator('/admin/product')
         }
@@ -35,7 +28,7 @@ const ProductEditPage = () => {
         e.preventDefault()
         try {
             dispatch(
-                updateProduct({
+                createProduct({
                     _id: id,
                     name,
                     price,
@@ -57,10 +50,10 @@ const ProductEditPage = () => {
                 Go Back
             </Link>
             <Container>
-                <h1>Edit Product</h1>
+                <h1>Create Product</h1>
                 <Form onSubmit={submitHandler}>
                     <Form.Group className="my-2" controlId='name'>
-                        <Form.Label>Name</Form.Label>
+                        <Form.Label>Product Name</Form.Label>
                         <Form.Control
                             type='name'
                             placeholder='Enter name'
@@ -90,22 +83,12 @@ const ProductEditPage = () => {
                     </Form.Group>
 
                     <Form.Group className="my-2" controlId='countInStock'>
-                        <Form.Label>Count In Stock</Form.Label>
+                        <Form.Label>Stock level</Form.Label>
                         <Form.Control
                             type='number'
                             placeholder='Enter initial stock level'
                             value={countInStock}
                             onChange={(e) => setCountInStock(e.target.value)}
-                        ></Form.Control>
-                    </Form.Group>
-
-                    <Form.Group className="my-2" controlId='category'>
-                        <Form.Label>Category</Form.Label>
-                        <Form.Control
-                            type='text'
-                            placeholder='Enter category'
-                            value={category}
-                            onChange={(e) => setCategory(e.target.value)}
                         ></Form.Control>
                     </Form.Group>
 
@@ -141,7 +124,7 @@ const ProductEditPage = () => {
                         </div>
                     </Form.Group>
                     <Button className="my-3" type='submit' variant='primary'>
-                        Update
+                        Create
                     </Button>
                 </Form>
 
@@ -150,4 +133,4 @@ const ProductEditPage = () => {
     )
 }
 
-export default ProductEditPage
+export default ProductCreatePage

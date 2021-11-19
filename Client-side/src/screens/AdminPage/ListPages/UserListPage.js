@@ -18,7 +18,7 @@ const CustomerListPage = () => {
     
     useEffect(() => {
         fetchUsers()
-        if(!userInfo && !userInfo.isAdmin){
+        if(!userInfo || !userInfo.isAdmin){
             navigator('/')
         }
     },)

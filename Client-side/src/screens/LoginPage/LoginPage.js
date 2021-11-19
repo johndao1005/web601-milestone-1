@@ -22,7 +22,7 @@ const LoginPage = () => {
             if(userInfo.isAdmin === true){
                 navigator('/admin',{replace:true})
             } else{
-            navigator('/cart',{replace:true})}
+            navigator('/',{replace:true})}
         }
     },[navigator,userInfo])
 

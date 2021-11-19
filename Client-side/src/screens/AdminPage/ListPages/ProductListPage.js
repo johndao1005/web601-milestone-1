@@ -1,8 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Col, Container } from 'react-bootstrap'
+import { Button, Col, Container, Row } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import ProductList from '../../../components/ProductList'
 
 const ProductListPage = () => {
@@ -18,15 +18,28 @@ const ProductListPage = () => {
 
     useEffect(() => {
         fetchProducts()
-        if (!userInfo && !userInfo.isAdmin) {
+        if (!userInfo || !userInfo.isAdmin) {
             navigator('/')
         }
-    }, [])
+    })
     return (
         <Container >
-            <Col >
+            <Row className="my-3"> 
+                <Col ><h1>Product List</h1>
+                <Row>
+                
+                <Link className="mx-2 p-2" to={`/admin/product/create`}>
+                        <Button className="btn-wrap" style={{ right: '0' }} >
+                            <i className="bi bi-plus" id="cart" /></Button>
+                    </Link>
+                    <h5 className="mt-3">Add new product</h5>
+                </Row>
+                    
+                </Col>
+            </Row>
+            <Row >
                 <ProductList products={products} />
-            </Col>
+            </Row>
         </Container>
     )
 }
